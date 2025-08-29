@@ -36,7 +36,12 @@ const Header = () => {
               <a
                 key={item.key}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = item.href.replace('#', '');
+                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 {t(item.key)}
               </a>
@@ -75,8 +80,13 @@ const Header = () => {
                 <a
                   key={item.key}
                   href={item.href}
-                  className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    const targetId = item.href.replace('#', '');
+                    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   {t(item.key)}
                 </a>

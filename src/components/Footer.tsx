@@ -47,7 +47,12 @@ const Footer = () => {
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const targetId = link.href.replace('#', '');
+                      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
                     {link.name}
                   </a>
