@@ -1,36 +1,36 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Factory, Globe, Shield, Handshake } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Settings, MapPin, Award, Handshake } from 'lucide-react';
 
 const HighlightsSection = () => {
   const { t } = useLanguage();
-
+  
   const highlights = [
     {
-      icon: Factory,
+      icon: Settings,
       titleKey: 'highlights.productivity.title',
       descKey: 'highlights.productivity.desc',
-      color: 'text-primary',
+      colorClass: 'text-primary'
     },
     {
-      icon: Globe,
-      titleKey: 'highlights.coverage.title',
+      icon: MapPin,
+      titleKey: 'highlights.coverage.title', 
       descKey: 'highlights.coverage.desc',
-      color: 'text-accent',
+      colorClass: 'text-accent'
     },
     {
-      icon: Shield,
+      icon: Award,
       titleKey: 'highlights.quality.title',
-      descKey: 'highlights.quality.desc',
-      color: 'text-secondary',
+      descKey: 'highlights.quality.desc', 
+      colorClass: 'text-secondary'
     },
     {
       icon: Handshake,
       titleKey: 'highlights.trust.title',
       descKey: 'highlights.trust.desc',
-      color: 'text-primary',
-    },
+      colorClass: 'text-primary'
+    }
   ];
 
   return (
@@ -40,10 +40,10 @@ const HighlightsSection = () => {
           {highlights.map((highlight, index) => {
             const IconComponent = highlight.icon;
             return (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
-                <CardContent className="p-8 text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-6 ${highlight.color}`}>
-                    <IconComponent className="h-8 w-8" />
+              <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="p-8">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-background mb-6 ${highlight.colorClass}`}>
+                    <IconComponent size={32} strokeWidth={2} />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-foreground">
                     {t(highlight.titleKey)}

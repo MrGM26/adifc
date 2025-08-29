@@ -1,37 +1,37 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Home, Building2, Construction } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Home, Building, Construction } from 'lucide-react';
 
 const SolutionsSection = () => {
   const { t } = useLanguage();
-
+  
   const solutions = [
     {
       icon: Home,
       titleKey: 'solutions.residential',
-      description: 'Complete solutions for residential developments, villas, and housing communities.',
-      features: ['Concrete Blocks', 'Interlock Pavers', 'Lightweight Panels'],
-      image: '/api/placeholder/600/400',
-      color: 'from-primary/20 to-primary/10',
+      description: 'Villa communities, housing developments, residential complexes',
+      features: ['Concrete Blocks', 'Interlock Pavers', 'Prefab Units'],
+      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-blue-600 to-blue-800'
     },
     {
-      icon: Building2,
-      titleKey: 'solutions.commercial',
-      description: 'Robust building materials for commercial complexes, offices, and retail spaces.',
-      features: ['Prefab Units', 'Steel Structures', 'Facade Systems'],
-      image: '/api/placeholder/600/400',
-      color: 'from-accent/20 to-accent/10',
+      icon: Building,
+      titleKey: 'solutions.commercial', 
+      description: 'Shopping malls, office towers, retail spaces, hotels',
+      features: ['Steel Structures', 'Facade Systems', 'Lightweight Panels'],
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-gray-600 to-gray-800'
     },
     {
       icon: Construction,
       titleKey: 'solutions.infrastructure',
-      description: 'Durable materials for roads, highways, and public infrastructure projects.',
-      features: ['Interlock Pavers', 'Concrete Products', 'Modular Systems'],
-      image: '/api/placeholder/600/400',
-      color: 'from-secondary/20 to-secondary/10',
-    },
+      description: 'Highways, sidewalks, public spaces, infrastructure projects',
+      features: ['Interlock Pavers', 'Concrete Blocks', 'Portable Units'],
+      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-orange-600 to-orange-800'
+    }
   ];
 
   return (
@@ -41,47 +41,47 @@ const SolutionsSection = () => {
           <h2 className="text-4xl font-bold mb-4 text-foreground">
             {t('solutions.title')}
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Tailored building solutions for every sector in the UAE
+          </p>
         </div>
-
+        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => {
             const IconComponent = solution.icon;
             return (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <div className={`aspect-video bg-gradient-to-br ${solution.color} relative overflow-hidden`}>
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={solution.image}
+                    alt={t(solution.titleKey)}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${solution.gradient} opacity-80`} />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <IconComponent className="h-20 w-20 text-primary group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <span className="text-sm font-medium text-primary">
+                    <div className="text-center text-white">
+                      <IconComponent size={48} className="mx-auto mb-4" />
+                      <h3 className="text-2xl font-bold">
                         {t(solution.titleKey)}
-                      </span>
+                      </h3>
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold mb-4 text-foreground">
-                    {t(solution.titleKey)}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                <CardContent className="p-6">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
                     {solution.description}
                   </p>
-                  
                   <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-foreground">Key Products:</h4>
-                    <ul className="space-y-2">
-                      {solution.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                          <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                    <h4 className="font-semibold mb-2 text-foreground">Key Products:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {solution.features.map((feature, idx) => (
+                        <span key={idx} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
                           {feature}
-                        </li>
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                  
-                  <Button className="w-full" variant="outline">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     Explore Solutions
                   </Button>
                 </CardContent>

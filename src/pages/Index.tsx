@@ -6,6 +6,7 @@ import HighlightsSection from '@/components/sections/HighlightsSection';
 import ProductsSection from '@/components/sections/ProductsSection';
 import SolutionsSection from '@/components/sections/SolutionsSection';
 import QuickRFQSection from '@/components/sections/QuickRFQSection';
+import QualitySection from '@/components/sections/QualitySection';
 import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/Footer';
@@ -21,6 +22,7 @@ const Index = () => {
           <ProductsSection />
           <SolutionsSection />
           <QuickRFQSection />
+          <QualitySection />
           <CaseStudiesSection />
           <ContactSection />
         </main>

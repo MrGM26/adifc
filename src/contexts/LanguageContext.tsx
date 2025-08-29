@@ -72,6 +72,24 @@ const translations = {
     'contact.form.phone': 'Phone Number',
     'contact.form.message': 'Message',
     'contact.form.submit': 'Send Message',
+    
+    // Platform/About
+    'platform.title': 'About ADIFC',
+    'platform.description': 'Since 2008, Abu Dhabi International Factory (ADIFC) has been synonymous with quality and trust, providing integrated building materials solutions to support major projects in the UAE.',
+    
+    // Quality & Compliance
+    'quality.title': 'Quality & Compliance',
+    'quality.description': 'Certified by ESMA and ISO. Every batch undergoes rigorous lab testing—strength, durability, dimension accuracy.',
+    'quality.download': 'Download Certificates Pack',
+    
+    // Case Studies
+    'casestudies.title': 'Case Studies',
+    'casestudies.residential': 'Residential Mega Projects',
+    'casestudies.commercial': 'Commercial & Service Facilities', 
+    'casestudies.infrastructure': 'National Infrastructure',
+    'casestudies.metrics.cost': '15% cost saved',
+    'casestudies.metrics.time': '30% faster build',
+    'casestudies.metrics.compliance': '100% ISO compliance',
   },
   ar: {
     // Navigation
@@ -134,6 +152,24 @@ const translations = {
     'contact.form.phone': 'رقم الهاتف',
     'contact.form.message': 'الرسالة',
     'contact.form.submit': 'إرسال الرسالة',
+    
+    // Platform/About
+    'platform.title': 'عن ADIFC',
+    'platform.description': 'منذ عام 2008، ارتبط اسم (ADIFC) شركة مصنع أبوظبي الدولي بالجودة والثقة، ومسيرة نجاح كأحد روّاد تصنيع وتوريد مواد البناء في الإمارات.',
+    
+    // Quality & Compliance
+    'quality.title': 'الجودة والاعتمادات',
+    'quality.description': 'في ADIFC نلتزم بتقديم منتجات بمعايير عالمية معتمدة رسميًا من هيئات مثل ESMA و ISO.',
+    'quality.download': 'تحميل ملف الشهادات',
+    
+    // Case Studies
+    'casestudies.title': 'دراسات الحالة',
+    'casestudies.residential': 'مشاريع سكنية كبرى',
+    'casestudies.commercial': 'مشاريع تجارية وخدمية',
+    'casestudies.infrastructure': 'مشاريع بنية تحتية وطنية',
+    'casestudies.metrics.cost': '15% تقليص التكاليف',
+    'casestudies.metrics.time': '30% اختصار زمن التنفيذ',
+    'casestudies.metrics.compliance': '100% التزام بالمعايير',
   },
 };
 
@@ -150,7 +186,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
-      <div dir={language === 'ar' ? 'rtl' : 'ltr'} className={language === 'ar' ? 'font-arabic' : ''}>
+      <div 
+        dir={language === 'ar' ? 'rtl' : 'ltr'} 
+        className={language === 'ar' ? 'font-arabic text-right' : 'font-sans text-left'}
+        lang={language}
+      >
         {children}
       </div>
     </LanguageContext.Provider>
