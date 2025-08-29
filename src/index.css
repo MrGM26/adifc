@@ -8,28 +8,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Modern neutral backgrounds */
+    --background: 0 0% 99%;
+    --foreground: 220 13% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 13% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 13% 9%;
 
-    /* Industrial Blue Primary */
-    --primary: 213 94% 28%;
+    /* Modern Blue Primary - Contemporary tech blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
 
-    /* Concrete Gray Secondary */
-    --secondary: 215 16% 47%;
+    /* Sophisticated Gray Secondary */
+    --secondary: 215 25% 27%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Orange Accent */
-    --accent: 21 90% 48%;
+    /* Modern Orange Accent - Warmer, more contemporary */
+    --accent: 25 95% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -59,29 +62,31 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 13% 6%;
+    --foreground: 220 13% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 13% 8%;
+    --card-foreground: 220 13% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 13% 8%;
+    --popover-foreground: 220 13% 95%;
 
-    /* Dark mode Industrial Blue */
-    --primary: 213 94% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Dark mode Modern Blue */
+    --primary: 217 91% 65%;
+    --primary-foreground: 220 13% 6%;
+    --primary-light: 217 91% 75%;
+    --primary-dark: 217 91% 55%;
 
-    /* Dark mode Concrete Gray */
-    --secondary: 215 16% 35%;
-    --secondary-foreground: 210 40% 98%;
+    /* Dark mode Sophisticated Gray */
+    --secondary: 215 25% 40%;
+    --secondary-foreground: 220 13% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 13% 12%;
+    --muted-foreground: 220 9% 65%;
 
-    /* Dark mode Orange Accent */
-    --accent: 21 90% 55%;
-    --accent-foreground: 0 0% 100%;
+    /* Dark mode Modern Orange */
+    --accent: 25 95% 60%;
+    --accent-foreground: 220 13% 6%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -300,6 +305,62 @@ html {
 .transform-gpu {
   transform: translateZ(0);
   will-change: transform;
+}
+
+/* Modern fade-up animation */
+.fade-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.fade-up-delayed {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up-delayed.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modern glass morphism cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Modern gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced hover effects */
+.modern-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modern-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Reduced motion support */
