@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(107, 114, 128, 0.8)), url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&h=1080&fit=crop&crop=center")',
+          backgroundImage: 'linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(107, 114, 128, 0.8)), url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop&crop=center")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

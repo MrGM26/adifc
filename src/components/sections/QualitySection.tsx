@@ -41,7 +41,7 @@ const QualitySection = () => {
           {/* Lab Testing Image */}
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=center"
               alt="Quality testing laboratory"
               className="w-full h-96 object-cover rounded-lg shadow-lg"
             />

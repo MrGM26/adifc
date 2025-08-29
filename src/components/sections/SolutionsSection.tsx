@@ -13,7 +13,7 @@ const SolutionsSection = () => {
       titleKey: 'solutions.residential',
       description: 'Villa communities, housing developments, residential complexes',
       features: ['Concrete Blocks', 'Interlock Pavers', 'Prefab Units'],
-      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center',
       gradient: 'from-blue-600 to-blue-800'
     },
     {
@@ -21,7 +21,7 @@ const SolutionsSection = () => {
       titleKey: 'solutions.commercial', 
       description: 'Shopping malls, office towers, retail spaces, hotels',
       features: ['Steel Structures', 'Facade Systems', 'Lightweight Panels'],
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop&crop=center',
       gradient: 'from-gray-600 to-gray-800'
     },
     {
@@ -29,7 +29,7 @@ const SolutionsSection = () => {
       titleKey: 'solutions.infrastructure',
       description: 'Highways, sidewalks, public spaces, infrastructure projects',
       features: ['Interlock Pavers', 'Concrete Blocks', 'Portable Units'],
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop&crop=center',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center',
       gradient: 'from-orange-600 to-orange-800'
     }
   ];

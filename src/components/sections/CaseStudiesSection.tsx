@@ -1,128 +1,125 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { TrendingDown, Clock, Shield } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { MapPin, Clock, TrendingUp, Target, CheckCircle } from 'lucide-react';
 
 const CaseStudiesSection = () => {
+  const { t } = useLanguage();
+  
   const caseStudies = [
     {
-      category: 'Residential Mega Projects',
-      title: 'UAE Villa Communities',
-      description: 'Supplied concrete blocks and interlock pavers for major residential developments in Abu Dhabi and Dubai.',
-      image: '/api/placeholder/600/400',
+      category: t('casestudies.residential'),
+      title: 'Al Reem Island Residential Development',
+      description: 'Large-scale residential project with 500+ villas using our concrete blocks and interlock pavers.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center',
       results: [
-        { icon: TrendingDown, label: 'Cost Reduction', value: '15%' },
-        { icon: Clock, label: 'Time Saved', value: '30%' },
-        { icon: Shield, label: 'Quality Compliance', value: '100%' },
+        { label: t('casestudies.metrics.cost'), value: '15%', icon: TrendingUp },
+        { label: t('casestudies.metrics.time'), value: '30%', icon: Clock },
+        { label: t('casestudies.metrics.compliance'), value: '100%', icon: CheckCircle }
       ],
-      location: 'Abu Dhabi & Dubai',
-      duration: '18 months',
+      location: 'Abu Dhabi, UAE',
+      duration: '18 months'
     },
     {
-      category: 'Commercial & Service Facilities',
-      title: 'Shopping Mall Construction',
-      description: 'Provided prefab systems and facade solutions for major commercial developments across the UAE.',
-      image: '/api/placeholder/600/400',
+      category: t('casestudies.commercial'),
+      title: 'Dubai Mall Extension Project',
+      description: 'Commercial expansion using lightweight panels and steel structures for rapid construction.',
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop&crop=center',
       results: [
-        { icon: TrendingDown, label: 'Cost Reduction', value: '20%' },
-        { icon: Clock, label: 'Time Saved', value: '25%' },
-        { icon: Shield, label: 'Quality Compliance', value: '100%' },
+        { label: t('casestudies.metrics.cost'), value: '20%', icon: TrendingUp },
+        { label: t('casestudies.metrics.time'), value: '25%', icon: Clock },
+        { label: t('casestudies.metrics.compliance'), value: '100%', icon: CheckCircle }
       ],
-      location: 'UAE',
-      duration: '12 months',
+      location: 'Dubai, UAE',
+      duration: '12 months'
     },
     {
-      category: 'National Infrastructure',
-      title: 'Highway & Roads Project',
-      description: 'Delivered high-durability interlock pavers and concrete solutions for national infrastructure projects.',
-      image: '/api/placeholder/600/400',
+      category: t('casestudies.infrastructure'),
+      title: 'Sheikh Zayed Road Enhancement',
+      description: 'Major highway infrastructure project featuring our premium interlock pavers and concrete solutions.',
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center',
       results: [
-        { icon: TrendingDown, label: 'Cost Reduction', value: '12%' },
-        { icon: Clock, label: 'Time Saved', value: '35%' },
-        { icon: Shield, label: 'Quality Compliance', value: '100%' },
+        { label: t('casestudies.metrics.cost'), value: '12%', icon: TrendingUp },
+        { label: t('casestudies.metrics.time'), value: '40%', icon: Clock },
+        { label: t('casestudies.metrics.compliance'), value: '100%', icon: CheckCircle }
       ],
-      location: 'UAE National Projects',
-      duration: '24 months',
-    },
+      location: 'Dubai, UAE',
+      duration: '24 months'
+    }
   ];
 
   return (
-    <section id="cases" className="py-20 bg-background">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Case Studies</h2>
+          <h2 className="text-4xl font-bold mb-4 text-foreground">
+            {t('casestudies.title')}
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real results from our major projects across the UAE, demonstrating our commitment to quality, efficiency, and excellence.
+            Delivering exceptional results across major UAE projects
           </p>
-          <div className="w-24 h-1 bg-accent mx-auto mt-6"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {caseStudies.map((study, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/20" />
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={study.image}
+                  alt={study.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="bg-background/90 text-primary">
-                    {study.category}
-                  </Badge>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="text-white">
-                    <div className="text-sm opacity-90">{study.location}</div>
-                    <div className="text-xs opacity-75">{study.duration}</div>
-                  </div>
+                  <Badge className="bg-accent text-white">{study.category}</Badge>
                 </div>
               </div>
-              
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-foreground">{study.title}</h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  {study.description}
-                </p>
+                <h3 className="text-xl font-bold mb-2 text-foreground">{study.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">{study.description}</p>
                 
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Key Results:</h4>
-                  <div className="grid grid-cols-3 gap-4">
-                    {study.results.map((result, resultIndex) => {
-                      const IconComponent = result.icon;
-                      return (
-                        <div key={resultIndex} className="text-center">
-                          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <IconComponent className="h-6 w-6 text-primary" />
-                          </div>
-                          <div className="text-2xl font-bold text-accent">{result.value}</div>
-                          <div className="text-xs text-muted-foreground">{result.label}</div>
-                        </div>
-                      );
-                    })}
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <MapPin size={16} />
+                    <span>{study.location}</span>
                   </div>
+                  <div className="flex items-center gap-1">
+                    <Clock size={16} />
+                    <span>{study.duration}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {study.results.map((result, idx) => {
+                    const IconComponent = result.icon;
+                    return (
+                      <div key={idx} className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <IconComponent className="text-primary" size={16} />
+                          <span className="text-sm text-muted-foreground">{result.label}</span>
+                        </div>
+                        <span className="font-bold text-accent">{result.value}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Customer Testimonial Section */}
-        <div className="mt-20">
-          <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-0">
-            <CardContent className="p-12 text-center">
-              <div className="max-w-4xl mx-auto">
-                <blockquote className="text-2xl md:text-3xl font-medium text-foreground mb-8 leading-relaxed">
-                  "ADIFC's commitment to quality and timely delivery made them our preferred partner for major construction projects. Their innovative solutions helped us achieve significant cost and time savings."
-                </blockquote>
-                <div className="flex items-center justify-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                    <span className="text-primary font-bold">AE</span>
-                  </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-foreground">Ahmed Al-Emirati</div>
-                    <div className="text-sm text-muted-foreground">Project Manager, Major Construction Company</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Customer Testimonial */}
+        <div className="bg-primary text-primary-foreground rounded-lg p-8 text-center">
+          <blockquote className="text-2xl md:text-3xl font-light mb-6 leading-relaxed">
+            "ADIFC has been our trusted partner for over 5 years. Their quality products and reliable delivery have been crucial to our project success."
+          </blockquote>
+          <div className="flex items-center justify-center gap-4">
+            <div>
+              <p className="font-bold">Ahmed Al Mansouri</p>
+              <p className="opacity-90">Project Director, Emirates Construction</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

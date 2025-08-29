@@ -12,37 +12,37 @@ const ProductsSection = () => {
       icon: Building2,
       titleKey: 'products.concrete',
       description: 'High-strength concrete blocks for construction',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Construction, 
       titleKey: 'products.interlock',
       description: 'Durable interlocking pavers for roads and walkways',
-      image: 'https://images.unsplash.com/photo-1611720554260-7b16103eb889?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Factory,
       titleKey: 'products.panels', 
       description: 'Lightweight building panels for fast construction',
-      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Home,
       titleKey: 'products.prefab',
       description: 'Complete prefabricated building solutions', 
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Wrench,
       titleKey: 'products.steel',
       description: 'Steel and light gauge steel structures',
-      image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Bath,
       titleKey: 'products.bathroom',
       description: 'Complete bathroom pod solutions',
-      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400&h=300&fit=crop&crop=center'
+      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop&crop=center'
     }
   ];
 
