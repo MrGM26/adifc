@@ -10,8 +10,8 @@ const CaseStudiesSection = () => {
   const caseStudies = [
     {
       category: t('casestudies.residential'),
-      title: 'Al Reem Island Residential Development',
-      description: 'Large-scale residential project with 500+ villas using our concrete blocks and interlock pavers.',
+      title: t('casestudies.project1.title'),
+      description: t('casestudies.project1.desc'),
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center',
       results: [
         { label: t('casestudies.metrics.cost'), value: '15%', icon: TrendingUp },
@@ -23,8 +23,8 @@ const CaseStudiesSection = () => {
     },
     {
       category: t('casestudies.commercial'),
-      title: 'Dubai Mall Extension Project',
-      description: 'Commercial expansion using lightweight panels and steel structures for rapid construction.',
+      title: t('casestudies.project2.title'),
+      description: t('casestudies.project2.desc'),
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop&crop=center',
       results: [
         { label: t('casestudies.metrics.cost'), value: '20%', icon: TrendingUp },
@@ -36,8 +36,8 @@ const CaseStudiesSection = () => {
     },
     {
       category: t('casestudies.infrastructure'),
-      title: 'Sheikh Zayed Road Enhancement',
-      description: 'Major highway infrastructure project featuring our premium interlock pavers and concrete solutions.',
+      title: t('casestudies.project3.title'),
+      description: t('casestudies.project3.desc'),
       image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center',
       results: [
         { label: t('casestudies.metrics.cost'), value: '12%', icon: TrendingUp },
@@ -57,7 +57,7 @@ const CaseStudiesSection = () => {
             {t('casestudies.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Delivering exceptional results across major UAE projects
+            {t('casestudies.subtitle')}
           </p>
         </div>
 
@@ -112,12 +112,12 @@ const CaseStudiesSection = () => {
         {/* Customer Testimonial */}
         <div className="bg-primary text-primary-foreground rounded-lg p-8 text-center">
           <blockquote className="text-2xl md:text-3xl font-light mb-6 leading-relaxed">
-            "ADIFC has been our trusted partner for over 5 years. Their quality products and reliable delivery have been crucial to our project success."
+            {t('casestudies.testimonial')}
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <div>
-              <p className="font-bold">Ahmed Al Mansouri</p>
-              <p className="opacity-90">Project Director, Emirates Construction</p>
+              <p className="font-bold">{t('casestudies.testimonial.name')}</p>
+              <p className="opacity-90">{t('casestudies.testimonial.title')}</p>
             </div>
           </div>
         </div>

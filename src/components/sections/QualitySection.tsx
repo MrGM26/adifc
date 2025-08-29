@@ -9,18 +9,18 @@ const QualitySection = () => {
 
   const certifications = [
     {
-      name: 'ESMA',
-      description: 'Emirates Authority for Standardization and Metrology',
+      name: t('quality.esma.name'),
+      description: t('quality.esma.desc'),
       icon: Award
     },
     {
-      name: 'ISO 9001',
-      description: 'Quality Management System',
+      name: t('quality.iso9001.name'),
+      description: t('quality.iso9001.desc'),
       icon: CheckCircle
     },
     {
-      name: 'ISO 14001',
-      description: 'Environmental Management System',
+      name: t('quality.iso14001.name'),
+      description: t('quality.iso14001.desc'),
       icon: Shield
     }
   ];
@@ -47,8 +47,8 @@ const QualitySection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg" />
             <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">Advanced Testing Facility</h3>
-              <p className="text-lg opacity-90">Rigorous quality control at every stage</p>
+              <h3 className="text-2xl font-bold mb-2">{t('quality.facility.title')}</h3>
+              <p className="text-lg opacity-90">{t('quality.facility.desc')}</p>
             </div>
           </div>
 
@@ -84,28 +84,28 @@ const QualitySection = () => {
 
         {/* Quality Process */}
         <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Quality Process</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">{t('quality.process.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">1</span>
               </div>
-              <h4 className="text-xl font-bold mb-2 text-foreground">Raw Material Testing</h4>
-              <p className="text-muted-foreground">Comprehensive testing of all raw materials before production</p>
+              <h4 className="text-xl font-bold mb-2 text-foreground">{t('quality.process.step1.title')}</h4>
+              <p className="text-muted-foreground">{t('quality.process.step1.desc')}</p>
             </div>
             <div className="text-center">
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">2</span>
               </div>
-              <h4 className="text-xl font-bold mb-2 text-foreground">Production Monitoring</h4>
-              <p className="text-muted-foreground">Continuous quality monitoring during manufacturing process</p>
+              <h4 className="text-xl font-bold mb-2 text-foreground">{t('quality.process.step2.title')}</h4>
+              <p className="text-muted-foreground">{t('quality.process.step2.desc')}</p>
             </div>
             <div className="text-center">
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">3</span>
               </div>
-              <h4 className="text-xl font-bold mb-2 text-foreground">Final Inspection</h4>
-              <p className="text-muted-foreground">Rigorous final inspection before product delivery</p>
+              <h4 className="text-xl font-bold mb-2 text-foreground">{t('quality.process.step3.title')}</h4>
+              <p className="text-muted-foreground">{t('quality.process.step3.desc')}</p>
             </div>
           </div>
         </div>
