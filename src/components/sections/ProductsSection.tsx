@@ -95,7 +95,7 @@ const ProductsSection = () => {
               delay={product.delay}
               className="group"
             >
-              <Card className="modern-hover glass-card border-0 h-full overflow-hidden">
+              <Card className="professional-hover glass-card border-0 h-full overflow-hidden">
                 <div className="relative h-72 overflow-hidden">
                   <img 
                     src={product.image} 
@@ -106,14 +106,17 @@ const ProductsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="shine-effect absolute inset-0" />
                   
-                  {/* Modern Bilingual Caption */}
+                  {/* Arabic-only or English-only Caption */}
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2 font-sans">
-                      {product.titleEn}
-                    </h3>
-                    <h4 className="text-lg opacity-90 font-arabic" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-                      {product.titleAr}
-                    </h4>
+                    {language === 'ar' ? (
+                      <h3 className="text-2xl font-bold mb-2 font-arabic" dir="rtl">
+                        {product.titleAr}
+                      </h3>
+                    ) : (
+                      <h3 className="text-2xl font-bold mb-2 font-sans">
+                        {product.titleEn}
+                      </h3>
+                    )}
                   </div>
                 </div>
                 
@@ -156,7 +159,7 @@ const ProductsSection = () => {
             </p>
             <Button 
               size="lg" 
-              className="gradient-primary hover:shadow-2xl hover:shadow-primary/25 text-primary-foreground px-12 py-6 text-lg font-bold rounded-full transition-all duration-300 pulse-glow"
+              className="gradient-primary hover:shadow-2xl hover:shadow-primary/25 text-primary-foreground px-12 py-6 text-lg font-bold rounded-full transition-all duration-300"
             >
               {language === 'en' ? 'Download Catalog' : 'تحميل الكتالوج'}
               <ArrowRight className={`ml-3 ${language === 'ar' ? 'rotate-180 mr-3 ml-0' : ''}`} size={20} />

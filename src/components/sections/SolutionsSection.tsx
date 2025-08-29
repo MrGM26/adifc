@@ -84,7 +84,7 @@ const SolutionsSection = () => {
                 delay={solution.delay}
                 className="group"
               >
-                <Card className="modern-hover glass-card border-0 h-full overflow-hidden">
+                <Card className="professional-hover glass-card border-0 h-full overflow-hidden">
                   <div className="relative h-80 overflow-hidden">
                     <img 
                       src={solution.image}
@@ -101,13 +101,17 @@ const SolutionsSection = () => {
                         <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-6 inline-block border border-white/10">
                           <IconComponent size={56} className="mx-auto" />
                         </div>
+                        {/* Arabic-only or English-only Title */}
                         <div>
-                          <h3 className="text-3xl font-bold mb-2 font-sans">
-                            {solution.titleEn}
-                          </h3>
-                          <h4 className="text-xl opacity-90 font-arabic" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-                            {solution.titleAr}
-                          </h4>
+                          {language === 'ar' ? (
+                            <h3 className="text-3xl font-bold mb-2 font-arabic" dir="rtl">
+                              {solution.titleAr}
+                            </h3>
+                          ) : (
+                            <h3 className="text-3xl font-bold mb-2 font-sans">
+                              {solution.titleEn}
+                            </h3>
+                          )}
                         </div>
                       </div>
                     </div>

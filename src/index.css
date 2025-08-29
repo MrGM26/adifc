@@ -8,31 +8,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Modern neutral backgrounds */
-    --background: 0 0% 99%;
-    --foreground: 220 13% 9%;
+    /* Professional industrial colors */
+    --background: 0 0% 98%;
+    --foreground: 210 11% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 9%;
+    --card-foreground: 210 11% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 9%;
+    --popover-foreground: 210 11% 15%;
 
-    /* Modern Blue Primary - Contemporary tech blue */
-    --primary: 217 91% 60%;
+    /* Professional Blue Primary - Industrial steel blue */
+    --primary: 210 100% 40%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
+    --primary-light: 210 100% 50%;
+    --primary-dark: 210 100% 30%;
 
-    /* Sophisticated Gray Secondary */
-    --secondary: 215 25% 27%;
+    /* Professional Gray Secondary */
+    --secondary: 210 11% 30%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 13% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 210 11% 96%;
+    --muted-foreground: 210 11% 45%;
 
-    /* Modern Orange Accent - Warmer, more contemporary */
-    --accent: 25 95% 53%;
+    /* Subtle Orange Accent - Professional construction orange */
+    --accent: 15 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -62,31 +62,31 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 13% 6%;
-    --foreground: 220 13% 95%;
+    --background: 210 11% 8%;
+    --foreground: 210 11% 92%;
 
-    --card: 220 13% 8%;
-    --card-foreground: 220 13% 95%;
+    --card: 210 11% 10%;
+    --card-foreground: 210 11% 92%;
 
-    --popover: 220 13% 8%;
-    --popover-foreground: 220 13% 95%;
+    --popover: 210 11% 10%;
+    --popover-foreground: 210 11% 92%;
 
-    /* Dark mode Modern Blue */
-    --primary: 217 91% 65%;
-    --primary-foreground: 220 13% 6%;
-    --primary-light: 217 91% 75%;
-    --primary-dark: 217 91% 55%;
+    /* Dark mode Professional Blue */
+    --primary: 210 100% 55%;
+    --primary-foreground: 210 11% 8%;
+    --primary-light: 210 100% 65%;
+    --primary-dark: 210 100% 45%;
 
-    /* Dark mode Sophisticated Gray */
-    --secondary: 215 25% 40%;
-    --secondary-foreground: 220 13% 95%;
+    /* Dark mode Professional Gray */
+    --secondary: 210 11% 40%;
+    --secondary-foreground: 210 11% 92%;
 
-    --muted: 220 13% 12%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 210 11% 15%;
+    --muted-foreground: 210 11% 60%;
 
-    /* Dark mode Modern Orange */
-    --accent: 25 95% 60%;
-    --accent-foreground: 220 13% 6%;
+    /* Dark mode Professional Orange */
+    --accent: 15 100% 55%;
+    --accent-foreground: 210 11% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -307,7 +307,18 @@ html {
   will-change: transform;
 }
 
-/* Modern fade-up animation */
+/* Professional hover effects */
+.professional-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.professional-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced fade animations */
 .fade-up {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -315,8 +326,8 @@ html {
 
 .fade-up-delayed {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-up-delayed.animate {
@@ -324,22 +335,9 @@ html {
   transform: translateY(0);
 }
 
-/* Modern glass morphism cards */
-.glass-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.dark .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Modern gradients */
+/* Professional gradients */
 .gradient-primary {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
 }
 
 .gradient-accent {
@@ -347,20 +345,23 @@ html {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Enhanced hover effects */
-.modern-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+/* Professional glass effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(210, 210, 210, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.modern-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.dark .glass-card {
+  background: rgba(33, 41, 54, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Reduced motion support */
