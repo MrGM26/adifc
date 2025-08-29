@@ -71,7 +71,7 @@ const ContactSection = () => {
           <div className="lg:col-span-1">
             <Card className="h-fit">
               <CardHeader>
-                <CardTitle className="text-xl">Get in Touch</CardTitle>
+                <CardTitle className="text-xl">{t('contact.getInTouch')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((contact, index) => {
@@ -101,11 +101,11 @@ const ContactSection = () => {
                       <Clock className="h-6 w-6 text-accent" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground">Business Hours</h4>
+                      <h4 className="font-semibold text-foreground">{t('contact.businessHours')}</h4>
                       <div className="text-sm text-muted-foreground space-y-1">
-                        <p>Sunday - Thursday: 8:00 AM - 6:00 PM</p>
-                        <p>Friday: 8:00 AM - 12:00 PM</p>
-                        <p>Saturday: Closed</p>
+                        <p>{t('contact.hours.sunThu')}</p>
+                        <p>{t('contact.hours.fri')}</p>
+                        <p>{t('contact.hours.sat')}</p>
                       </div>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const ContactSection = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        placeholder="Enter your full name"
+                        placeholder={t('contact.form.namePlaceholder')}
                       />
                     </div>
                     
@@ -144,7 +144,7 @@ const ContactSection = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        placeholder="your.email@company.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                       />
                     </div>
                   </div>
@@ -158,7 +158,7 @@ const ContactSection = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      placeholder="+971 XX XXX XXXX"
+                      placeholder={t('contact.form.phonePlaceholder')}
                     />
                   </div>
                   
@@ -170,7 +170,7 @@ const ContactSection = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      placeholder="Tell us about your project requirements..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                       className="min-h-[150px]"
                     />
                   </div>
@@ -195,8 +195,8 @@ const ContactSection = () => {
               <div className="h-96 bg-muted flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">Interactive Map</p>
-                  <p className="text-sm text-muted-foreground">Abu Dhabi International Factory Location</p>
+                  <p className="text-muted-foreground">{t('contact.map.title')}</p>
+                  <p className="text-sm text-muted-foreground">{t('contact.map.subtitle')}</p>
                 </div>
               </div>
             </CardContent>
