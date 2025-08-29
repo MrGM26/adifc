@@ -31,8 +31,8 @@ All colors MUST be HSL.
     --muted: 210 11% 96%;
     --muted-foreground: 210 11% 45%;
 
-    /* Subtle Orange Accent - Professional construction orange */
-    --accent: 15 100% 50%;
+    /* Professional Steel Gray Accent - Construction industry standard */
+    --accent: 210 15% 25%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -84,9 +84,9 @@ All colors MUST be HSL.
     --muted: 210 11% 15%;
     --muted-foreground: 210 11% 60%;
 
-    /* Dark mode Professional Orange */
-    --accent: 15 100% 55%;
-    --accent-foreground: 210 11% 8%;
+    /* Dark mode Professional Steel Gray */
+    --accent: 210 20% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
