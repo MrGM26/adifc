@@ -1,13 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { LanguageProvider } from '@/contexts/LanguageContext';
+import Header from '@/components/Header';
+import HeroSection from '@/components/sections/HeroSection';
+import HighlightsSection from '@/components/sections/HighlightsSection';
+import ProductsSection from '@/components/sections/ProductsSection';
+import SolutionsSection from '@/components/sections/SolutionsSection';
+import QuickRFQSection from '@/components/sections/QuickRFQSection';
+import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
+import ContactSection from '@/components/sections/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <HeroSection />
+          <HighlightsSection />
+          <ProductsSection />
+          <SolutionsSection />
+          <QuickRFQSection />
+          <CaseStudiesSection />
+          <ContactSection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </LanguageProvider>
   );
 };
 
