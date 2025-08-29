@@ -12,11 +12,12 @@ const SolutionsSection = () => {
     {
       icon: Home,
       titleKey: 'solutions.residential',
-      titleEn: 'Residential Excellence',
-      titleAr: 'التميز السكني',
-      description: 'Comprehensive residential solutions from villa communities to luxury housing developments across the UAE with sustainable design principles',
-      features: ['Concrete Blocks', 'Interlock Pavers', 'Prefab Units'],
-      featuresAr: ['البلوكات الخرسانية', 'بلاط الانترلوك', 'الوحدات الجاهزة'],
+      description: t('solutions.residential.desc'),
+      features: [
+        t('products.concrete'),
+        t('products.interlock'),
+        t('products.prefab')
+      ],
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&crop=center&auto=format',
       gradient: 'from-blue-600/90 to-blue-800/90',
       delay: 0
@@ -24,11 +25,12 @@ const SolutionsSection = () => {
     {
       icon: Building,
       titleKey: 'solutions.commercial', 
-      titleEn: 'Commercial Innovation',
-      titleAr: 'الابتكار التجاري',
-      description: 'Advanced commercial building solutions including shopping centers, office towers, and hospitality projects with modern architectural excellence',
-      features: ['Steel Structures', 'Facade Systems', 'Lightweight Panels'],
-      featuresAr: ['الهياكل الفولاذية', 'أنظمة الواجهات', 'الألواح الخفيفة'],
+      description: t('solutions.commercial.desc'),
+      features: [
+        t('products.steel'),
+        t('products.facade'),
+        t('products.panels')
+      ],
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop&crop=center&auto=format',
       gradient: 'from-gray-700/90 to-gray-900/90',
       delay: 0.2
@@ -36,11 +38,12 @@ const SolutionsSection = () => {
     {
       icon: Construction,
       titleKey: 'solutions.infrastructure',
-      titleEn: 'Infrastructure Mastery',
-      titleAr: 'إتقان البنية التحتية',
-      description: 'Large-scale infrastructure developments including highways, public spaces, and urban development projects with cutting-edge technology',
-      features: ['Interlock Pavers', 'Concrete Blocks', 'Modular Units'],
-      featuresAr: ['بلاط الانترلوك', 'البلوكات الخرسانية', 'الوحدات النمطية'],
+      description: t('solutions.infrastructure.desc'),
+      features: [
+        t('products.interlock'),
+        t('products.concrete'),
+        t('products.portable')
+      ],
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center&auto=format',
       gradient: 'from-orange-600/90 to-orange-800/90',
       delay: 0.4
@@ -58,19 +61,16 @@ const SolutionsSection = () => {
         <AnimatedElement variant="fadeInUp" className="text-center mb-20">
           <div className="inline-block mb-8">
             <span className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold uppercase tracking-wide">
-              {language === 'en' ? 'Our Solutions' : 'حلولنا'}
+              {t('solutions.title')}
             </span>
           </div>
           
           <h2 className="text-6xl font-bold mb-8 gradient-text leading-tight">
-            {language === 'en' ? 'Comprehensive Building Solutions' : 'حلول البناء الشاملة'}
+            {t('solutions.subtitle')}
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            {language === 'en' 
-              ? 'Tailored engineering solutions for every sector across the United Arab Emirates, delivered with precision and innovation'
-              : 'حلول هندسية مخصصة لكل قطاع في دولة الإمارات العربية المتحدة، مُقدمة بدقة وابتكار'
-            }
+            {t('solutions.description')}
           </p>
         </AnimatedElement>
         
@@ -88,7 +88,7 @@ const SolutionsSection = () => {
                   <div className="relative h-80 overflow-hidden">
                     <img 
                       src={solution.image}
-                      alt={language === 'en' ? solution.titleEn : solution.titleAr}
+                      alt={t(solution.titleKey)}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
@@ -101,17 +101,11 @@ const SolutionsSection = () => {
                         <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-6 inline-block border border-white/10">
                           <IconComponent size={56} className="mx-auto" />
                         </div>
-                        {/* Arabic-only or English-only Title */}
+                        {/* Solution Title */}
                         <div>
-                          {language === 'ar' ? (
-                            <h3 className="text-3xl font-bold mb-2 font-arabic" dir="rtl">
-                              {solution.titleAr}
-                            </h3>
-                          ) : (
-                            <h3 className="text-3xl font-bold mb-2 font-sans">
-                              {solution.titleEn}
-                            </h3>
-                          )}
+                          <h3 className="text-3xl font-bold mb-2">
+                            {t(solution.titleKey)}
+                          </h3>
                         </div>
                       </div>
                     </div>
@@ -128,7 +122,7 @@ const SolutionsSection = () => {
                         {language === 'en' ? 'Key Products:' : 'المنتجات الرئيسية:'}
                       </h4>
                       <div className="flex flex-wrap gap-3">
-                        {(language === 'en' ? solution.features : solution.featuresAr).map((feature, idx) => (
+                        {solution.features.map((feature, idx) => (
                           <span 
                             key={idx} 
                             className="bg-primary/10 text-primary px-5 py-3 rounded-full text-sm font-semibold border border-primary/20 hover:bg-primary/20 hover:scale-105 transition-all duration-200 cursor-default"
@@ -141,7 +135,7 @@ const SolutionsSection = () => {
                     
                     <Button className="w-full gradient-primary hover:shadow-2xl hover:shadow-primary/25 text-primary-foreground font-bold py-4 text-lg rounded-xl transition-all duration-300 group/btn">
                       <span className={language === 'ar' ? 'ml-3' : 'mr-3'}>
-                        {language === 'en' ? 'Explore Solutions' : 'استكشف الحلول'}
+                        {t('solutions.explore')}
                       </span>
                       <ArrowRight 
                         size={20} 
@@ -163,20 +157,17 @@ const SolutionsSection = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             <div className="relative z-10">
               <h3 className="text-4xl font-bold mb-6 text-white">
-                {language === 'en' ? 'Need a Custom Solution?' : 'تحتاج حلول مخصص؟'}
+                {t('solutions.cta.title')}
               </h3>
               <p className="text-white/90 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-                {language === 'en' 
-                  ? 'Our award-winning engineering team specializes in creating tailored solutions that exceed project requirements and industry standards.'
-                  : 'يتخصص فريق الهندسة الحائز على جوائز لدينا في إنشاء حلول مخصصة تتجاوز متطلبات المشروع ومعايير الصناعة.'
-                }
+                {t('solutions.cta.subtitle')}
               </p>
               <Button 
                 size="lg" 
                 variant="secondary"
                 className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300 px-10 py-4 text-lg font-bold rounded-full hover:scale-105"
               >
-                {language === 'en' ? 'Contact Our Engineers' : 'تواصل مع مهندسينا'}
+                {t('solutions.cta.button')}
                 <ArrowRight className={`ml-3 ${language === 'ar' ? 'rotate-180 mr-3 ml-0' : ''}`} size={20} />
               </Button>
             </div>
