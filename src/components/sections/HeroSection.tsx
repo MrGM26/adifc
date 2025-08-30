@@ -9,7 +9,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Modern Hero Background */}
+      {/* Hero Image Background */}
+      <div 
+        className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-no-repeat"
+      />
+      
+      {/* Modern Gradient Overlay */}
       <div 
         className="absolute inset-0 z-0 gradient-hero"
       />
