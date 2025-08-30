@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
 import { CounterAnimation } from '@/components/animations/CounterAnimation';
+import heroImage from '@/assets/hero-construction.jpg';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -11,12 +12,18 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero Image Background */}
       <div 
-        className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
       />
       
-      {/* Modern Gradient Overlay */}
+      {/* Modern Gradient Overlay - reduced opacity to show image */}
       <div 
-        className="absolute inset-0 z-0 gradient-hero"
+        className="absolute inset-0 z-10 bg-gradient-to-br from-primary/60 via-primary/40 to-accent/60"
       />
       
       {/* Animated floating elements */}
@@ -27,7 +34,7 @@ const HeroSection = () => {
       </div>
       
       {/* Content Overlay */}
-      <AnimatedSection className="relative z-10 container mx-auto px-4 text-center text-white">
+      <AnimatedSection className="relative z-20 container mx-auto px-4 text-center text-white">
         <AnimatedElement variant="fadeInUp" delay={0.2}>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {t('hero.title')}
