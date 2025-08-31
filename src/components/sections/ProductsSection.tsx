@@ -117,7 +117,7 @@ const ProductsSection = () => {
                   
                   <Button 
                     variant="ghost" 
-                    className="group/btn w-full justify-between p-0 h-auto text-primary hover:text-accent transition-colors duration-300 font-semibold text-lg"
+                    className="group/btn w-full justify-between p-0 h-auto text-primary hover:text-white hover:bg-accent transition-all duration-300 font-semibold text-lg"
                   >
                     <span>
                       {t('products.explore')}
