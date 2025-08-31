@@ -29,6 +29,8 @@ const translations = {
     'hero.cta': 'Get Quote',
     
     // Highlights
+    'highlights.title': 'Why Choose Us',
+    'highlights.subtitle': 'Discover what makes us the preferred construction partner across the UAE',
     'highlights.productivity.title': 'Productivity',
     'highlights.productivity.desc': 'Manufacturing capabilities serving mega projects since 2008',
     'highlights.coverage.title': 'Coverage',
@@ -214,6 +216,8 @@ const translations = {
     'hero.cta': 'احصل على عرض سعر',
     
     // Highlights
+    'highlights.title': 'لماذا تختارنا',
+    'highlights.subtitle': 'اكتشف ما يجعلنا الشريك المفضل للبناء في جميع أنحاء الإمارات',
     'highlights.productivity.title': 'الإنتاجية',
     'highlights.productivity.desc': 'قدرات تصنيع تلبي المشاريع العملاقة منذ 2008',
     'highlights.coverage.title': 'التغطية',

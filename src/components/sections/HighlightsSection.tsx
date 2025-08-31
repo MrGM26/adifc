@@ -39,10 +39,10 @@ const HighlightsSection = () => {
       <div className="container mx-auto px-4">
         <AnimatedElement variant="fadeInUp" delay={0.2} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-            Why Choose Us
+            {t('highlights.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover what makes us the preferred construction partner across the UAE
+            {t('highlights.subtitle')}
           </p>
         </AnimatedElement>
         
