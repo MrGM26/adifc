@@ -41,9 +41,9 @@ const Header = () => {
                   const targetId = item.href.replace('#', '');
                   const targetElement = document.getElementById(targetId);
                   if (targetElement) {
-                    // Dynamic header height: 56px for mobile, 64px for desktop, plus extra padding
+                    // Increased mobile offset to show section from beginning
                     const isMobile = window.innerWidth < 1024;
-                    const headerHeight = isMobile ? 56 + 20 : 64 + 16; // Adding extra padding for better positioning
+                    const headerHeight = isMobile ? 100 : 80; // Much larger offset for mobile
                     const elementPosition = targetElement.offsetTop - headerHeight;
                     window.scrollTo({
                       top: elementPosition,
@@ -96,9 +96,9 @@ const Header = () => {
                     const targetId = item.href.replace('#', '');
                     const targetElement = document.getElementById(targetId);
                     if (targetElement) {
-                      // Dynamic header height: 56px for mobile, 64px for desktop, plus extra padding
+                      // Increased mobile offset to show section from beginning
                       const isMobile = window.innerWidth < 1024;
-                      const headerHeight = isMobile ? 56 + 20 : 64 + 16; // Adding extra padding for better positioning
+                      const headerHeight = isMobile ? 100 : 80; // Much larger offset for mobile
                       const elementPosition = targetElement.offsetTop - headerHeight;
                       window.scrollTo({
                         top: elementPosition,
