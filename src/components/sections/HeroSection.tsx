@@ -61,20 +61,20 @@ const HeroSection = () => {
         {/* Enhanced Trust Indicators with Counter Animations */}
         <AnimatedElement variant="elastic" delay={0.8} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto stagger-children">
           <div className="text-center modern-card glow-primary p-6 rounded-2xl">
-            <CounterAnimation to={2008} className="text-3xl font-bold text-accent mb-2" />
-            <div className="text-sm opacity-80">Established</div>
+            <CounterAnimation to={2008} className="text-3xl font-bold text-white mb-2" />
+            <div className="text-sm opacity-80">{t('hero.stats.established')}</div>
           </div>
           <div className="text-center modern-card magnetic-hover p-6 rounded-2xl">
-            <div className="text-3xl font-bold text-gradient-animate mb-2">UAE</div>
-            <div className="text-sm opacity-80">Coverage</div>
+            <div className="text-3xl font-bold text-white mb-2">UAE</div>
+            <div className="text-sm opacity-80">{t('hero.stats.coverage')}</div>
           </div>
           <div className="text-center modern-card scale-on-hover p-6 rounded-2xl">
-            <div className="text-3xl font-bold text-accent mb-2 pulse-glow">ISO</div>
-            <div className="text-sm opacity-80">Certified</div>
+            <div className="text-3xl font-bold text-white mb-2 pulse-glow">ISO</div>
+            <div className="text-sm opacity-80">{t('hero.stats.certified')}</div>
           </div>
           <div className="text-center modern-card glow-accent p-6 rounded-2xl">
-            <CounterAnimation to={1000} suffix="+" className="text-3xl font-bold text-accent mb-2" />
-            <div className="text-sm opacity-80">Projects</div>
+            <CounterAnimation to={1000} suffix="+" className="text-3xl font-bold text-white mb-2" />
+            <div className="text-sm opacity-80">{t('hero.stats.projects')}</div>
           </div>
         </AnimatedElement>
       </AnimatedSection>

@@ -28,6 +28,12 @@ const translations = {
     'hero.subtitle': 'We manufacture and supply building materials to global standards, making us the first choice for major projects in the UAE and beyond.',
     'hero.cta': 'Get Quote',
     
+    // Hero Trust Indicators
+    'hero.stats.established': 'Established',
+    'hero.stats.coverage': 'Coverage', 
+    'hero.stats.certified': 'Certified',
+    'hero.stats.projects': 'Projects',
+    
     // Highlights
     'highlights.title': 'Why Choose Us',
     'highlights.subtitle': 'Discover what makes us the preferred construction partner across the UAE',
@@ -214,6 +220,12 @@ const translations = {
     'hero.title': 'شركة مصنع أبوظبي الدولي — الجودة التي تثق بها، والشريك الذي تعتمد عليه.',
     'hero.subtitle': 'نصنع ونورد مواد البناء بمعايير عالمية لنكون الخيار الأول للمشاريع الكبرى في الإمارات وخارجها.',
     'hero.cta': 'احصل على عرض سعر',
+    
+    // Hero Trust Indicators  
+    'hero.stats.established': 'تأسست',
+    'hero.stats.coverage': 'التغطية',
+    'hero.stats.certified': 'معتمد',
+    'hero.stats.projects': 'المشاريع',
     
     // Highlights
     'highlights.title': 'لماذا تختارنا',
