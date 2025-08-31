@@ -24,7 +24,7 @@ const ProductsSection = () => {
     {
       titleKey: 'products.panels',
       description: t('products.panels.desc'),
-      image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=600&h=450&fit=crop&crop=center&auto=format',
+      image: '/lovable-uploads/e5036fc8-ed06-41bf-bae8-6054b8045b47.png',
       delay: 0.2
     },
     {
