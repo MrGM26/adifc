@@ -17,9 +17,9 @@ export const Logo: React.FC<LogoProps> = ({
   const { t, language } = useLanguage();
 
   const sizeClasses = {
-    sm: 'h-8',
-    md: 'h-12',
-    lg: 'h-16'
+    sm: 'h-10 sm:h-12',
+    md: 'h-14 sm:h-16',
+    lg: 'h-18 sm:h-20'
   };
 
   const textSizeClasses = {
@@ -66,21 +66,21 @@ export const LogoIcon: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg' 
   size = 'md' 
 }) => {
   const sizeClasses = {
-    sm: 'h-8 w-8',
-    md: 'h-12 w-12',
-    lg: 'h-16 w-16'
+    sm: 'h-10 w-auto sm:h-12',
+    md: 'h-14 w-auto sm:h-16',
+    lg: 'h-18 w-auto sm:h-20'
   };
 
   return (
     <motion.div 
-      className={`${sizeClasses[size]} ${className}`}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      className={`${className}`}
+      whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.2 }}
     >
       <img 
         src={logoImage} 
         alt="ADIFC Logo" 
-        className="w-full h-full object-contain"
+        className={`${sizeClasses[size]} object-contain`}
       />
     </motion.div>
   );

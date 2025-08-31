@@ -21,21 +21,21 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-background/95">
+    <header className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Logo size="sm" showText={true} className="cursor-pointer" />
+            <Logo size="sm" showText={false} className="cursor-pointer" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navigationItems.map((item) => (
               <a
                 key={item.key}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap"
                 onClick={(e) => {
                   e.preventDefault();
                   const targetId = item.href.replace('#', '');
@@ -48,22 +48,22 @@ const Header = () => {
           </nav>
 
           {/* Language Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3"
             >
               <Globe className="h-4 w-4" />
-              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+              <span className="text-xs sm:text-sm font-medium">{language.toUpperCase()}</span>
             </Button>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden"
+              className="lg:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -73,13 +73,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-background">
-            <nav className="py-4 space-y-2">
+          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
+            <nav className="py-4 space-y-1">
               {navigationItems.map((item) => (
                 <a
                   key={item.key}
                   href={item.href}
-                  className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer"
+                  className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
                     setIsMenuOpen(false);
