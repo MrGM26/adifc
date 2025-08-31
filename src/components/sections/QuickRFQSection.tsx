@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Upload, Clock, FileText, Quote } from 'lucide-react';
+import { Upload, Clock, FileText, Quote, FileCheck } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
 
@@ -82,12 +82,12 @@ const QuickRFQSection = () => {
             </AnimatedElement>
 
             <AnimatedElement variant="fadeInUp" delay={0.3}>
-              <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-secondary/5 to-secondary/10 hover:from-secondary/10 hover:to-secondary/20">
+              <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 dark:from-green-900/20 dark:to-green-800/20 dark:hover:from-green-800/30 dark:hover:to-green-700/30">
                 <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <FileText className="h-10 w-10 text-white animate-bounce group-hover:animate-pulse" style={{animationDuration: '2s'}} />
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <FileCheck className="h-10 w-10 text-white animate-bounce group-hover:animate-pulse" style={{animationDuration: '2s'}} />
                   </div>
-                  <h3 className="font-bold text-lg mb-3 text-secondary">{t('rfq.process.receive')}</h3>
+                  <h3 className="font-bold text-lg mb-3 text-green-700 dark:text-green-400">{t('rfq.process.receive')}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.receiveDesc')}</p>
                 </CardContent>
               </Card>
