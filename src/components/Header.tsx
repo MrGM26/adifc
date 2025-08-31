@@ -39,7 +39,15 @@ const Header = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   const targetId = item.href.replace('#', '');
-                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    const headerHeight = 80; // Account for sticky header
+                    const elementPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                      top: elementPosition,
+                      behavior: 'smooth'
+                    });
+                  }
                 }}
               >
                 {t(item.key)}
@@ -84,7 +92,15 @@ const Header = () => {
                     e.preventDefault();
                     setIsMenuOpen(false);
                     const targetId = item.href.replace('#', '');
-                    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                      const headerHeight = 80; // Account for sticky header
+                      const elementPosition = targetElement.offsetTop - headerHeight;
+                      window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                      });
+                    }
                   }}
                 >
                   {t(item.key)}
