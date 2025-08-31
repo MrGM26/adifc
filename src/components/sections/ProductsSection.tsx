@@ -12,13 +12,13 @@ const ProductsSection = () => {
     {
       titleKey: 'products.concrete',
       description: t('products.concrete.desc'),
-      image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&h=450&fit=crop&crop=center&auto=format',
+      image: '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png',
       delay: 0
     },
     {
       titleKey: 'products.interlock',
       description: t('products.interlock.desc'),
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=450&fit=crop&crop=center&auto=format',
+      image: '/lovable-uploads/f2ab887b-e63d-4553-9767-8f8493b0b2a1.png',
       delay: 0.1
     },
     {

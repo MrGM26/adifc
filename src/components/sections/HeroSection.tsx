@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
 import { CounterAnimation } from '@/components/animations/CounterAnimation';
-const concreteBlocksImage = '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png';
+import heroImage from '@/assets/hero-construction.jpg';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -14,7 +14,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${concreteBlocksImage})`,
+          backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
