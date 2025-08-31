@@ -117,14 +117,14 @@ const ProductsSection = () => {
                   
                   <Button 
                     variant="ghost" 
-                    className="group/btn w-full justify-between p-0 h-auto text-primary hover:text-white hover:bg-accent transition-all duration-300 font-semibold text-lg"
+                    className="group/btn w-full justify-between px-4 py-2 h-auto text-primary hover:text-white hover:bg-accent transition-all duration-300 font-semibold text-lg"
                   >
                     <span>
                       {t('products.explore')}
                     </span>
                     <ArrowRight 
                       size={20} 
-                      className={`group-hover/btn:translate-x-2 transition-transform duration-300 ${
+                      className={`text-primary group-hover/btn:text-white group-hover/btn:translate-x-2 transition-all duration-300 ${
                         language === 'ar' ? 'rotate-180 group-hover/btn:-translate-x-2' : ''
                       }`} 
                     />
