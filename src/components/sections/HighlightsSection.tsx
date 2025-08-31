@@ -24,7 +24,7 @@ const HighlightsSection = () => {
       icon: Award,
       titleKey: 'highlights.quality.title',
       descKey: 'highlights.quality.desc', 
-      colorClass: 'text-secondary'
+      colorClass: 'text-green-500'
     },
     {
       icon: Handshake,
