@@ -71,16 +71,33 @@ export const LogoIcon: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg' 
     lg: 'h-18 w-auto sm:h-20'
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <motion.div 
-      className={`${className}`}
+      className={`${className} cursor-pointer`}
       whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
+      onClick={handleLogoClick}
+      role="button"
+      aria-label="Go to top"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleLogoClick();
+        }
+      }}
     >
       <img 
         src={logoImage} 
-        alt="ADIFC Logo" 
-        className={`${sizeClasses[size]} object-contain`}
+        alt="ADIFC Logo - Home" 
+        className={`${sizeClasses[size]} object-contain transition-opacity hover:opacity-90`}
       />
     </motion.div>
   );
