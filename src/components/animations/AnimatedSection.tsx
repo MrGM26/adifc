@@ -35,7 +35,7 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       variants={animation.variants}
       initial={animation.initial}
       animate={animation.animate}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={animation.transition}
       className={className}
     >
       {children}
@@ -45,7 +45,7 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 
 interface AnimatedElementProps {
   children: React.ReactNode;
-  variant?: 'fadeInUp' | 'fadeInDown' | 'slideInLeft' | 'slideInRight' | 'zoomIn' | 'scaleUp';
+  variant?: 'fadeInUp' | 'fadeInDown' | 'slideInLeft' | 'slideInRight' | 'zoomIn' | 'scaleUp' | 'rotateIn' | 'flipUp' | 'elastic';
   delay?: number;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
@@ -66,7 +66,7 @@ export const AnimatedElement: React.FC<AnimatedElementProps> = ({
       variants={animation.variants}
       initial={animation.initial}
       animate={animation.animate}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      transition={animation.transition}
       className={className}
     >
       {children}
