@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -32,7 +33,7 @@ const Footer = () => {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold">{t('footer.company.name')}</div>
+            <Logo size="md" showText={true} className="text-primary-foreground [&>*]:text-primary-foreground [&_p]:text-primary-foreground/80" />
             <p className="text-primary-foreground/80 leading-relaxed">
               {t('footer.company.desc')}
             </p>
@@ -125,7 +126,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-primary-foreground/80">
-              {t('footer.copyright')}
+              {t('footer.copyright').replace('ADIFC', t('footer.company.name'))}
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">

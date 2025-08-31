@@ -24,7 +24,7 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'ADIFC — Quality you trust, the partner you rely on.',
+    'hero.title': 'AbuDhabi International Factory Company — Quality you trust, the partner you rely on.',
     'hero.subtitle': 'We manufacture and supply building materials to global standards, making us the first choice for major projects in the UAE and beyond.',
     'hero.cta': 'Get Quote',
     
@@ -172,8 +172,8 @@ const translations = {
     'casestudies.testimonial.title': 'Project Director, Emirates Construction',
     
     // Footer
-    'footer.company.name': 'ADIFC',
-    'footer.company.desc': 'Abu Dhabi International Factory - Quality building materials manufacturer serving the UAE and beyond since 2008.',
+    'footer.company.name': 'AbuDhabi International Factory Company',
+    'footer.company.desc': 'AbuDhabi International Factory Company - Quality building materials manufacturer serving the UAE and beyond since 2008.',
     'footer.quicklinks.title': 'Quick Links',
     'footer.quicklinks.about': 'About Us',
     'footer.quicklinks.products': 'Products',
@@ -192,7 +192,7 @@ const translations = {
     'footer.newsletter.title': 'Newsletter',
     'footer.newsletter.placeholder': 'Your email',
     'footer.newsletter.subscribe': 'Subscribe',
-    'footer.copyright': '© 2024 Abu Dhabi International Factory (ADIFC). All rights reserved.',
+    'footer.copyright': '© 2024 AbuDhabi International Factory Company. All rights reserved.',
     'footer.terms': 'Terms & Conditions',
     'footer.privacy': 'Privacy Policy',
     'footer.cookies': 'Cookies Policy',
@@ -211,7 +211,7 @@ const translations = {
     'nav.contact': 'تواصل معنا',
     
     // Hero
-    'hero.title': 'ADIFC — الجودة التي تثق بها، والشريك الذي تعتمد عليه.',
+    'hero.title': 'شركة مصنع أبوظبي الدولي — الجودة التي تثق بها، والشريك الذي تعتمد عليه.',
     'hero.subtitle': 'نصنع ونورد مواد البناء بمعايير عالمية لنكون الخيار الأول للمشاريع الكبرى في الإمارات وخارجها.',
     'hero.cta': 'احصل على عرض سعر',
     
@@ -359,8 +359,8 @@ const translations = {
     'casestudies.testimonial.title': 'مدير المشاريع، شركة الإمارات للإنشاءات',
     
     // Footer
-    'footer.company.name': 'ADIFC',
-    'footer.company.desc': 'مصنع أبوظبي الدولي - مُصنِّع مواد البناء عالية الجودة يخدم دولة الإمارات والمنطقة منذ عام 2008.',
+    'footer.company.name': 'شركة مصنع أبوظبي الدولي',
+    'footer.company.desc': 'شركة مصنع أبوظبي الدولي - مصنع مواد البناء عالية الجودة يخدم دولة الإمارات وخارجها منذ عام 2008.',
     'footer.quicklinks.title': 'روابط سريعة',
     'footer.quicklinks.about': 'عن ADIFC',
     'footer.quicklinks.products': 'المنتجات',
@@ -379,7 +379,7 @@ const translations = {
     'footer.newsletter.title': 'النشرة الإخبارية',
     'footer.newsletter.placeholder': 'بريدك الإلكتروني',
     'footer.newsletter.subscribe': 'اشتراك',
-    'footer.copyright': '© 2024 مصنع أبوظبي الدولي (ADIFC). جميع الحقوق محفوظة.',
+    'footer.copyright': '© 2024 شركة مصنع أبوظبي الدولي. جميع الحقوق محفوظة.',
     'footer.terms': 'الشروط والأحكام',
     'footer.privacy': 'سياسة الخصوصية',
     'footer.cookies': 'سياسة ملفات تعريف الارتباط',
