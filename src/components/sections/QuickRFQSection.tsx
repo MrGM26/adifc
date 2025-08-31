@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Upload, Clock, FileText } from 'lucide-react';
+import { Upload, Clock, FileText, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
 
 const QuickRFQSection = () => {
   const { t } = useLanguage();
@@ -42,52 +43,60 @@ const QuickRFQSection = () => {
 
   return (
     <section id="pricing" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+      <AnimatedSection className="">
+        <div className="container mx-auto px-4">
+        <AnimatedElement variant="fadeInUp" className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-foreground">
             {t('rfq.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             {t('rfq.subtitle')}
           </p>
-        </div>
+        </AnimatedElement>
 
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {/* Process Steps */}
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-2">{t('rfq.process.submit')}</h3>
-                <p className="text-sm text-muted-foreground">{t('rfq.process.submitDesc')}</p>
-              </CardContent>
-            </Card>
+            <AnimatedElement variant="fadeInUp" delay={0.1}>
+              <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/20">
+                <CardContent className="p-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <FileText className="h-10 w-10 text-white animate-pulse group-hover:animate-none" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 text-primary">{t('rfq.process.submit')}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.submitDesc')}</p>
+                </CardContent>
+              </Card>
+            </AnimatedElement>
 
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-accent" />
-                </div>
-                <h3 className="font-semibold mb-2">{t('rfq.process.analysis')}</h3>
-                <p className="text-sm text-muted-foreground">{t('rfq.process.analysisDesc')}</p>
-              </CardContent>
-            </Card>
+            <AnimatedElement variant="fadeInUp" delay={0.2}>
+              <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-accent/5 to-accent/10 hover:from-accent/10 hover:to-accent/20">
+                <CardContent className="p-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Clock className="h-10 w-10 text-white animate-spin group-hover:animate-pulse" style={{animationDuration: '3s'}} />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 text-accent">{t('rfq.process.analysis')}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.analysisDesc')}</p>
+                </CardContent>
+              </Card>
+            </AnimatedElement>
 
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Upload className="h-8 w-8 text-secondary" />
-                </div>
-                <h3 className="font-semibold mb-2">{t('rfq.process.receive')}</h3>
-                <p className="text-sm text-muted-foreground">{t('rfq.process.receiveDesc')}</p>
-              </CardContent>
-            </Card>
+            <AnimatedElement variant="fadeInUp" delay={0.3}>
+              <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-secondary/5 to-secondary/10 hover:from-secondary/10 hover:to-secondary/20">
+                <CardContent className="p-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <FileText className="h-10 w-10 text-white animate-bounce group-hover:animate-pulse" style={{animationDuration: '2s'}} />
+                  </div>
+                  <h3 className="font-bold text-lg mb-3 text-secondary">{t('rfq.process.receive')}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.receiveDesc')}</p>
+                </CardContent>
+              </Card>
+            </AnimatedElement>
           </div>
 
           {/* RFQ Form */}
-          <Card className="shadow-xl">
+          <AnimatedElement variant="fadeInUp" delay={0.4}>
+            <Card className="shadow-xl border-0 bg-gradient-to-br from-background to-muted/20">
             <CardHeader>
               <CardTitle className="text-2xl text-center">{t('rfq.form.title')}</CardTitle>
             </CardHeader>
@@ -196,8 +205,10 @@ const QuickRFQSection = () => {
               </form>
             </CardContent>
           </Card>
+          </AnimatedElement>
         </div>
-      </div>
+        </div>
+      </AnimatedSection>
     </section>
   );
 };
