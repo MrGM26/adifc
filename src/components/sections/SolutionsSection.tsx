@@ -84,26 +84,37 @@ const SolutionsSection = () => {
                 delay={solution.delay}
                 className="group"
               >
-                <Card className="professional-hover glass-card border-0 h-full overflow-hidden">
+                <Card className="professional-hover glass-card border-0 h-full overflow-hidden group cursor-pointer">
                   <div className="relative h-80 overflow-hidden">
                     <img 
                       src={solution.image}
                       alt={t(solution.titleKey)}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
                       loading="lazy"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${solution.gradient}`} />
-                    <div className="shine-effect absolute inset-0" />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${solution.gradient} transition-all duration-500 group-hover:opacity-80`} />
+                    
+                    {/* Enhanced shine effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    </div>
+
+                    {/* Floating particles effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute top-10 left-10 w-2 h-2 bg-accent rounded-full animate-bounce"></div>
+                      <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute bottom-20 left-20 w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+                    </div>
                     
                     {/* Enhanced Icon and Title Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white transform group-hover:scale-105 transition-transform duration-300">
-                        <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-6 inline-block border border-white/10">
-                          <IconComponent size={56} className="mx-auto" />
+                      <div className="text-center text-white transform group-hover:scale-105 transition-all duration-500 group-hover:translate-y-[-8px]">
+                        <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-6 inline-block border border-white/10 transition-all duration-300 group-hover:bg-white/30 group-hover:border-white/20">
+                          <IconComponent size={56} className="mx-auto transition-all duration-300 group-hover:scale-110" />
                         </div>
                         {/* Solution Title */}
                         <div>
-                          <h3 className="text-3xl font-bold mb-2">
+                          <h3 className="text-3xl font-bold mb-2 transition-all duration-300 group-hover:text-accent">
                             {t(solution.titleKey)}
                           </h3>
                         </div>

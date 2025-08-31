@@ -80,20 +80,31 @@ const ProductsSection = () => {
               delay={product.delay}
               className="group"
             >
-              <Card className="professional-hover glass-card border-0 h-full overflow-hidden">
+              <Card className="professional-hover glass-card border-0 h-full overflow-hidden group cursor-pointer">
                 <div className="relative h-72 overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={t(product.titleKey)}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="shine-effect absolute inset-0" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 group-hover:from-black/60 group-hover:via-black/10" />
                   
-                  {/* Product Title */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2">
+                  {/* Enhanced shine effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                  </div>
+
+                  {/* Floating particles effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute top-8 left-8 w-2 h-2 bg-accent rounded-full animate-bounce"></div>
+                    <div className="absolute top-16 right-16 w-1 h-1 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute bottom-16 left-16 w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+                  </div>
+                  
+                  {/* Product Title with enhanced animation */}
+                  <div className="absolute bottom-6 left-6 right-6 text-white transform transition-all duration-500 group-hover:translate-y-[-8px]">
+                    <h3 className="text-2xl font-bold mb-2 transition-all duration-300 group-hover:text-accent">
                       {t(product.titleKey)}
                     </h3>
                   </div>
