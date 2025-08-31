@@ -30,7 +30,7 @@ const ProductsSection = () => {
     {
       titleKey: 'products.prefab',
       description: t('products.prefab.desc'),
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&crop=center&auto=format',
+      image: '/lovable-uploads/317391a5-5ed3-40a2-a775-b581865ea82a.png',
       delay: 0.3
     },
     {
