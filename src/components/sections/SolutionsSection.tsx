@@ -65,7 +65,7 @@ const SolutionsSection = () => {
             </span>
           </div>
           
-          <h2 className="text-6xl font-bold mb-8 gradient-text leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 gradient-text leading-tight">
             {t('solutions.subtitle')}
           </h2>
           
@@ -165,10 +165,12 @@ const SolutionsSection = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300 px-10 py-4 text-lg font-bold rounded-full hover:scale-105"
+                className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-bold rounded-full hover:scale-105"
               >
-                {t('solutions.cta.button')}
-                <ArrowRight className={`ml-3 ${language === 'ar' ? 'rotate-180 mr-3 ml-0' : ''}`} size={20} />
+                <span className="whitespace-nowrap">
+                  {t('solutions.cta.button')}
+                </span>
+                <ArrowRight className={`ml-2 sm:ml-3 ${language === 'ar' ? 'rotate-180 mr-2 sm:mr-3 ml-0' : ''}`} size={18} />
               </Button>
             </div>
           </div>

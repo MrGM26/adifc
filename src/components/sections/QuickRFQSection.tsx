@@ -186,10 +186,12 @@ const QuickRFQSection = () => {
                 
                 <Button 
                   type="submit" 
-                  className="w-full text-lg py-6 bg-accent hover:bg-accent/90"
+                  className="w-full text-sm sm:text-base lg:text-lg py-4 sm:py-5 lg:py-6 bg-accent hover:bg-accent/90"
                   size="lg"
                 >
-                  {t('rfq.cta')} - {t('rfq.form.submitBtn')}
+                  <span className="text-center">
+                    {t('rfq.cta')} - {t('rfq.form.submitBtn')}
+                  </span>
                 </Button>
               </form>
             </CardContent>
