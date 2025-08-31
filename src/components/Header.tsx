@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Logo } from '@/components/ui/logo';
+import { LogoIcon } from '@/components/ui/logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Logo size="sm" showText={false} className="cursor-pointer" />
+            <LogoIcon size="sm" />
           </div>
 
           {/* Desktop Navigation */}
