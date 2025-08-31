@@ -41,9 +41,9 @@ const Header = () => {
                   const targetId = item.href.replace('#', '');
                   const targetElement = document.getElementById(targetId);
                   if (targetElement) {
-                    // Increased mobile offset to show section from beginning
+                    // Much larger mobile offset to show section from beginning
                     const isMobile = window.innerWidth < 1024;
-                    const headerHeight = isMobile ? 100 : 80; // Much larger offset for mobile
+                    const headerHeight = isMobile ? 300 : 80; // Increased mobile offset
                     const elementPosition = targetElement.offsetTop - headerHeight;
                     window.scrollTo({
                       top: elementPosition,
@@ -96,9 +96,9 @@ const Header = () => {
                     const targetId = item.href.replace('#', '');
                     const targetElement = document.getElementById(targetId);
                     if (targetElement) {
-                      // Increased mobile offset to show section from beginning
+                      // Much larger mobile offset to show section from beginning
                       const isMobile = window.innerWidth < 1024;
-                      const headerHeight = isMobile ? 100 : 80; // Much larger offset for mobile
+                      const headerHeight = isMobile ? 300 : 80; // Increased mobile offset
                       const elementPosition = targetElement.offsetTop - headerHeight;
                       window.scrollTo({
                         top: elementPosition,
