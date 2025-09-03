@@ -297,7 +297,7 @@ const TeamMembersSection = () => {
         </MobileAnimated>
 
         {/* Enhanced Team Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 grid-animate">
           <AnimatePresence>
             {filteredMembers.map((member, index) => (
               <motion.div
@@ -316,7 +316,7 @@ const TeamMembersSection = () => {
                 className="group cursor-pointer"
                 onClick={() => setSelectedMember(member)}
               >
-                <Card className="modern-card glass-card overflow-hidden h-full transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 border-border/50 hover:border-primary/30 backdrop-blur-sm">
+                <Card className="modern-card glass-card overflow-hidden h-full transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 border-border/50 hover:border-primary/30 backdrop-blur-sm interactive-element animate-zoom-in">
                   <CardContent className="p-0">
                     
                     {/* Enhanced Member Photo */}

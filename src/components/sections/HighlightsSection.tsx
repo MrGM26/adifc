@@ -41,11 +41,11 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-transparent">
+    <section className="py-8 md:py-12 bg-transparent animate-fade-in">
       <div className="container mx-auto px-4">
-        <MobileAnimated variant="fadeUp" delay={0.2} className="text-center mb-12 md:mb-16">
+        <MobileAnimated variant="fadeUp" delay={0.2} className="text-center mb-12 md:mb-16 animate-slide-up">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold gradient-text mb-4"
+            className="text-3xl md:text-4xl font-bold gradient-text mb-4 animate-bounce-in"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
@@ -64,7 +64,7 @@ const HighlightsSection = () => {
           </motion.p>
         </MobileAnimated>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 grid-animate">
           {highlights.map((highlight, index) => {
             const IconComponent = highlight.icon;
             return (
@@ -84,7 +84,7 @@ const HighlightsSection = () => {
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                   className="h-full"
                 >
-                  <Card className="modern-card glass-card border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden">
+                  <Card className="modern-card glass-card border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden interactive-element animate-zoom-in">
                     <CardContent className="p-6 md:p-8 text-center h-full flex flex-col justify-center relative">
                       
                       {/* Animated background gradient */}

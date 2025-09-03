@@ -52,7 +52,7 @@ const Header = () => {
               <motion.a
                 key={item.key}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap relative"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap relative no-underline"
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isLoaded ? 1 : 0 }}
@@ -149,7 +149,7 @@ const Header = () => {
                   <motion.a
                     key={item.key}
                     href={item.href}
-                    className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer touch-friendly"
+                    className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer touch-friendly no-underline"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isLoaded ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
