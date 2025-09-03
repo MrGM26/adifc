@@ -67,7 +67,7 @@
         opacity: 0 !important;
       }
       
-      /* Prevent animation delays that could show grey bars */
+      /* Prevent animation delays that could show grey bars - but allow animations to work */
       .fade-in-up,
       .fade-in-down, 
       .fade-in-left,
@@ -76,9 +76,14 @@
       .mobile-card-enter,
       .stagger-children > * {
         opacity: 1 !important;
-        transform: none !important;
+        transform: translateY(0) !important;
         animation: none !important;
         transition: none !important;
+      }
+      
+      /* Keep animations but prevent initial flashing */
+      [data-motion-component] {
+        opacity: 1 !important;
       }
     </style>
 
