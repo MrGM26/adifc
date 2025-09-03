@@ -152,23 +152,8 @@ interface SkeletonProps {
   rounded?: boolean;
 }
 
-export const AnimatedSkeleton: React.FC<SkeletonProps> = ({
-  width = '100%',
-  height = '20px',
-  className = '',
-  rounded = false
-}) => {
-  return (
-    <motion.div
-      className={`opacity-0 invisible ${rounded ? 'rounded-full' : 'rounded'} ${className}`}
-      style={{ width, height }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0 }}
-      transition={{
-        duration: 0,
-      }}
-    />
-  );
+export const AnimatedSkeleton: React.FC<SkeletonProps> = () => {
+  return null;
 };
 
 // Progressive image loading with animation

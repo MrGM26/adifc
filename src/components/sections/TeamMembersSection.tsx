@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
 
 interface TeamMember {
   id: string;
@@ -184,7 +183,6 @@ const TeamMembersSection = () => {
   const { t, language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [imageLoadStates, setImageLoadStates] = useState<Record<string, boolean>>({});
 
   const filteredMembers = teamMembers.filter(member => 
     activeFilter === 'all' || member.department === activeFilter
@@ -202,10 +200,6 @@ const TeamMembersSection = () => {
     operations: 'from-green-500 to-teal-600',
     sales: 'from-orange-500 to-pink-600',
     quality: 'from-red-500 to-rose-600'
-  };
-
-  const handleImageLoad = (memberId: string) => {
-    setImageLoadStates(prev => ({ ...prev, [memberId]: true }));
   };
 
   return (
@@ -321,19 +315,11 @@ const TeamMembersSection = () => {
                     
                     {/* Enhanced Member Photo */}
                     <div className="relative overflow-hidden">
-                      {!imageLoadStates[member.id] && (
-                        <Skeleton className="w-full aspect-square" />
-                      )}
                       <motion.img
                         src={member.photo}
                         alt={member.name[language]}
-                        className={`
-                          w-full aspect-square object-cover 
-                          transition-all duration-700 group-hover:scale-110
-                          ${imageLoadStates[member.id] ? 'opacity-100' : 'opacity-0'}
-                        `}
-                        onLoad={() => handleImageLoad(member.id)}
-                        loading="lazy"
+                        className="w-full aspect-square object-cover transition-all duration-700 group-hover:scale-110"
+                        loading="eager"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
                       />
