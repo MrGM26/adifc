@@ -76,7 +76,7 @@ const PartnersSection = () => {
   const infinitePartners = [...partners, ...partners, ...partners];
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
+    <section ref={ref} className="py-4 lg:py-6 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse" />

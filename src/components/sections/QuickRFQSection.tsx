@@ -42,7 +42,7 @@ const QuickRFQSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-background">
+    <section id="pricing" className="py-5 bg-background">
       <AnimatedSection className="">
         <div className="container mx-auto px-4">
         <AnimatedElement variant="fadeInUp" className="text-center mb-16">
