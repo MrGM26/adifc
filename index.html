@@ -13,6 +13,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 
+    <!-- Critical CSS to prevent FOUC -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        background-color: white !important;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      
+      #root {
+        background-color: white !important;
+        min-height: 100vh;
+      }
+      
+      /* Hide any potential grey bars/skeleton states */
+      .animate-pulse,
+      .skeleton-loading,
+      .shimmer,
+      [class*="skeleton"],
+      [class*="loading"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+      
+      /* Ensure no grey backgrounds show during load */
+      [class*="bg-muted"],
+      [class*="bg-gray"] {
+        background-color: white !important;
+      }
+      
+      /* Prevent opacity flashing */
+      [style*="opacity: 0"] {
+        opacity: 1 !important;
+      }
+    </style>
+
     <meta property="og:title" content="ADIFC - Quality Building Materials UAE" />
     <meta property="og:description" content="UAE's leading manufacturer of building materials - concrete blocks, interlock pavers, prefab units. Quality you trust, partner you rely on." />
     <meta property="og:type" content="website" />

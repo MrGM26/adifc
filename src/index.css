@@ -113,10 +113,17 @@ All colors MUST be HSL.
   html, body {
     overflow-x: hidden;
     max-width: 100%;
+    background-color: hsl(var(--background)) !important;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  #root {
+    background-color: hsl(var(--background)) !important;
+    min-height: 100vh;
   }
 
   /* Prevent horizontal scroll on all containers */
@@ -126,10 +133,10 @@ All colors MUST be HSL.
   }
 }
 
-/* Enhanced fade-in animations with variants */
+/* Animation states - all visible by default to prevent flashing */
 .fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -150,8 +157,8 @@ All colors MUST be HSL.
 }
 
 .fade-in-left {
-  opacity: 0;
-  transform: translateX(-30px);
+  opacity: 1;
+  transform: translateX(0);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -161,8 +168,8 @@ All colors MUST be HSL.
 }
 
 .fade-in-right {
-  opacity: 0;
-  transform: translateX(30px);
+  opacity: 1;
+  transform: translateX(0);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -172,8 +179,8 @@ All colors MUST be HSL.
 }
 
 .zoom-in {
-  opacity: 0;
-  transform: scale(0.8);
+  opacity: 1;
+  transform: scale(1);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
