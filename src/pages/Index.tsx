@@ -58,40 +58,40 @@ const Index = () => {
     <LanguageProvider>
       <div className="min-h-screen bg-background">
         <Header />
-        <main>
-          <div id="home">
+        <main className="space-y-0">
+          <section id="home">
             <HeroSection />
-          </div>
-          <div id="platform" className="fade-in-up">
+          </section>
+          <section id="platform" className="fade-in-up">
             <HighlightsSection />
-          </div>
-          <div id="vision" className="fade-in-up">
+          </section>
+          <section id="vision" className="fade-in-up">
             <VisionMissionSection />
-          </div>
-          <div id="products" className="fade-in-up">
+          </section>
+          <section id="products" className="fade-in-up">
             <ProductsSection />
-          </div>
-          <div id="partners" className="fade-in-up">
+          </section>
+          <section id="partners" className="fade-in-up">
             <PartnersSection />
-          </div>
-          <div id="team" className="fade-in-up">
+          </section>
+          <section id="team" className="fade-in-up">
             <TeamMembersSection />
-          </div>
-          <div id="solutions" className="fade-in-up">
+          </section>
+          <section id="solutions" className="fade-in-up">
             <SolutionsSection />
-          </div>
-          <div id="pricing" className="fade-in-up">
+          </section>
+          <section id="pricing" className="fade-in-up">
             <QuickRFQSection />
-          </div>
-          <div id="quality" className="fade-in-up">
+          </section>
+          <section id="quality" className="fade-in-up">
             <QualitySection />
-          </div>
-          <div id="cases" className="fade-in-up">
+          </section>
+          <section id="cases" className="fade-in-up">
             <CaseStudiesSection />
-          </div>
-          <div id="contact" className="fade-in-up">
+          </section>
+          <section id="contact" className="fade-in-up">
             <ContactSection />
-          </div>
+          </section>
         </main>
         <Footer />
         <ScrollToTop />
