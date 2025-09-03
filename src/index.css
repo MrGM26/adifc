@@ -596,4 +596,301 @@ html {
     animation: none !important;
   }
 }
+/* Mobile-optimized animations */
+@media (max-width: 768px) {
+  .fade-in-up, .fade-in-down, .fade-in-left, .fade-in-right, .zoom-in {
+    transform: translateY(20px); /* Reduced distance for mobile */
+    transition-duration: 0.6s; /* Faster animations */
+  }
+  
+  .fade-in-left { transform: translateX(-20px); }
+  .fade-in-right { transform: translateX(20px); }
+  .zoom-in { transform: scale(0.9); }
+  
+  .stagger-children > * {
+    transform: translateY(20px);
+    transition-duration: 0.6s;
+  }
+  
+  .stagger-children.animate > *:nth-child(1) { transition-delay: 0.05s; }
+  .stagger-children.animate > *:nth-child(2) { transition-delay: 0.1s; }
+  .stagger-children.animate > *:nth-child(3) { transition-delay: 0.15s; }
+  .stagger-children.animate > *:nth-child(4) { transition-delay: 0.2s; }
+  .stagger-children.animate > *:nth-child(5) { transition-delay: 0.25s; }
+  .stagger-children.animate > *:nth-child(6) { transition-delay: 0.3s; }
+  
+  .modern-card:hover {
+    transform: translateY(-8px) scale(1.01); /* Reduced hover effect */
+  }
+  
+  .modern-button:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+/* Touch-friendly interactions */
+.touch-friendly {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.touch-feedback {
+  transition: all 0.15s ease;
+}
+
+.touch-feedback:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+/* Enhanced mobile card animations */
+.mobile-card-enter {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobile-card-enter.animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Progressive loading animations */
+.skeleton-loading {
+  background: linear-gradient(90deg, 
+    hsl(var(--muted)) 25%, 
+    hsl(var(--muted-foreground) / 0.1) 50%, 
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Micro-interactions */
+.micro-bounce {
+  animation: microBounce 0.6s ease;
+}
+
+@keyframes microBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.micro-pulse {
+  animation: microPulse 1s ease-in-out;
+}
+
+@keyframes microPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Button press animation */
+.press-animation {
+  transition: all 0.1s ease;
+}
+
+.press-animation:active {
+  transform: scale(0.95);
+}
+
+/* Enhanced floating animations for mobile */
+@media (max-width: 768px) {
+  .floating, .floating-delayed, .floating-slow {
+    animation-duration: 4s; /* Shorter on mobile */
+  }
+  
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); } /* Reduced distance */
+  }
+}
+
+/* Loading states with better mobile performance */
+.mobile-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: hsl(var(--muted));
+}
+
+.mobile-shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: mobile-shimmer 2s infinite;
+  content: '';
+}
+
+@keyframes mobile-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Gradient text animation */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Enhanced card hover with better mobile support */
+.modern-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.modern-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.modern-card:hover::before {
+  opacity: 1;
+}
+
+.modern-card:hover {
+  transform: translateY(-12px) scale(1.02) translateZ(0);
+  box-shadow: 
+    0 25px 50px -12px hsl(var(--primary) / 0.25),
+    0 0 0 1px hsl(var(--primary) / 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.modern-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced button animations with shine effect */
+.modern-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 12px;
+  font-weight: 600;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.modern-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.modern-button:hover::before {
+  left: 100%;
+}
+
+.modern-button:hover {
+  transform: translateY(-3px) scale(1.02) translateZ(0);
+  box-shadow: 
+    0 15px 35px -8px hsl(var(--primary) / 0.3),
+    0 0 0 1px hsl(var(--primary) / 0.1);
+}
+
+.modern-button:active {
+  transform: translateY(-1px) scale(1.01) translateZ(0);
+}
+
+/* Improved glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 16px;
+  transform: translateZ(0);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 
+    0 20px 40px -8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-card:hover {
+  background: rgba(15, 23, 42, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Magnetic hover effects with mobile optimization */
+.magnetic-hover {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  transform: translateZ(0);
+}
+
+.magnetic-hover:hover {
+  transform: scale(1.05) translateZ(0);
+}
+
+/* Enhanced glow effects with better performance */
+.glow-primary {
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.glow-primary:hover {
+  box-shadow: 
+    0 0 20px hsl(var(--primary) / 0.4),
+    0 0 40px hsl(var(--primary) / 0.2),
+    0 0 60px hsl(var(--primary) / 0.1);
+}
+
+.glow-accent {
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.glow-accent:hover {
+  box-shadow: 
+    0 0 20px hsl(var(--accent) / 0.4),
+    0 0 40px hsl(var(--accent) / 0.2);
+}
+
 }

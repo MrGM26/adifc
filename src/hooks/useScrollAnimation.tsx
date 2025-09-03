@@ -58,9 +58,15 @@ export const useScrollAnimation = (
   transitionType: keyof typeof transitionTypes = 'default'
 ) => {
   const controls = useAnimation();
+  
+  // Mobile-friendly threshold - lower for mobile devices
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const adjustedThreshold = isMobile ? Math.max(0.05, threshold * 0.5) : threshold;
+  
   const [ref, inView] = useInView({
-    threshold,
+    threshold: adjustedThreshold,
     triggerOnce,
+    rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px', // Earlier trigger on mobile
   });
 
   useEffect(() => {
@@ -83,7 +89,7 @@ export const useScrollAnimation = (
   };
 };
 
-// Hook for parallax scrolling effects
+// Hook for parallax scrolling effects - optimized for mobile
 export const useParallax = (speed = 0.5) => {
   const [ref, inView] = useInView({
     threshold: 0,
@@ -91,8 +97,11 @@ export const useParallax = (speed = 0.5) => {
   });
   
   const controls = useAnimation();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   useEffect(() => {
+    if (isMobile) return; // Disable parallax on mobile for performance
+    
     const handleScroll = () => {
       if (!inView) return;
       
@@ -105,9 +114,9 @@ export const useParallax = (speed = 0.5) => {
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [controls, speed, inView]);
+  }, [controls, speed, inView, isMobile]);
 
   return { ref, controls };
 };
@@ -126,8 +135,9 @@ export const staggerContainer = {
 // Counter animation hook
 export const useCounterAnimation = (endValue: number, duration = 2) => {
   const controls = useAnimation();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: isMobile ? 0.2 : 0.3,
     triggerOnce: true,
   });
 
@@ -138,4 +148,61 @@ export const useCounterAnimation = (endValue: number, duration = 2) => {
   }, [controls, inView]);
 
   return { ref, controls };
+};
+
+// Mobile-optimized touch animations
+export const useTouchAnimation = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  const variants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.23, 1, 0.32, 1],
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  return { ref, inView, variants };
+};
+
+// Enhanced stagger animation for mobile
+export const useMobileStagger = (itemCount: number) => {
+  const [ref, inView] = useInView({
+    threshold: 0.05, // Lower threshold for mobile
+    triggerOnce: true,
+  });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.08, // Faster stagger on mobile
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.23, 1, 0.32, 1]
+      }
+    }
+  };
+
+  return { ref, inView, containerVariants, itemVariants };
 };

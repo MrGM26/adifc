@@ -17,23 +17,39 @@ import ScrollToTop from '@/components/ui/scroll-to-top';
 
 const Index = () => {
   useEffect(() => {
-    // Add smooth scroll behavior and intersection observer for animations
+    // Enhanced mobile-friendly animation observer
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
+          
+          // Add micro-interactions for mobile
+          const isMobile = window.innerWidth < 768;
+          if (isMobile) {
+            entry.target.classList.add('micro-bounce');
+            setTimeout(() => {
+              entry.target.classList.remove('micro-bounce');
+            }, 600);
+          }
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -10% 0px'
+      threshold: window.innerWidth < 768 ? 0.05 : 0.1, // Lower threshold for mobile
+      rootMargin: window.innerWidth < 768 ? '0px 0px -30px 0px' : '0px 0px -50px 0px'
     });
 
     // Observe all elements with animation classes
-    const animatedElements = document.querySelectorAll('.fade-in-up, .stagger-children');
+    const animatedElements = document.querySelectorAll('.fade-in-up, .stagger-children, .mobile-card-enter');
     animatedElements.forEach((el) => observer.observe(el));
+
+    // Add touch-friendly classes to interactive elements on mobile
+    if (window.innerWidth < 768) {
+      document.querySelectorAll('button, a, [role="button"]').forEach(el => {
+        el.classList.add('touch-friendly', 'press-animation');
+      });
+    }
 
     return () => observer.disconnect();
   }, []);
