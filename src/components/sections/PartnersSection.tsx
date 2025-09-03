@@ -117,10 +117,11 @@ const PartnersSection = () => {
             {/* Infinite slider track */}
             <div 
               ref={sliderRef}
-              className={`flex gap-8 items-center ${!isPaused && inView ? 'animate-scroll' : 'paused'}`}
+              className={`flex gap-8 items-center ${inView ? 'animate-scroll' : ''}`}
               style={{
                 width: `${infinitePartners.length * 200}px`,
-                animationDirection: language === 'ar' ? 'reverse' : 'normal'
+                animationDirection: language === 'ar' ? 'reverse' : 'normal',
+                animationPlayState: isPaused ? 'paused' : 'running'
               }}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
