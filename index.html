@@ -13,45 +13,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- Critical CSS to prevent FOUC -->
+    <!-- Critical CSS to prevent FOUC and grey bars -->
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        background-color: transparent !important;
       }
       
-      html, body {
+      html {
         background-color: white !important;
+        background: white !important;
+      }
+      
+      body {
+        background-color: white !important;
+        background: white !important;
         overflow-x: hidden;
         max-width: 100%;
+        font-family: 'Inter', sans-serif;
       }
       
       #root {
         background-color: white !important;
+        background: white !important;
         min-height: 100vh;
       }
       
-      /* Hide any potential grey bars/skeleton states */
+      /* Prevent any grey backgrounds */
+      div, section, article, main, header, footer, nav, aside {
+        background-color: transparent !important;
+      }
+      
+      /* Force all elements to be visible immediately */
+      * {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+      
+      /* Hide any potential loading/skeleton states */
       .animate-pulse,
       .skeleton-loading,
       .shimmer,
       [class*="skeleton"],
-      [class*="loading"] {
+      [class*="loading"],
+      [class*="bg-muted"],
+      [class*="bg-gray"],
+      [style*="opacity: 0"] {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
       }
       
-      /* Ensure no grey backgrounds show during load */
-      [class*="bg-muted"],
-      [class*="bg-gray"] {
-        background-color: white !important;
-      }
-      
-      /* Prevent opacity flashing */
-      [style*="opacity: 0"] {
+      /* Prevent animation delays that could show grey bars */
+      .fade-in-up,
+      .fade-in-down, 
+      .fade-in-left,
+      .fade-in-right,
+      .zoom-in,
+      .mobile-card-enter,
+      .stagger-children > * {
         opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
       }
     </style>
 
@@ -65,8 +92,8 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
 
-  <body>
-    <div id="root"></div>
+      <body style="background-color: white !important; margin: 0; padding: 0;">
+        <div id="root" style="background-color: white !important; min-height: 100vh;"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

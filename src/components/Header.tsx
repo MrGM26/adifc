@@ -31,8 +31,8 @@ const Header = () => {
   return (
     <motion.header 
       className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50 transition-all duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isLoaded ? 1 : 0 }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
       <div className="container mx-auto px-4">
@@ -54,8 +54,8 @@ const Header = () => {
                 href={item.href}
                 className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap relative"
                 whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isLoaded ? 1 : 0 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={(e) => {
                   e.preventDefault();
@@ -139,9 +139,9 @@ const Header = () => {
           {isMenuOpen && (
             <motion.div
               className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md"
-              initial={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 1, height: 'auto' }}
               animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
+              exit={{ opacity: 1, height: 'auto' }}
               transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
             >
               <nav className="py-4 space-y-1">
@@ -150,8 +150,8 @@ const Header = () => {
                     key={item.key}
                     href={item.href}
                     className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer touch-friendly"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: isLoaded ? 1 : 0 }}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
                     whileTap={{ scale: 0.98, backgroundColor: 'hsl(var(--muted) / 0.8)' }}
                     onClick={(e) => {
