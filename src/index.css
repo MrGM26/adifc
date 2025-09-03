@@ -189,10 +189,10 @@ All colors MUST be HSL.
   transform: scale(1);
 }
 
-/* Staggered animations with improved timing */
+/* Staggered animations - start visible */
 .stagger-children > * {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -647,10 +647,10 @@ html {
   opacity: 0.8;
 }
 
-/* Enhanced mobile card animations */
+/* Enhanced mobile card animations - start visible */
 .mobile-card-enter {
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
+  opacity: 1;
+  transform: translateY(0) scale(1);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 

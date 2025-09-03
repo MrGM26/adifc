@@ -216,7 +216,7 @@ const TeamMembersSection = () => {
         <MobileAnimated variant="fadeUp" className="text-center mb-12 lg:mb-16">
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -225,7 +225,7 @@ const TeamMembersSection = () => {
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -240,7 +240,7 @@ const TeamMembersSection = () => {
             {/* Filter label - visible on mobile */}
             <motion.div 
               className="flex items-center gap-2 text-muted-foreground text-sm"
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
@@ -252,7 +252,7 @@ const TeamMembersSection = () => {
             {/* Responsive filter container */}
             <motion.div 
               className="w-full max-w-4xl"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 1, scale: 1 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
@@ -276,7 +276,7 @@ const TeamMembersSection = () => {
                       `}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
+                      initial={{ opacity: 1, x: 0 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + index * 0.05 }}
                     >
@@ -297,9 +297,9 @@ const TeamMembersSection = () => {
               <motion.div
                 key={member.id}
                 layout
-                initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                initial={{ opacity: 1, scale: 1, y: 0 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8, y: -40 }}
+                exit={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ 
                   delay: index * 0.1, 
                   duration: 0.6, 
@@ -334,7 +334,7 @@ const TeamMembersSection = () => {
                       {/* Department Badge */}
                       <motion.div 
                         className="absolute top-4 right-4"
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 1, scale: 1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 + index * 0.05 }}
                       >

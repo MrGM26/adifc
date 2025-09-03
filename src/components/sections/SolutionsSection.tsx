@@ -90,7 +90,7 @@ const SolutionsSection = () => {
                       src={solution.image}
                       alt={t(solution.titleKey)}
                       className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
-                      loading="lazy"
+                      loading="eager"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${solution.gradient} transition-all duration-500 group-hover:opacity-80`} />
                     

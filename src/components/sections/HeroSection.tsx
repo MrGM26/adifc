@@ -29,7 +29,7 @@ const HeroSection = () => {
       {/* Modern Gradient Overlay - reduced opacity to show image */}
       <motion.div 
         className="absolute inset-0 z-10 bg-gradient-to-br from-primary/60 via-primary/40 to-accent/60"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
       />
@@ -66,7 +66,7 @@ const HeroSection = () => {
         <MobileAnimated variant="fadeUp" delay={0.2}>
           <motion.h1 
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
           >
@@ -77,7 +77,7 @@ const HeroSection = () => {
         <MobileAnimated variant="fadeUp" delay={0.4}>
           <motion.p 
             className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
           >
@@ -125,7 +125,7 @@ const HeroSection = () => {
             <motion.div
               key={index}
               className="text-center modern-card glow-primary p-4 md:p-6 rounded-2xl touch-friendly"
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 1, scale: 1, y: 0 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 1 + index * 0.1, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
               whileHover={{ scale: 1.05, y: -2 }}
