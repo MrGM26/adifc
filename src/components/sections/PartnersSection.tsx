@@ -107,24 +107,25 @@ const PartnersSection = () => {
           </motion.p>
         </MobileAnimated>
 
-        {/* Infinite Partners Slider */}
+        {/* Infinite Partners Slider - Mobile Responsive */}
         <MobileAnimated variant="scale" delay={0.3} className="relative">
-          <div className="relative overflow-hidden rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 p-8">
-            {/* Gradient overlays */}
-            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 p-4 sm:p-6 lg:p-8">
+            {/* Responsive Gradient overlays */}
+            <div className="absolute left-0 top-0 w-8 sm:w-16 lg:w-32 h-full bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-8 sm:w-16 lg:w-32 h-full bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
             
-            {/* Infinite slider track */}
+            {/* Infinite slider track - Mobile Responsive */}
             <div 
               ref={sliderRef}
-              className={`flex gap-8 items-center ${inView ? 'animate-scroll' : ''}`}
+              className={`flex gap-3 sm:gap-4 lg:gap-8 items-center ${inView ? 'animate-scroll-mobile sm:animate-scroll' : ''}`}
               style={{
-                width: `${infinitePartners.length * 200}px`,
                 animationDirection: language === 'ar' ? 'reverse' : 'normal',
                 animationPlayState: isPaused ? 'paused' : 'running'
               }}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
             >
               {infinitePartners.map((partner, index) => (
                 <PartnerLogo 
@@ -137,11 +138,22 @@ const PartnersSection = () => {
         </MobileAnimated>
       </div>
 
-      {/* CSS for infinite scroll animation */}
+      {/* CSS for responsive infinite scroll animation */}
       <style>{`
+        /* Mobile animation - smaller logos and gaps */
+        @keyframes scroll-mobile {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-${partners.length * 120}px); }
+        }
+        
+        /* Desktop animation - larger logos and gaps */
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-${partners.length * 200}px); }
+        }
+        
+        .animate-scroll-mobile {
+          animation: scroll-mobile ${partners.length * 5}s linear infinite;
         }
         
         .animate-scroll {
@@ -165,8 +177,17 @@ const PartnerLogo: React.FC<{
 
   const LogoContent = () => (
     <motion.div 
-      className="w-48 h-28 bg-card/60 backdrop-blur-sm rounded-xl border border-border/30 p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/80 flex items-center justify-center overflow-hidden relative group"
-      whileHover={{ scale: 1.05, y: -4 }}
+      className="
+        w-24 h-16 sm:w-32 sm:h-20 lg:w-48 lg:h-28 
+        bg-card/60 backdrop-blur-sm rounded-lg sm:rounded-xl 
+        border border-border/30 p-3 sm:p-4 lg:p-6 
+        transition-all duration-300 hover:border-primary/40 
+        hover:shadow-xl hover:shadow-primary/10 hover:bg-card/80 
+        flex items-center justify-center overflow-hidden relative group
+        flex-shrink-0
+      "
+      whileHover={{ scale: 1.02, y: -2 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3 }}
     >
       {/* Animated background gradient */}
