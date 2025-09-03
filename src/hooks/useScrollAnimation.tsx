@@ -2,42 +2,42 @@ import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 
-// Enhanced Animation variants with modern easing
+// NO GREY BARS - Animation variants start fully visible
 export const animationVariants = {
   fadeInUp: {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 1, y: 0 },
     visible: { opacity: 1, y: 0 }
   },
   fadeInDown: {
-    hidden: { opacity: 0, y: -60 },
+    hidden: { opacity: 1, y: 0 },
     visible: { opacity: 1, y: 0 }
   },
   slideInLeft: {
-    hidden: { opacity: 0, x: -80 },
+    hidden: { opacity: 1, x: 0 },
     visible: { opacity: 1, x: 0 }
   },
   slideInRight: {
-    hidden: { opacity: 0, x: 80 },
+    hidden: { opacity: 1, x: 0 },
     visible: { opacity: 1, x: 0 }
   },
   zoomIn: {
-    hidden: { opacity: 0, scale: 0.6 },
+    hidden: { opacity: 1, scale: 1 },
     visible: { opacity: 1, scale: 1 }
   },
   scaleUp: {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 1, scale: 1 },
     visible: { opacity: 1, scale: 1 }
   },
   rotateIn: {
-    hidden: { opacity: 0, rotate: -10, scale: 0.9 },
+    hidden: { opacity: 1, rotate: 0, scale: 1 },
     visible: { opacity: 1, rotate: 0, scale: 1 }
   },
   flipUp: {
-    hidden: { opacity: 0, rotateX: -90 },
+    hidden: { opacity: 1, rotateX: 0 },
     visible: { opacity: 1, rotateX: 0 }
   },
   elastic: {
-    hidden: { opacity: 0, scale: 0.3 },
+    hidden: { opacity: 1, scale: 1 },
     visible: { opacity: 1, scale: 1 }
   }
 };
@@ -82,10 +82,10 @@ export const useScrollAnimation = (
   return {
     ref,
     controls,
-    animate: controls,
-    initial: 'hidden',
+    animate: 'visible', // Always visible
+    initial: 'visible', // Start visible
     variants: animationVariants[variant],
-    transition
+    transition: { duration: 0 } // No transition
   };
 };
 
@@ -158,15 +158,15 @@ export const useTouchAnimation = () => {
   });
 
   const variants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    hidden: { opacity: 1, scale: 1, y: 0 },
     visible: { 
       opacity: 1, 
       scale: 1, 
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0,
         ease: [0.23, 1, 0.32, 1],
-        staggerChildren: 0.1
+        staggerChildren: 0
       }
     }
   };
@@ -192,13 +192,13 @@ export const useMobileStagger = (itemCount: number) => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    hidden: { opacity: 1, y: 0, scale: 1 },
     visible: { 
       opacity: 1, 
       y: 0, 
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0,
         ease: [0.23, 1, 0.32, 1]
       }
     }

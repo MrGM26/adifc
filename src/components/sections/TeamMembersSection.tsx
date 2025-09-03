@@ -298,17 +298,17 @@ const TeamMembersSection = () => {
 
         {/* Enhanced Team Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {filteredMembers.map((member, index) => (
               <motion.div
                 key={member.id}
                 layout
-                initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                initial={{ opacity: 1, scale: 1, y: 0 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -40 }}
                 transition={{ 
-                  delay: index * 0.1, 
-                  duration: 0.6, 
+                  delay: index * 0.05, 
+                  duration: 0.3, 
                   ease: [0.23, 1, 0.32, 1],
                   layout: { duration: 0.4 }
                 }}
