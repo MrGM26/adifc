@@ -75,14 +75,6 @@ const PartnersSection = () => {
   // Create multiple copies for infinite loop
   const infinitePartners = [...partners, ...partners, ...partners];
 
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-  };
-
   return (
     <section ref={ref} className="py-16 lg:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
       {/* Background decorations */}
@@ -130,15 +122,13 @@ const PartnersSection = () => {
                 width: `${infinitePartners.length * 200}px`,
                 animationDirection: language === 'ar' ? 'reverse' : 'normal'
               }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
               {infinitePartners.map((partner, index) => (
                 <PartnerLogo 
                   key={`${partner.id}-${index}`} 
-                  partner={partner} 
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  partner={partner}
                 />
               ))}
             </div>
@@ -168,17 +158,13 @@ const PartnersSection = () => {
 // Partner Logo Component
 const PartnerLogo: React.FC<{ 
   partner: Partner; 
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}> = ({ partner, onMouseEnter, onMouseLeave }) => {
+}> = ({ partner }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   const LogoContent = () => (
     <motion.div 
-      className="w-48 h-28 bg-card/60 backdrop-blur-sm rounded-xl border border-border/30 p-6 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/80 flex items-center justify-center overflow-hidden relative group"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      className="w-48 h-28 bg-card/60 backdrop-blur-sm rounded-xl border border-border/30 p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/80 flex items-center justify-center overflow-hidden relative group"
       whileHover={{ scale: 1.05, y: -4 }}
       transition={{ duration: 0.3 }}
     >
@@ -201,21 +187,19 @@ const PartnerLogo: React.FC<{
             />
           )}
           
-          <motion.img
+          <img
             src={partner.logo}
             alt={`${partner.name} logo`}
             className={`
               max-w-full max-h-full object-contain 
               filter grayscale group-hover:grayscale-0 
-              transition-all duration-500 relative z-10
+              transition-all duration-300 relative z-10
               ${imageLoaded ? 'opacity-100' : 'opacity-0'}
             `}
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageError(true)}
             loading="lazy"
             decoding="async"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
           />
         </>
       ) : (
