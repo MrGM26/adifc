@@ -318,14 +318,18 @@ const TeamMembersSection = () => {
                       <motion.img
                         src={member.photo}
                         alt={member.name[language]}
-                        className="w-full aspect-square object-cover transition-all duration-700 group-hover:scale-110"
-                        loading="eager"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.6 }}
+                        className="w-full aspect-square object-cover transition-all duration-300 group-hover:scale-105"
+                        style={{ display: 'block' }}
+                        onLoad={(e) => {
+                          e.currentTarget.style.opacity = '1';
+                        }}
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'block';
+                        }}
                       />
                       
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Gradient Overlay - Removed opacity transitions */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-100 transition-opacity duration-300" />
                       
                       {/* Department Badge */}
                       <motion.div 
@@ -342,9 +346,9 @@ const TeamMembersSection = () => {
                         </Badge>
                       </motion.div>
                       
-                      {/* Contact Icons Overlay */}
+                      {/* Contact Icons Overlay - Simplified */}
                       <motion.div 
-                        className="absolute bottom-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                        className="absolute bottom-4 left-4 flex gap-2 group-hover:opacity-100 transition-opacity duration-300"
                         initial={{ y: 20 }}
                         whileHover={{ y: 0 }}
                       >
