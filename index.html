@@ -8,6 +8,42 @@
     <meta name="author" content="ADIFC" />
     <meta name="keywords" content="UAE building materials, concrete blocks, interlock pavers, prefab units, construction materials UAE, ADIFC" />
 
+    <!-- Critical CSS to prevent grey bars (FOUC) -->
+    <style>
+      /* Force all animated elements to be visible initially */
+      .fade-in-up, .fade-in-down, .fade-in-left, .fade-in-right, .zoom-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      /* Override Framer Motion hidden states */
+      [data-framer-name] {
+        opacity: 1 !important;
+      }
+      
+      /* Ensure staggered children are visible */
+      .stagger-children > * {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      /* Prevent any element from being completely hidden */
+      [style*="opacity: 0"], [style*="opacity:0"] {
+        opacity: 1 !important;
+      }
+      
+      /* Override inline styles that might cause grey bars */
+      div[style*="opacity: 0"] {
+        opacity: 1 !important;
+      }
+      
+      /* Ensure white background is always present */
+      html, body, #root {
+        background-color: white !important;
+        opacity: 1 !important;
+      }
+    </style>
+
     <!-- Arabic Font Support -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
