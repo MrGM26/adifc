@@ -8,7 +8,7 @@ const VisionMissionSection = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section className="py-4 lg:py-6 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
+    <section className="py-8 lg:py-12 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
       {/* Industrial Background Texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-transparent opacity-30"></div>

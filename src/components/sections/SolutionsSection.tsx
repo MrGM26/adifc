@@ -51,7 +51,7 @@ const SolutionsSection = () => {
   ];
 
   return (
-    <AnimatedSection className="py-8 bg-gradient-to-b from-muted/20 via-background to-muted/10 relative overflow-hidden">
+    <AnimatedSection className="py-12 bg-gradient-to-b from-muted/20 via-background to-muted/10 relative overflow-hidden">
       {/* Advanced Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[linear-gradient(30deg,hsl(var(--primary)/0.1)_12%,transparent_12.5%,transparent_87%,hsl(var(--primary)/0.1)_87.5%,hsl(var(--primary)/0.1)),linear-gradient(150deg,hsl(var(--primary)/0.1)_12%,transparent_12.5%,transparent_87%,hsl(var(--primary)/0.1)_87.5%,hsl(var(--primary)/0.1)),linear-gradient(30deg,hsl(var(--primary)/0.1)_12%,transparent_12.5%,transparent_87%,hsl(var(--primary)/0.1)_87.5%,hsl(var(--primary)/0.1)),linear-gradient(150deg,hsl(var(--primary)/0.1)_12%,transparent_12.5%,transparent_87%,hsl(var(--primary)/0.1)_87.5%,hsl(var(--primary)/0.1))] bg-[length:80px_140px]"></div>

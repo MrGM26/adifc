@@ -27,7 +27,7 @@ const QualitySection = () => {
   ];
 
   return (
-    <AnimatedSection className="py-5 bg-background">
+    <AnimatedSection className="py-8 bg-background">
       <div className="container mx-auto px-4">
         <AnimatedElement variant="fadeInUp" className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-foreground">

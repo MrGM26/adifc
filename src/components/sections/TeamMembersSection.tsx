@@ -209,7 +209,7 @@ const TeamMembersSection = () => {
   };
 
   return (
-    <section className="py-4 lg:py-6 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+    <section className="py-8 lg:py-12 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse" />

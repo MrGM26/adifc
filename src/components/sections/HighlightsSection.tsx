@@ -41,7 +41,7 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-4 md:py-5 bg-gradient-subtle">
+    <section className="py-8 md:py-12 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <MobileAnimated variant="fadeUp" delay={0.2} className="text-center mb-12 md:mb-16">
           <motion.h2 
