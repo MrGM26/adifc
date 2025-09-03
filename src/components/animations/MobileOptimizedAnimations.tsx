@@ -160,14 +160,12 @@ export const AnimatedSkeleton: React.FC<SkeletonProps> = ({
 }) => {
   return (
     <motion.div
-      className={`skeleton-loading ${rounded ? 'rounded-full' : 'rounded'} ${className}`}
+      className={`opacity-0 invisible ${rounded ? 'rounded-full' : 'rounded'} ${className}`}
       style={{ width, height }}
-      initial={{ opacity: 0.3 }}
-      animate={{ opacity: [0.3, 0.6, 0.3] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0 }}
       transition={{
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut"
+        duration: 0,
       }}
     />
   );

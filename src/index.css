@@ -666,15 +666,11 @@ html {
   transform: translateY(0) scale(1);
 }
 
-/* Progressive loading animations */
+/* Progressive loading animations - Hidden skeleton */
 .skeleton-loading {
-  background: linear-gradient(90deg, 
-    hsl(var(--muted)) 25%, 
-    hsl(var(--muted-foreground) / 0.1) 50%, 
-    hsl(var(--muted)) 75%
-  );
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
 }
 
 @keyframes loading {
