@@ -124,8 +124,7 @@ All colors MUST be HSL.
     max-width: 100%;
     overflow-x: hidden;
   }
-
-/* Advanced Modern Animation System */
+}
 
 /* Enhanced fade-in animations with variants */
 .fade-in-up {
@@ -885,4 +884,5 @@ html {
   box-shadow: 
     0 0 20px hsl(var(--accent) / 0.4),
     0 0 40px hsl(var(--accent) / 0.2);
+}
 }
