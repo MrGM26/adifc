@@ -61,7 +61,7 @@ const QuickRFQSection = () => {
               <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/20">
                 <CardContent className="p-8">
                   <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <FileText className="h-10 w-10 text-white group-hover:animate-none" />
+                    <FileText className="h-10 w-10 text-white animate-pulse group-hover:animate-none" />
                   </div>
                   <h3 className="font-bold text-lg mb-3 text-primary">{t('rfq.process.submit')}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.submitDesc')}</p>
@@ -73,7 +73,7 @@ const QuickRFQSection = () => {
               <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-accent/5 to-accent/10 hover:from-accent/10 hover:to-accent/20">
                 <CardContent className="p-8">
                   <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent/80 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Clock className="h-10 w-10 text-white animate-spin group-hover:animate-none" style={{animationDuration: '3s'}} />
+                    <Clock className="h-10 w-10 text-white animate-spin group-hover:animate-pulse" style={{animationDuration: '3s'}} />
                   </div>
                   <h3 className="font-bold text-lg mb-3 text-accent">{t('rfq.process.analysis')}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.analysisDesc')}</p>
@@ -85,7 +85,7 @@ const QuickRFQSection = () => {
               <Card className="text-center group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 dark:from-green-900/20 dark:to-green-800/20 dark:hover:from-green-800/30 dark:hover:to-green-700/30">
                 <CardContent className="p-8">
                   <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <FileCheck className="h-10 w-10 text-white animate-bounce group-hover:animate-none" style={{animationDuration: '2s'}} />
+                    <FileCheck className="h-10 w-10 text-white animate-bounce group-hover:animate-pulse" style={{animationDuration: '2s'}} />
                   </div>
                   <h3 className="font-bold text-lg mb-3 text-green-700 dark:text-green-400">{t('rfq.process.receive')}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t('rfq.process.receiveDesc')}</p>

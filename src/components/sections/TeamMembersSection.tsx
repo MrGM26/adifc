@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface TeamMember {
   id: string;
@@ -183,6 +184,7 @@ const TeamMembersSection = () => {
   const { t, language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [imageLoadStates, setImageLoadStates] = useState<Record<string, boolean>>({});
 
   const filteredMembers = teamMembers.filter(member => 
     activeFilter === 'all' || member.department === activeFilter
@@ -202,12 +204,16 @@ const TeamMembersSection = () => {
     quality: 'from-red-500 to-rose-600'
   };
 
+  const handleImageLoad = (memberId: string) => {
+    setImageLoadStates(prev => ({ ...prev, [memberId]: true }));
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -216,7 +222,7 @@ const TeamMembersSection = () => {
         <MobileAnimated variant="fadeUp" className="text-center mb-12 lg:mb-16">
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -225,7 +231,7 @@ const TeamMembersSection = () => {
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -240,7 +246,7 @@ const TeamMembersSection = () => {
             {/* Filter label - visible on mobile */}
             <motion.div 
               className="flex items-center gap-2 text-muted-foreground text-sm"
-              initial={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
@@ -252,13 +258,13 @@ const TeamMembersSection = () => {
             {/* Responsive filter container */}
             <motion.div 
               className="w-full max-w-4xl"
-              initial={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
               {/* Mobile: Vertical stack, Desktop: Horizontal wrap */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-background/80 rounded-2xl p-3 sm:p-1 backdrop-blur-sm border border-border/30">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-muted/30 rounded-2xl p-3 sm:p-1 backdrop-blur-sm border border-border/30">
                 {(['all', 'leadership', 'operations', 'sales', 'quality'] as FilterType[]).map((filter, index) => {
                   const Icon = filter !== 'all' ? departmentIcons[filter as keyof typeof departmentIcons] : Users;
                   const isActive = activeFilter === filter;
@@ -276,7 +282,7 @@ const TeamMembersSection = () => {
                       `}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      initial={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + index * 0.05 }}
                     >
@@ -297,9 +303,9 @@ const TeamMembersSection = () => {
               <motion.div
                 key={member.id}
                 layout
-                initial={{ opacity: 1, scale: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.8, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: -40 }}
                 transition={{ 
                   delay: index * 0.1, 
                   duration: 0.6, 
@@ -315,26 +321,30 @@ const TeamMembersSection = () => {
                     
                     {/* Enhanced Member Photo */}
                     <div className="relative overflow-hidden">
+                      {!imageLoadStates[member.id] && (
+                        <Skeleton className="w-full aspect-square" />
+                      )}
                       <motion.img
                         src={member.photo}
                         alt={member.name[language]}
-                        className="w-full aspect-square object-cover transition-all duration-300 group-hover:scale-105"
-                        style={{ display: 'block' }}
-                        onLoad={(e) => {
-                          e.currentTarget.style.opacity = '1';
-                        }}
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'block';
-                        }}
+                        className={`
+                          w-full aspect-square object-cover 
+                          transition-all duration-700 group-hover:scale-110
+                          ${imageLoadStates[member.id] ? 'opacity-100' : 'opacity-0'}
+                        `}
+                        onLoad={() => handleImageLoad(member.id)}
+                        loading="lazy"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.6 }}
                       />
                       
-                      {/* Gradient Overlay - Removed opacity transitions */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
                       {/* Department Badge */}
                       <motion.div 
                         className="absolute top-4 right-4"
-                        initial={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 + index * 0.05 }}
                       >
@@ -346,9 +356,9 @@ const TeamMembersSection = () => {
                         </Badge>
                       </motion.div>
                       
-                      {/* Contact Icons Overlay - Simplified */}
+                      {/* Contact Icons Overlay */}
                       <motion.div 
-                        className="absolute bottom-4 left-4 flex gap-2 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute bottom-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
                         initial={{ y: 20 }}
                         whileHover={{ y: 0 }}
                       >
@@ -475,7 +485,7 @@ const TeamMembersSection = () => {
                       {selectedMember.email && (
                         <motion.a 
                           href={`mailto:${selectedMember.email}`}
-                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
+                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -488,7 +498,7 @@ const TeamMembersSection = () => {
                           href={selectedMember.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
+                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -499,7 +509,7 @@ const TeamMembersSection = () => {
                       {selectedMember.phone && (
                         <motion.a 
                           href={`tel:${selectedMember.phone}`}
-                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
+                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >

@@ -2,42 +2,42 @@ import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 
-// Enhanced Animation variants with modern easing - proper animations that prevent grey flashing
+// Enhanced Animation variants with modern easing
 export const animationVariants = {
   fadeInUp: {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 60 },
     visible: { opacity: 1, y: 0 }
   },
   fadeInDown: {
-    hidden: { opacity: 0, y: -40 },
+    hidden: { opacity: 0, y: -60 },
     visible: { opacity: 1, y: 0 }
   },
   slideInLeft: {
-    hidden: { opacity: 0, x: -60 },
+    hidden: { opacity: 0, x: -80 },
     visible: { opacity: 1, x: 0 }
   },
   slideInRight: {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, x: 80 },
     visible: { opacity: 1, x: 0 }
   },
   zoomIn: {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.6 },
     visible: { opacity: 1, scale: 1 }
   },
   scaleUp: {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1 }
   },
   rotateIn: {
-    hidden: { opacity: 0, rotate: -5, scale: 0.95 },
+    hidden: { opacity: 0, rotate: -10, scale: 0.9 },
     visible: { opacity: 1, rotate: 0, scale: 1 }
   },
   flipUp: {
-    hidden: { opacity: 0, rotateX: -30 },
+    hidden: { opacity: 0, rotateX: -90 },
     visible: { opacity: 1, rotateX: 0 }
   },
   elastic: {
-    hidden: { opacity: 0, scale: 0.5 },
+    hidden: { opacity: 0, scale: 0.3 },
     visible: { opacity: 1, scale: 1 }
   }
 };
@@ -121,7 +121,7 @@ export const useParallax = (speed = 0.5) => {
   return { ref, controls };
 };
 
-// Staggered container animation - start visible
+// Staggered container animation
 export const staggerContainer = {
   hidden: {},
   visible: {

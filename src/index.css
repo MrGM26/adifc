@@ -113,17 +113,10 @@ All colors MUST be HSL.
   html, body {
     overflow-x: hidden;
     max-width: 100%;
-    background-color: hsl(var(--background)) !important;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  #root {
-    background-color: hsl(var(--background)) !important;
-    min-height: 100vh;
   }
 
   /* Prevent horizontal scroll on all containers */
@@ -131,12 +124,13 @@ All colors MUST be HSL.
     max-width: 100%;
     overflow-x: hidden;
   }
-}
 
-/* Animation states - all visible by default to prevent flashing */
+/* Advanced Modern Animation System */
+
+/* Enhanced fade-in animations with variants */
 .fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -157,8 +151,8 @@ All colors MUST be HSL.
 }
 
 .fade-in-left {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 0;
+  transform: translateX(-30px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -168,8 +162,8 @@ All colors MUST be HSL.
 }
 
 .fade-in-right {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 0;
+  transform: translateX(30px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -179,8 +173,8 @@ All colors MUST be HSL.
 }
 
 .zoom-in {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 0;
+  transform: scale(0.8);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -189,10 +183,10 @@ All colors MUST be HSL.
   transform: scale(1);
 }
 
-/* Staggered animations - start visible */
+/* Staggered animations with improved timing */
 .stagger-children > * {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -390,18 +384,31 @@ All colors MUST be HSL.
   }
 }
 
-/* Shimmer effect completely disabled */
+/* Shimmer effect for loading states */
 .shimmer {
-  display: none !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .shimmer::before {
-  display: none !important;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 2s infinite;
 }
 
 @keyframes shimmer {
-  0% { left: -100%; display: none; }
-  100% { left: 100%; display: none; }
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 /* Parallax effects */
@@ -647,10 +654,10 @@ html {
   opacity: 0.8;
 }
 
-/* Enhanced mobile card animations - start visible */
+/* Enhanced mobile card animations */
 .mobile-card-enter {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -659,11 +666,11 @@ html {
   transform: translateY(0) scale(1);
 }
 
-/* Progressive loading animations - Completely hidden */
+/* Progressive loading animations - Hidden skeleton */
 .skeleton-loading {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
 }
 
 @keyframes loading {
@@ -891,4 +898,6 @@ html {
   box-shadow: 
     0 0 20px hsl(var(--accent) / 0.4),
     0 0 40px hsl(var(--accent) / 0.2);
+}
+
 }

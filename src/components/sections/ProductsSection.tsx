@@ -86,7 +86,7 @@ const ProductsSection = () => {
                     src={product.image} 
                     alt={t(product.titleKey)}
                     className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
-                    loading="eager"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 group-hover:from-black/60 group-hover:via-black/10" />
                   
@@ -98,7 +98,7 @@ const ProductsSection = () => {
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute top-8 left-8 w-2 h-2 bg-accent rounded-full animate-bounce"></div>
-                    <div className="absolute top-16 right-16 w-1 h-1 bg-primary rounded-full" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute top-16 right-16 w-1 h-1 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                     <div className="absolute bottom-16 left-16 w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
                   </div>
                   

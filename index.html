@@ -13,80 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- Critical CSS to prevent FOUC and grey bars -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: transparent !important;
-      }
-      
-      html {
-        background-color: white !important;
-        background: white !important;
-      }
-      
-      body {
-        background-color: white !important;
-        background: white !important;
-        overflow-x: hidden;
-        max-width: 100%;
-        font-family: 'Inter', sans-serif;
-      }
-      
-      #root {
-        background-color: white !important;
-        background: white !important;
-        min-height: 100vh;
-      }
-      
-      /* Prevent any grey backgrounds */
-      div, section, article, main, header, footer, nav, aside {
-        background-color: transparent !important;
-      }
-      
-      /* Force all elements to be visible immediately */
-      * {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-      }
-      
-      /* Hide any potential loading/skeleton states */
-      .animate-pulse,
-      .skeleton-loading,
-      .shimmer,
-      [class*="skeleton"],
-      [class*="loading"],
-      [class*="bg-muted"],
-      [class*="bg-gray"],
-      [style*="opacity: 0"] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
-      
-      /* Prevent animation delays that could show grey bars - but allow animations to work */
-      .fade-in-up,
-      .fade-in-down, 
-      .fade-in-left,
-      .fade-in-right,
-      .zoom-in,
-      .mobile-card-enter,
-      .stagger-children > * {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        animation: none !important;
-        transition: none !important;
-      }
-      
-      /* Keep animations but prevent initial flashing */
-      [data-motion-component] {
-        opacity: 1 !important;
-      }
-    </style>
-
     <meta property="og:title" content="ADIFC - Quality Building Materials UAE" />
     <meta property="og:description" content="UAE's leading manufacturer of building materials - concrete blocks, interlock pavers, prefab units. Quality you trust, partner you rely on." />
     <meta property="og:type" content="website" />
@@ -97,8 +23,8 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
 
-      <body style="background-color: white !important; margin: 0; padding: 0;">
-        <div id="root" style="background-color: white !important; min-height: 100vh;"></div>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

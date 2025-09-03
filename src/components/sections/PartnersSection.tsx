@@ -79,8 +79,8 @@ const PartnersSection = () => {
     <section ref={ref} className="py-16 lg:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-24 h-24 bg-accent/3 rounded-full blur-3xl" />
+        <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 right-1/4 w-24 h-24 bg-accent/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -89,7 +89,7 @@ const PartnersSection = () => {
         <MobileAnimated variant="fadeUp" className="text-center mb-12 lg:mb-16">
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -98,7 +98,7 @@ const PartnersSection = () => {
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
@@ -205,14 +205,14 @@ const PartnerLogo: React.FC<{
             "
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageError(true)}
-            loading="eager"
+            loading="lazy"
             decoding="async"
-            style={{ display: 'block' }}
+            style={{ opacity: imageLoaded ? 1 : 0 }}
           />
         ) : (
           // Fallback for broken images
           <div className="text-muted-foreground text-sm text-center font-medium relative z-10">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-background rounded-full flex items-center justify-center mb-1 mx-auto border">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-muted rounded-full flex items-center justify-center mb-1 mx-auto">
               <span className="text-xs font-bold">{partner.name.charAt(0)}</span>
             </div>
             <span className="text-xs">{partner.name}</span>

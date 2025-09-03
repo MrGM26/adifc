@@ -41,8 +41,8 @@ export const CounterAnimation: React.FC<CounterAnimationProps> = ({
     <motion.span
       ref={ref}
       className={className}
-      initial={{ opacity: 1, scale: 1 }}
-      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
       {displayValue}{suffix}

@@ -51,7 +51,7 @@ const CaseStudiesSection = () => {
   ];
 
   return (
-    <AnimatedSection className="py-20 bg-background">
+    <AnimatedSection className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <AnimatedElement variant="fadeInUp" className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-foreground">
@@ -87,7 +87,7 @@ const CaseStudiesSection = () => {
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute top-6 left-6 w-1.5 h-1.5 bg-accent rounded-full animate-bounce"></div>
-                    <div className="absolute top-10 right-10 w-1 h-1 bg-primary rounded-full" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute top-10 right-10 w-1 h-1 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                     <div className="absolute bottom-10 left-10 w-1 h-1 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
                   </div>
                   
