@@ -48,7 +48,7 @@ const ProductsSection = () => {
   ];
 
   return (
-    <AnimatedSection className="py-12 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+    <AnimatedSection className="py-12 bg-transparent relative overflow-hidden">
       {/* Modern Background Elements */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,hsl(var(--primary)/0.15)_0%,transparent_50%)]"></div>

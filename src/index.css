@@ -600,7 +600,7 @@ All colors MUST be HSL.
   transform: scale(1.08);
 }
 
-/* Modern gradients */
+/* Modern gradients - all transparent to eliminate grey lines */
 .gradient-primary {
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
 }
@@ -621,7 +621,7 @@ All colors MUST be HSL.
 }
 
 .gradient-subtle {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  background: transparent;
 }
 
 /* Mask reveal animations */

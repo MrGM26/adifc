@@ -76,7 +76,7 @@ const PartnersSection = () => {
   const infinitePartners = [...partners, ...partners, ...partners];
 
   return (
-    <section ref={ref} className="py-8 lg:py-12 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
+    <section ref={ref} className="py-8 lg:py-12 bg-transparent overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse" />
@@ -109,7 +109,7 @@ const PartnersSection = () => {
 
         {/* Infinite Partners Slider - Mobile Responsive */}
         <MobileAnimated variant="scale" delay={0.3} className="relative">
-          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 p-4 sm:p-6 lg:p-8">
+          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-transparent backdrop-blur-sm p-4 sm:p-6 lg:p-8">
             {/* Responsive Gradient overlays */}
             <div className="absolute left-0 top-0 w-8 sm:w-16 lg:w-32 h-full bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 w-8 sm:w-16 lg:w-32 h-full bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />

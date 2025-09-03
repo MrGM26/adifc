@@ -41,7 +41,7 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-gradient-subtle">
+    <section className="py-8 md:py-12 bg-transparent">
       <div className="container mx-auto px-4">
         <MobileAnimated variant="fadeUp" delay={0.2} className="text-center mb-12 md:mb-16">
           <motion.h2 
@@ -84,7 +84,7 @@ const HighlightsSection = () => {
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                   className="h-full"
                 >
-                  <Card className="modern-card glass-card border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-card/80 backdrop-blur-sm h-full group touch-friendly overflow-hidden">
+                  <Card className="modern-card glass-card border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden">
                     <CardContent className="p-6 md:p-8 text-center h-full flex flex-col justify-center relative">
                       
                       {/* Animated background gradient */}

@@ -57,7 +57,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-8 bg-muted/30">
+    <section id="contact" className="py-8 bg-transparent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-foreground">
@@ -192,7 +192,7 @@ const ContactSection = () => {
         <div className="mt-16">
           <Card className="overflow-hidden">
             <CardContent className="p-0">
-              <div className="h-96 bg-muted flex items-center justify-center">
+              <div className="h-96 bg-transparent flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                   <p className="text-muted-foreground">{t('contact.map.title')}</p>
