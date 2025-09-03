@@ -14,82 +14,123 @@ import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ui/scroll-to-top';
+import { initializeAnimations } from '@/utils/animationObserver';
 
 const Index = () => {
   useEffect(() => {
-    // Enhanced mobile-friendly animation observer
+    // Initialize premium animation system
+    const premiumAnimationObserver = initializeAnimations();
+    
+    // Enhanced animation observer with premium effects
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          const element = entry.target as HTMLElement;
           
-          // Add micro-interactions for mobile
+          // Apply premium reveal animations
+          element.classList.add('animate', 'revealed');
+          
+          // Add staggered animations to children
+          if (element.classList.contains('stagger-container')) {
+            const children = element.querySelectorAll(':scope > *');
+            children.forEach((child, index) => {
+              setTimeout(() => {
+                child.classList.add('revealed');
+              }, index * 100);
+            });
+          }
+          
+          // Mobile micro-interactions
           const isMobile = window.innerWidth < 768;
-          if (isMobile) {
-            entry.target.classList.add('micro-bounce');
+          if (isMobile && !element.classList.contains('no-bounce')) {
+            element.classList.add('micro-bounce');
             setTimeout(() => {
-              entry.target.classList.remove('micro-bounce');
+              element.classList.remove('micro-bounce');
             }, 600);
+          }
+          
+          // Add shimmer effect to cards
+          if (element.classList.contains('premium-card') || element.classList.contains('modern-card')) {
+            element.classList.add('shimmer-effect');
           }
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: window.innerWidth < 768 ? 0.05 : 0.1, // Lower threshold for mobile
-      rootMargin: window.innerWidth < 768 ? '0px 0px -30px 0px' : '0px 0px -50px 0px'
+      threshold: window.innerWidth < 768 ? 0.05 : 0.1,
+      rootMargin: window.innerWidth < 768 ? '0px 0px -30px 0px' : '0px 0px -100px 0px'
     });
 
-    // Observe all elements with animation classes
-    const animatedElements = document.querySelectorAll('.fade-in-up, .stagger-children, .mobile-card-enter');
-    animatedElements.forEach((el) => observer.observe(el));
+    // Observe all sections and animated elements
+    const elementsToObserve = document.querySelectorAll(`
+      .fade-in-up, 
+      .stagger-children, 
+      .mobile-card-enter,
+      .section-entrance,
+      .reveal-on-scroll,
+      .reveal-fade-up,
+      .reveal-scale-up,
+      .stagger-container,
+      section
+    `);
+    
+    elementsToObserve.forEach((el) => observer.observe(el));
 
-    // Add touch-friendly classes to interactive elements on mobile
+    // Enhanced touch interactions for mobile
     if (window.innerWidth < 768) {
       document.querySelectorAll('button, a, [role="button"]').forEach(el => {
-        el.classList.add('touch-friendly', 'press-animation');
+        el.classList.add('touch-friendly', 'press-animation', 'hover-lift');
+      });
+      
+      // Add premium card effects to all cards
+      document.querySelectorAll('.card, [class*="Card"]').forEach(el => {
+        el.classList.add('premium-card', 'magnetic-element');
       });
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      premiumAnimationObserver.disconnect();
+    };
   }, []);
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background animate-on-scroll">
         <Header />
         <main className="space-y-0">
-          <section id="home">
+          <section id="home" className="section-entrance">
             <HeroSection />
           </section>
-          <section id="platform" className="fade-in-up">
+          <section id="platform" className="fade-in-up section-entrance">
             <HighlightsSection />
           </section>
-          <section id="vision" className="fade-in-up">
+          <section id="vision" className="fade-in-up section-entrance">
             <VisionMissionSection />
           </section>
-          <section id="products" className="fade-in-up">
+          <section id="products" className="fade-in-up section-entrance">
             <ProductsSection />
           </section>
-          <section id="partners" className="fade-in-up">
+          <section id="partners" className="fade-in-up section-entrance">
             <PartnersSection />
           </section>
-          <section id="team" className="fade-in-up">
+          <section id="team" className="fade-in-up section-entrance">
             <TeamMembersSection />
           </section>
-          <section id="solutions" className="fade-in-up">
+          <section id="solutions" className="fade-in-up section-entrance">
             <SolutionsSection />
           </section>
-          <section id="pricing" className="fade-in-up">
+          <section id="pricing" className="fade-in-up section-entrance">
             <QuickRFQSection />
           </section>
-          <section id="quality" className="fade-in-up">
+          <section id="quality" className="fade-in-up section-entrance">
             <QualitySection />
           </section>
-          <section id="cases" className="fade-in-up">
+          <section id="cases" className="fade-in-up section-entrance">
             <CaseStudiesSection />
           </section>
-          <section id="contact" className="fade-in-up">
+          <section id="contact" className="fade-in-up section-entrance">
             <ContactSection />
           </section>
         </main>

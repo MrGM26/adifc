@@ -41,30 +41,33 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-transparent animate-fade-in">
+    <section className="py-8 md:py-12 bg-transparent section-entrance" id="highlights">
+      {/* Animated Divider */}
+      <div className="section-divider"></div>
+      
       <div className="container mx-auto px-4">
-        <MobileAnimated variant="fadeUp" delay={0.2} className="text-center mb-12 md:mb-16 animate-slide-up">
+        <div className="text-center mb-12 md:mb-16 reveal-fade-up">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold gradient-text mb-4 animate-bounce-in"
+            className="text-3xl md:text-4xl font-bold text-gradient-flow mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
           >
             {t('highlights.title')}
           </motion.h2>
           <motion.p 
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto text-reveal"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true, margin: "-50px" }}
           >
             {t('highlights.subtitle')}
           </motion.p>
-        </MobileAnimated>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 grid-animate">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 stagger-container">
           {highlights.map((highlight, index) => {
             const IconComponent = highlight.icon;
             return (
@@ -76,7 +79,7 @@ const HighlightsSection = () => {
               >
                 <motion.div
                   whileHover={{ 
-                    y: -8, 
+                    y: -12, 
                     scale: 1.02,
                     rotateY: 5 
                   }}
@@ -84,7 +87,7 @@ const HighlightsSection = () => {
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                   className="h-full"
                 >
-                  <Card className="modern-card glass-card border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden interactive-element animate-zoom-in">
+                  <Card className="premium-card hover-lift bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden shimmer-effect">
                     <CardContent className="p-6 md:p-8 text-center h-full flex flex-col justify-center relative">
                       
                       {/* Animated background gradient */}
@@ -97,11 +100,11 @@ const HighlightsSection = () => {
                       
                       {/* Icon with enhanced animations */}
                       <motion.div 
-                        className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${highlight.bgClass} mb-6 ${highlight.colorClass} relative z-10`}
+                        className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${highlight.bgClass} mb-6 ${highlight.colorClass} relative z-10 animated-icon float-element`}
                         whileHover={{ 
-                          scale: 1.2, 
+                          scale: 1.3, 
                           rotate: 10,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                          boxShadow: "0 0 30px hsl(var(--primary) / 0.4)"
                         }}
                         transition={{ duration: 0.3, type: "spring", damping: 12 }}
                       >
@@ -163,6 +166,9 @@ const HighlightsSection = () => {
             );
           })}
         </div>
+        
+        {/* Bottom Divider */}
+        <div className="section-divider mt-16"></div>
       </div>
     </section>
   );

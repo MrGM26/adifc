@@ -11,111 +11,125 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero Image Background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-entrance" id="home">
+      {/* Hero Image Background with reveal animation */}
       <motion.div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 image-reveal"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
       />
       
-      {/* Modern Gradient Overlay - reduced opacity to show image */}
+      {/* Premium Gradient Overlay with shimmer */}
       <motion.div 
-        className="absolute inset-0 z-10 bg-gradient-to-br from-primary/60 via-primary/40 to-accent/60"
+        className="absolute inset-0 z-10 bg-gradient-to-br from-primary/70 via-primary/50 to-accent/70 shimmer-effect"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
       />
       
-      {/* Animated floating elements with enhanced variations */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Floating geometric elements */}
+      <div className="absolute inset-0 z-5 overflow-hidden">
         {[
-          { size: 'w-20 h-20', pos: 'top-20 left-10', delay: 0 },
-          { size: 'w-16 h-16', pos: 'top-40 right-20', delay: 1 },
-          { size: 'w-12 h-12', pos: 'bottom-40 left-20', delay: 2 },
-          { size: 'w-8 h-8', pos: 'top-1/2 right-1/3', delay: 3 },
-          { size: 'w-6 h-6', pos: 'bottom-20 right-10', delay: 4 }
+          { size: 'w-24 h-24', pos: 'top-20 left-10', delay: 0, shape: 'rounded-full' },
+          { size: 'w-16 h-16', pos: 'top-40 right-20', delay: 1, shape: 'rounded-lg' },
+          { size: 'w-20 h-20', pos: 'bottom-40 left-20', delay: 2, shape: 'morphing-shape' },
+          { size: 'w-12 h-12', pos: 'top-1/2 right-1/3', delay: 3, shape: 'rounded-full' },
+          { size: 'w-8 h-8', pos: 'bottom-20 right-10', delay: 4, shape: 'rounded-lg' }
         ].map((item, index) => (
           <motion.div
             key={index}
-            className={`absolute bg-white/5 rounded-full ${item.size} ${item.pos}`}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 1.1, 1]
+            className={`absolute bg-white/10 backdrop-blur-sm ${item.size} ${item.pos} ${item.shape} float-element-delayed`}
+            initial={{ opacity: 0, scale: 0, rotate: -180 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1, 
+              rotate: 0,
+              y: [0, -30, 0],
+              x: [0, 15, 0]
             }}
             transition={{
-              duration: 6 + index,
+              duration: 8 + index,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: item.delay
+              delay: item.delay,
+              scale: { duration: 0.6, delay: item.delay },
+              opacity: { duration: 0.8, delay: item.delay }
             }}
+            whileHover={{ scale: 1.2, rotate: 45 }}
           />
         ))}
       </div>
       
-      {/* Content Overlay */}
+      {/* Content with enhanced animations */}
       <div className="relative z-20 container mx-auto px-4 text-center text-white">
-        <MobileAnimated variant="fadeUp" delay={0.2}>
+        <div className="reveal-fade-up">
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gradient-flow"
+            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+            whileHover={{ scale: 1.02 }}
           >
             {t('hero.title')}
           </motion.h1>
-        </MobileAnimated>
+        </div>
         
-        <MobileAnimated variant="fadeUp" delay={0.4}>
+        <div className="reveal-scale-up">
           <motion.p 
-            className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90 text-reveal"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
           >
             {t('hero.subtitle')}
           </motion.p>
-        </MobileAnimated>
+        </div>
         
-        <MobileAnimated variant="scale" delay={0.6} className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20 stagger-container">
           <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            className="reveal-on-scroll"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Button 
               size="lg" 
-              className="modern-button glass-card glow-primary bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-bold shadow-lg transform-gpu touch-friendly press-animation" 
+              className="glow-button hover-lift bg-accent hover:bg-accent/90 text-white px-10 py-6 text-xl font-bold shadow-2xl transform-gpu touch-friendly pulse-glow" 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('hero.cta')}
             </Button>
           </motion.div>
+          
           <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            className="reveal-on-scroll"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Button 
               size="lg" 
-              className="modern-button glass-card glow-accent text-white hover:bg-white/20 hover:text-white px-8 py-4 text-lg font-bold shadow-lg transform-gpu touch-friendly press-animation" 
+              className="glow-button hover-lift bg-transparent border-2 border-white/30 hover:bg-white/20 text-white px-10 py-6 text-xl font-bold shadow-2xl backdrop-blur-sm transform-gpu touch-friendly" 
               onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('nav.products')}
             </Button>
           </motion.div>
-        </MobileAnimated>
+        </div>
 
-        {/* Enhanced Trust Indicators with Counter Animations */}
-        <MobileAnimated variant="bounce" delay={0.8} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
+        {/* Premium Trust Indicators */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto stagger-container">
           {[
             { value: 2008, suffix: '', key: 'hero.stats.established' },
             { value: 'UAE', suffix: '', key: 'hero.stats.coverage' },
@@ -124,29 +138,52 @@ const HeroSection = () => {
           ].map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center modern-card glow-primary p-4 md:p-6 rounded-2xl touch-friendly"
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 1 + index * 0.1, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              className="premium-card magnetic-element text-center bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-2xl touch-friendly shimmer-effect"
+              initial={{ opacity: 0, scale: 0.5, y: 60, rotateX: -90 }}
+              animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+              transition={{ 
+                delay: 1.5 + index * 0.15, 
+                duration: 0.8, 
+                ease: [0.23, 1, 0.32, 1],
+                type: "spring",
+                damping: 15
+              }}
+              whileHover={{ 
+                scale: 1.08, 
+                y: -8,
+                rotateY: 5,
+                rotateX: 5
+              }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="text-2xl md:text-3xl font-bold text-white mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-3 float-element">
                 {typeof stat.value === 'number' ? (
                   <CounterAnimation to={stat.value} suffix={stat.suffix} />
                 ) : (
                   <motion.div
-                    animate={{ rotateY: [0, 360] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index }}
+                    className="typewriter"
+                    animate={{ 
+                      rotateY: [0, 360],
+                      textShadow: ["0 0 5px rgba(255,255,255,0.5)", "0 0 15px rgba(255,255,255,0.8)", "0 0 5px rgba(255,255,255,0.5)"]
+                    }}
+                    transition={{ 
+                      rotateY: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index },
+                      textShadow: { duration: 2, repeat: Infinity }
+                    }}
                   >
                     {stat.value}
                   </motion.div>
                 )}
               </div>
-              <div className="text-xs md:text-sm opacity-80">{t(stat.key)}</div>
+              <div className="text-sm md:text-base text-white/90 font-medium">{t(stat.key)}</div>
             </motion.div>
           ))}
-        </MobileAnimated>
+        </div>
+      </div>
+      
+      {/* Bottom section divider */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <div className="section-divider"></div>
       </div>
     </section>
   );
