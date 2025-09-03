@@ -218,6 +218,7 @@ const translations = {
     // Team
     'team.title': 'Our Team',
     'team.subtitle': 'Meet the experts driving innovation in construction materials',
+    'team.filter.label': 'Filter by Department',
     'team.filter.all': 'All Departments',
     'team.filter.leadership': 'Leadership',
     'team.filter.operations': 'Operations', 
@@ -433,6 +434,7 @@ const translations = {
     // Team
     'team.title': 'فريقنا',
     'team.subtitle': 'تعرف على الخبراء الذين يقودون الابتكار في مواد البناء',
+    'team.filter.label': 'تصفية حسب القسم',
     'team.filter.all': 'جميع الأقسام',
     'team.filter.leadership': 'القيادة',
     'team.filter.operations': 'العمليات',

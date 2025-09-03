@@ -110,8 +110,19 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Prevent horizontal scroll on all containers */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
 /* Advanced Modern Animation System */

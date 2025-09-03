@@ -240,42 +240,60 @@ const TeamMembersSection = () => {
           </motion.p>
         </MobileAnimated>
 
-        {/* Enhanced Department Filters */}
-        <MobileAnimated variant="scale" delay={0.2} className="flex flex-wrap justify-center gap-3 mb-12">
-          <motion.div 
-            className="flex items-center gap-2 bg-muted/50 rounded-full p-1 backdrop-blur-sm border border-border/50"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <Filter className="w-4 h-4 text-muted-foreground ml-3" />
-            {(['all', 'leadership', 'operations', 'sales', 'quality'] as FilterType[]).map((filter, index) => {
-              const Icon = filter !== 'all' ? departmentIcons[filter as keyof typeof departmentIcons] : Users;
-              const isActive = activeFilter === filter;
-              return (
-                <motion.button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`
-                    flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-                    ${isActive 
-                      ? 'bg-primary text-primary-foreground shadow-lg' 
-                      : 'hover:bg-muted text-muted-foreground hover:text-foreground'
-                    }
-                  `}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 + index * 0.05 }}
-                >
-                  <Icon className="w-4 h-4" />
-                  {t(`team.filter.${filter}`)}
-                </motion.button>
-              );
-            })}
-          </motion.div>
+        {/* Enhanced Department Filters - Mobile Responsive */}
+        <MobileAnimated variant="scale" delay={0.2} className="mb-12 px-4 sm:px-0">
+          <div className="flex flex-col items-center gap-4">
+            {/* Filter label - visible on mobile */}
+            <motion.div 
+              className="flex items-center gap-2 text-muted-foreground text-sm"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Filter className="w-4 h-4" />
+              <span>{t('team.filter.label')}</span>
+            </motion.div>
+            
+            {/* Responsive filter container */}
+            <motion.div 
+              className="w-full max-w-4xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              {/* Mobile: Vertical stack, Desktop: Horizontal wrap */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-muted/30 rounded-2xl p-3 sm:p-1 backdrop-blur-sm border border-border/30">
+                {(['all', 'leadership', 'operations', 'sales', 'quality'] as FilterType[]).map((filter, index) => {
+                  const Icon = filter !== 'all' ? departmentIcons[filter as keyof typeof departmentIcons] : Users;
+                  const isActive = activeFilter === filter;
+                  return (
+                    <motion.button
+                      key={filter}
+                      onClick={() => setActiveFilter(filter)}
+                      className={`
+                        w-full sm:w-auto flex items-center justify-center sm:justify-start gap-2 px-4 py-3 sm:py-2 
+                        rounded-xl sm:rounded-full text-sm font-medium transition-all duration-300 min-w-0 flex-shrink-0
+                        ${isActive 
+                          ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' 
+                          : 'hover:bg-muted/60 text-muted-foreground hover:text-foreground hover:shadow-md'
+                        }
+                      `}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + index * 0.05 }}
+                    >
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">{t(`team.filter.${filter}`)}</span>
+                    </motion.button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
         </MobileAnimated>
 
         {/* Enhanced Team Grid */}
