@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -7,7 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+
+  // Prevent flash during initial load
+  useEffect(() => {
+    setIsLoaded(true);
+  }, [language]);
 
   const navigationItems = [
     { key: 'nav.home', href: '#home' },
@@ -25,9 +31,9 @@ const Header = () => {
   return (
     <motion.header 
       className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50 transition-all duration-300"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isLoaded ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
@@ -41,16 +47,16 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className={`hidden lg:flex items-center ${language === 'ar' ? 'space-x-reverse space-x-6 xl:space-x-8' : 'space-x-6 xl:space-x-8'}`}>
             {navigationItems.map((item, index) => (
               <motion.a
                 key={item.key}
                 href={item.href}
                 className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap relative"
                 whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isLoaded ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
                 onClick={(e) => {
                   e.preventDefault();
                   const targetId = item.href.replace('#', '');
@@ -69,7 +75,7 @@ const Header = () => {
               >
                 {t(item.key)}
                 <motion.div
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"
+                  className={`absolute -bottom-1 w-full h-0.5 bg-primary ${language === 'ar' ? 'right-0' : 'left-0'}`}
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.2 }}
@@ -79,13 +85,13 @@ const Header = () => {
           </nav>
 
           {/* Language Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className={`flex items-center ${language === 'ar' ? 'space-x-reverse space-x-2 sm:space-x-4' : 'space-x-2 sm:space-x-4'}`}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={toggleLanguage}
-                className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3"
+                className={`flex items-center px-2 sm:px-3 ${language === 'ar' ? 'space-x-reverse space-x-1 sm:space-x-2' : 'space-x-1 sm:space-x-2'}`}
               >
                 <Globe className="h-4 w-4" />
                 <span className="text-xs sm:text-sm font-medium">{language.toUpperCase()}</span>
@@ -144,9 +150,9 @@ const Header = () => {
                     key={item.key}
                     href={item.href}
                     className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer touch-friendly"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isLoaded ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
                     whileTap={{ scale: 0.98, backgroundColor: 'hsl(var(--muted) / 0.8)' }}
                     onClick={(e) => {
                       e.preventDefault();

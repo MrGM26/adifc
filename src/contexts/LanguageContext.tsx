@@ -446,10 +446,21 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    // Initialize from localStorage to prevent flash
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('language');
+      return (saved === 'ar' || saved === 'en') ? saved : 'en';
+    }
+    return 'en';
+  });
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'ar' : 'en');
+    setLanguage(prev => {
+      const newLang = prev === 'en' ? 'ar' : 'en';
+      localStorage.setItem('language', newLang);
+      return newLang;
+    });
   };
 
   const t = (key: string): string => {
