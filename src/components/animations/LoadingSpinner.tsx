@@ -50,7 +50,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           <span>{Math.round(progress)}%</span>
         </div>
       )}
-      <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-background rounded-full overflow-hidden border">
         <motion.div
           className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
           initial={{ width: 0 }}

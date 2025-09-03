@@ -102,7 +102,7 @@ const SolutionsSection = () => {
                     {/* Floating particles effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="absolute top-10 left-10 w-2 h-2 bg-accent rounded-full animate-bounce"></div>
-                      <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full" style={{animationDelay: '0.5s'}}></div>
                       <div className="absolute bottom-20 left-20 w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
                     </div>
                     

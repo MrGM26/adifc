@@ -206,8 +206,8 @@ const TeamMembersSection = () => {
     <section className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-20 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -258,7 +258,7 @@ const TeamMembersSection = () => {
               viewport={{ once: true }}
             >
               {/* Mobile: Vertical stack, Desktop: Horizontal wrap */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-muted/30 rounded-2xl p-3 sm:p-1 backdrop-blur-sm border border-border/30">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-background/80 rounded-2xl p-3 sm:p-1 backdrop-blur-sm border border-border/30">
                 {(['all', 'leadership', 'operations', 'sales', 'quality'] as FilterType[]).map((filter, index) => {
                   const Icon = filter !== 'all' ? departmentIcons[filter as keyof typeof departmentIcons] : Users;
                   const isActive = activeFilter === filter;
@@ -475,7 +475,7 @@ const TeamMembersSection = () => {
                       {selectedMember.email && (
                         <motion.a 
                           href={`mailto:${selectedMember.email}`}
-                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -488,7 +488,7 @@ const TeamMembersSection = () => {
                           href={selectedMember.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -499,7 +499,7 @@ const TeamMembersSection = () => {
                       {selectedMember.phone && (
                         <motion.a 
                           href={`tel:${selectedMember.phone}`}
-                          className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="flex items-center gap-2 px-4 py-2 bg-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors border"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
                         >

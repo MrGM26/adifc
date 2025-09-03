@@ -79,8 +79,8 @@ const PartnersSection = () => {
     <section ref={ref} className="py-16 lg:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-1/4 w-24 h-24 bg-accent/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 w-24 h-24 bg-accent/3 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -207,7 +207,7 @@ const PartnerLogo: React.FC<{
             onError={() => setImageError(true)}
             loading="lazy"
             decoding="async"
-            style={{ opacity: imageLoaded ? 1 : 0 }}
+            style={{ display: 'block' }}
           />
         ) : (
           // Fallback for broken images

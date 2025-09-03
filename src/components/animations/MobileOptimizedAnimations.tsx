@@ -180,7 +180,7 @@ export const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {/* Placeholder */}
       <motion.div
-        className="absolute inset-0 bg-muted"
+        className="absolute inset-0 bg-background"
         initial={{ opacity: 1 }}
         animate={{ opacity: imageLoaded ? 0 : 1 }}
         transition={{ duration: 0.3 }}
