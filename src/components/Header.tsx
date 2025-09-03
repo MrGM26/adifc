@@ -11,12 +11,13 @@ const Header = () => {
   const navigationItems = [
     { key: 'nav.home', href: '#home' },
     { key: 'nav.platform', href: '#platform' },
+    { key: 'vision.title', href: '#vision' },
     { key: 'nav.products', href: '#products' },
+    { key: 'partners.title', href: '#partners' },
+    { key: 'team.title', href: '#team' },
     { key: 'nav.pricing', href: '#pricing' },
     { key: 'nav.quality', href: '#quality' },
     { key: 'nav.cases', href: '#cases' },
-    { key: 'nav.opportunities', href: '#opportunities' },
-    { key: 'nav.account', href: '#account' },
     { key: 'nav.contact', href: '#contact' },
   ];
 

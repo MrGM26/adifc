@@ -3,7 +3,10 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import HighlightsSection from '@/components/sections/HighlightsSection';
+import VisionMissionSection from '@/components/sections/VisionMissionSection';
 import ProductsSection from '@/components/sections/ProductsSection';
+import PartnersSection from '@/components/sections/PartnersSection';
+import TeamMembersSection from '@/components/sections/TeamMembersSection';
 import SolutionsSection from '@/components/sections/SolutionsSection';
 import QuickRFQSection from '@/components/sections/QuickRFQSection';
 import QualitySection from '@/components/sections/QualitySection';
@@ -46,8 +49,17 @@ const Index = () => {
           <div id="platform" className="fade-in-up">
             <HighlightsSection />
           </div>
+          <div id="vision" className="fade-in-up">
+            <VisionMissionSection />
+          </div>
           <div id="products" className="fade-in-up">
             <ProductsSection />
+          </div>
+          <div id="partners" className="fade-in-up">
+            <PartnersSection />
+          </div>
+          <div id="team" className="fade-in-up">
+            <TeamMembersSection />
           </div>
           <div id="solutions" className="fade-in-up">
             <SolutionsSection />

@@ -203,6 +203,28 @@ const translations = {
     'footer.privacy': 'Privacy Policy',
     'footer.cookies': 'Cookies Policy',
     'footer.accessibility': 'Accessibility',
+    
+    // Vision & Mission
+    'vision.title': 'Vision & Mission',
+    'vision.heading': 'Our Vision',
+    'vision.text': 'To lead the region in high-quality, innovative building materials made in the UAE.',
+    'mission.heading': 'Our Mission', 
+    'mission.text': 'Deliver certified materials, faster timelines, and trusted partnerships for residential, commercial, and infrastructure projects.',
+    
+    // Partners
+    'partners.title': 'Our Partners & Clients',
+    'partners.subtitle': 'Trusted by leading construction companies across the UAE',
+    
+    // Team
+    'team.title': 'Our Team',
+    'team.subtitle': 'Meet the experts driving innovation in construction materials',
+    'team.filter.all': 'All Departments',
+    'team.filter.leadership': 'Leadership',
+    'team.filter.operations': 'Operations', 
+    'team.filter.sales': 'Sales',
+    'team.filter.quality': 'Quality Assurance',
+    'team.modal.contact': 'Contact',
+    'team.modal.close': 'Close',
   },
   ar: {
     // Navigation
@@ -396,6 +418,28 @@ const translations = {
     'footer.privacy': 'سياسة الخصوصية',
     'footer.cookies': 'سياسة ملفات تعريف الارتباط',
     'footer.accessibility': 'إمكانية الوصول',
+    
+    // Vision & Mission
+    'vision.title': 'الرؤية والرسالة',
+    'vision.heading': 'رؤيتنا',
+    'vision.text': 'أن نكون روّاد المنطقة في مواد بناء عالية الجودة ومبتكرة صنع في الإمارات.',
+    'mission.heading': 'رسالتنا',
+    'mission.text': 'تقديم مواد معتمدة، وجداول زمنية أسرع، وشراكات موثوقة للمشاريع السكنية والتجارية والبنية التحتية.',
+    
+    // Partners  
+    'partners.title': 'شركاؤنا وعملاؤنا',
+    'partners.subtitle': 'موثوقون من قبل شركات الإنشاء الرائدة في دولة الإمارات',
+    
+    // Team
+    'team.title': 'فريقنا',
+    'team.subtitle': 'تعرف على الخبراء الذين يقودون الابتكار في مواد البناء',
+    'team.filter.all': 'جميع الأقسام',
+    'team.filter.leadership': 'القيادة',
+    'team.filter.operations': 'العمليات',
+    'team.filter.sales': 'المبيعات', 
+    'team.filter.quality': 'ضمان الجودة',
+    'team.modal.contact': 'تواصل',
+    'team.modal.close': 'إغلاق',
   },
 };
 
