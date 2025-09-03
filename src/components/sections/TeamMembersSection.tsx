@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
       ar: 'الرئيس التنفيذي والمؤسس'
     },
     department: 'leadership',
-    photo: '/public/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png',
+    photo: '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png',
     bio: {
       en: 'Leading ADIFC with 20+ years in construction materials industry.',
       ar: 'يقود ADIFC بخبرة تزيد عن 20 عاماً في صناعة مواد البناء.'
@@ -72,7 +72,7 @@ const teamMembers: TeamMember[] = [
       ar: 'رئيس العمليات'
     },
     department: 'operations',
-    photo: '/public/lovable-uploads/317391a5-5ed3-40a2-a775-b581865ea82a.png',
+    photo: '/lovable-uploads/317391a5-5ed3-40a2-a775-b581865ea82a.png',
     bio: {
       en: 'Optimizing production processes and ensuring operational excellence.',
       ar: 'تحسين عمليات الإنتاج وضمان التميز التشغيلي.'
@@ -95,7 +95,7 @@ const teamMembers: TeamMember[] = [
       ar: 'مدير المبيعات'
     },
     department: 'sales',
-    photo: '/public/lovable-uploads/d49d2281-ee9c-4993-8a06-33c78a1c3972.png',
+    photo: '/lovable-uploads/d49d2281-ee9c-4993-8a06-33c78a1c3972.png',
     bio: {
       en: 'Building strategic partnerships and driving revenue growth across the UAE.',
       ar: 'بناء الشراكات الاستراتيجية ودفع نمو الإيرادات في جميع أنحاء الإمارات.'
@@ -118,7 +118,7 @@ const teamMembers: TeamMember[] = [
       ar: 'مدير ضمان الجودة'
     },
     department: 'quality',
-    photo: '/public/lovable-uploads/e5036fc8-ed06-41bf-bae8-6054b8045b47.png',
+    photo: '/lovable-uploads/e5036fc8-ed06-41bf-bae8-6054b8045b47.png',
     bio: {
       en: 'Ensuring ESMA and ISO compliance through rigorous testing protocols.',
       ar: 'ضمان الامتثال لـ ESMA و ISO من خلال بروتوكولات الاختبار الصارمة.'
@@ -141,7 +141,7 @@ const teamMembers: TeamMember[] = [
       ar: 'المدير التقني'
     },
     department: 'operations',
-    photo: '/public/lovable-uploads/f2ab887b-e63d-4553-9767-8f8493b0b2a1.png',
+    photo: '/lovable-uploads/f2ab887b-e63d-4553-9767-8f8493b0b2a1.png',
     bio: {
       en: 'Driving innovation in manufacturing processes and product development.',
       ar: 'قيادة الابتكار في عمليات التصنيع وتطوير المنتجات.'
@@ -164,7 +164,7 @@ const teamMembers: TeamMember[] = [
       ar: 'مدير تطوير الأعمال'
     },
     department: 'sales',
-    photo: '/public/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png', 
+    photo: '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png', 
     bio: {
       en: 'Expanding market presence and developing new business opportunities.',
       ar: 'توسيع الحضور في السوق وتطوير فرص أعمال جديدة.'
