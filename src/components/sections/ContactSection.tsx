@@ -95,7 +95,7 @@ const ContactSection = () => {
                 })}
 
                 {/* Business Hours */}
-                <div className="pt-6 border-t border-border">
+                <div className="pt-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Clock className="h-6 w-6 text-accent" />

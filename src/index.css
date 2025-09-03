@@ -125,6 +125,50 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
 
+  /* ELIMINATE ALL GREY LINES - Global overrides */
+  hr,
+  .radix-Separator-root,
+  .separator {
+    background: transparent !important;
+    height: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+  }
+
+  /* Remove section dividers and borders */
+  section, 
+  .section, 
+  .page-section {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove any pattern backgrounds that create lines */
+  body, 
+  .bg-grid, 
+  .bg-lines, 
+  .bg-dot, 
+  .bg-stripes {
+    background-image: none !important;
+  }
+
+  /* Override any divide utilities */
+  .divide-y > :not(:first-child),
+  .divide-x > :not(:first-child) {
+    border-top: 0 !important;
+    border-left: 0 !important;
+  }
+
+  /* Remove footer borders */
+  .border-t {
+    border-top: 0 !important;
+  }
+
+  /* Remove header borders */
+  .border-b {
+    border-bottom: 0 !important;
+  }
+
 /* Advanced Modern Animation System */
 
 /* ZERO GREY BARS - All elements always visible */

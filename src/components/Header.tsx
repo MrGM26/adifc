@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <motion.header 
-      className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50 transition-all duration-300"
+      className="bg-background/95 backdrop-blur-md sticky top-0 z-50 transition-all duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: isLoaded ? 1 : 0 }}
       transition={{ duration: 0.3 }}
@@ -138,7 +138,7 @@ const Header = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md"
+              className="lg:hidden bg-background/95 backdrop-blur-md"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

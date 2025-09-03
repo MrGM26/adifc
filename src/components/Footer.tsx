@@ -123,7 +123,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-primary-foreground/20 py-8">
+        <div className="py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-primary-foreground/80">
               {t('footer.copyright').replace('ADIFC', t('footer.company.name'))}
