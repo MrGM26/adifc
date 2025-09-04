@@ -131,16 +131,7 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
 
-  /* UNIVERSAL GREY LINE ELIMINATION */
-  *,
-  *::before,
-  *::after {
-    border-color: transparent !important;
-    box-shadow: none !important;
-  }
-
-  /* All sections completely transparent */
-  section,
+  /* UNIVERSAL GREY LINE ELIMINATION - SELECTIVE */
   .section,
   [class*="section"],
   [class*="Section"] {
@@ -149,12 +140,21 @@ All colors MUST be HSL.
     box-shadow: none !important;
   }
 
-  /* All containers transparent */
-  .container,
-  [class*="container"] {
+  /* All containers transparent but preserve header/nav elements */
+  .container:not(header .container):not(nav .container) {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  /* Preserve header, nav, and button elements */
+  header,
+  nav,
+  button,
+  .button,
+  [role="button"] {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   /* All animations completely visible */

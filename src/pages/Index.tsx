@@ -97,9 +97,9 @@ const Index = () => {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-background animate-on-scroll">
+      <div className="min-h-screen bg-background">
         <Header />
-        <main className="space-y-0">
+        <main className="pt-16 lg:pt-20 space-y-0">
           <section id="home" className="section-entrance">
             <HeroSection />
           </section>
