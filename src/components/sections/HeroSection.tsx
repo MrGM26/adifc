@@ -26,12 +26,20 @@ const HeroSection = () => {
         transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
       />
       
-      {/* Premium Gradient Overlay with shimmer */}
+      {/* Professional Gradient Overlay with subtle shimmer */}
       <motion.div 
-        className="absolute inset-0 z-10 bg-gradient-to-br from-primary/70 via-primary/50 to-accent/70 shimmer-effect"
+        className="absolute inset-0 z-10 bg-gradient-to-br from-primary/80 via-primary/60 to-primary-dark/70 shimmer-effect"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.3 }}
+      />
+      
+      {/* Accent gradient overlay for depth */}
+      <motion.div 
+        className="absolute inset-0 z-10 bg-gradient-to-t from-accent/10 via-transparent to-transparent"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.6 }}
       />
       
       {/* Floating geometric elements */}
@@ -103,7 +111,7 @@ const HeroSection = () => {
           >
             <Button 
               size="lg" 
-              className="glow-button hover-lift bg-accent hover:bg-accent/90 text-white px-10 py-6 text-xl font-bold shadow-2xl transform-gpu touch-friendly pulse-glow" 
+              className="glow-button hover-lift bg-gradient-to-r from-accent to-accent-light hover:from-accent-dark hover:to-accent text-accent-foreground px-12 py-7 text-xl font-bold shadow-2xl transform-gpu touch-friendly pulse-glow rounded-2xl" 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('hero.cta')}
@@ -120,7 +128,7 @@ const HeroSection = () => {
           >
             <Button 
               size="lg" 
-              className="glow-button hover-lift bg-transparent border-2 border-white/30 hover:bg-white/20 text-white px-10 py-6 text-xl font-bold shadow-2xl backdrop-blur-sm transform-gpu touch-friendly" 
+              className="glow-button hover-lift bg-transparent border-2 border-white/40 hover:bg-white/10 hover:border-white/60 text-white px-12 py-7 text-xl font-bold shadow-2xl backdrop-blur-md transform-gpu touch-friendly rounded-2xl" 
               onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('nav.products')}

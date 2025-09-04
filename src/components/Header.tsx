@@ -30,13 +30,13 @@ const Header = () => {
 
   return (
     <motion.header 
-      className="bg-background/95 backdrop-blur-md sticky top-0 z-50 transition-all duration-300"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isLoaded ? 1 : 0 }}
-      transition={{ duration: 0.3 }}
+      className="bg-background/98 backdrop-blur-lg border-b border-border/50 sticky top-0 z-50 transition-all duration-300 shadow-sm"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
+      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-14 sm:h-16">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
           <motion.div 
             className="flex items-center"
@@ -47,12 +47,12 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className={`hidden lg:flex items-center ${language === 'ar' ? 'space-x-reverse space-x-6 xl:space-x-8' : 'space-x-6 xl:space-x-8'}`}>
+          <nav className={`hidden lg:flex items-center ${language === 'ar' ? 'space-x-reverse space-x-7 xl:space-x-9' : 'space-x-7 xl:space-x-9'}`}>
             {navigationItems.map((item, index) => (
               <motion.a
                 key={item.key}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium cursor-pointer whitespace-nowrap relative no-underline"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm lg:text-base font-medium cursor-pointer whitespace-nowrap relative no-underline"
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isLoaded ? 1 : 0 }}
@@ -75,10 +75,10 @@ const Header = () => {
               >
                 {t(item.key)}
                 <motion.div
-                  className={`absolute -bottom-1 w-full h-0.5 bg-primary ${language === 'ar' ? 'right-0' : 'left-0'}`}
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.2 }}
+                  className={`absolute -bottom-1 w-full h-0.5 bg-gradient-to-r from-primary to-accent ${language === 'ar' ? 'right-0' : 'left-0'}`}
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileHover={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                 />
               </motion.a>
             ))}
@@ -91,10 +91,10 @@ const Header = () => {
                 variant="ghost"
                 size="sm"
                 onClick={toggleLanguage}
-                className={`flex items-center px-2 sm:px-3 ${language === 'ar' ? 'space-x-reverse space-x-1 sm:space-x-2' : 'space-x-1 sm:space-x-2'}`}
+                className={`flex items-center px-3 sm:px-4 py-2 rounded-lg hover:bg-muted/80 transition-all duration-300 ${language === 'ar' ? 'space-x-reverse space-x-2' : 'space-x-2'}`}
               >
                 <Globe className="h-4 w-4" />
-                <span className="text-xs sm:text-sm font-medium">{language.toUpperCase()}</span>
+                <span className="text-sm font-semibold text-primary">{language.toUpperCase()}</span>
               </Button>
             </motion.div>
 
@@ -103,7 +103,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="lg:hidden p-2"
+                className="lg:hidden p-3 rounded-lg hover:bg-muted/80 transition-all duration-300"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <AnimatePresence mode="wait">
@@ -138,18 +138,18 @@ const Header = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="lg:hidden bg-background/95 backdrop-blur-md"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              className="lg:hidden bg-background/98 backdrop-blur-lg border-t border-border/50 shadow-lg"
+              initial={{ opacity: 0, height: 0, y: -10 }}
+              animate={{ opacity: 1, height: 'auto', y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             >
-              <nav className="py-4 space-y-1">
+              <nav className="py-6 space-y-2">
                 {navigationItems.map((item, index) => (
                   <motion.a
                     key={item.key}
                     href={item.href}
-                    className="block px-4 py-3 text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors text-sm font-medium cursor-pointer touch-friendly no-underline"
+                    className="block px-6 py-4 text-muted-foreground hover:text-primary hover:bg-gradient-to-r hover:from-muted/50 hover:to-muted/30 transition-all duration-300 text-base font-medium cursor-pointer touch-friendly no-underline rounded-lg mx-3"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isLoaded ? 1 : 0 }}
                     transition={{ duration: 0.3 }}

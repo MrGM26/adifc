@@ -8,32 +8,35 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Modern Minimalistic Palette - Clean whites and deep contrast */
+    /* Professional Corporate Palette - Modern and sophisticated */
     --background: 0 0% 100%;
-    --foreground: 240 10% 4%;
+    --foreground: 222 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card-foreground: 222 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
+    --popover-foreground: 222 15% 15%;
 
-    /* Modern Vibrant Blue Primary */
-    --primary: 217 91% 60%;
+    /* Professional Deep Navy Primary */
+    --primary: 222 47% 17%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
+    --primary-light: 222 47% 25%;
+    --primary-dark: 222 47% 12%;
+    --primary-glow: 222 47% 30%;
 
-    /* Sophisticated Gray Secondary */
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 10% 4%;
+    /* Elegant Gray Secondary */
+    --secondary: 220 5% 96%;
+    --secondary-foreground: 222 15% 15%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 220 5% 95%;
+    --muted-foreground: 220 8% 46%;
 
-    /* Electric Orange Accent - Modern and vibrant */
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
+    /* Sophisticated Gold Accent - Professional and premium */
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 15% 15%;
+    --accent-light: 43 96% 65%;
+    --accent-dark: 43 96% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -62,31 +65,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 222 15% 8%;
+    --foreground: 220 5% 95%;
 
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 15% 10%;
+    --card-foreground: 220 5% 95%;
 
-    --popover: 240 10% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 15% 10%;
+    --popover-foreground: 220 5% 95%;
 
-    /* Dark mode Modern Blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 240 10% 4%;
-    --primary-light: 217 91% 70%;
-    --primary-dark: 217 91% 50%;
+    /* Dark mode Professional Navy */
+    --primary: 222 47% 35%;
+    --primary-foreground: 220 5% 95%;
+    --primary-light: 222 47% 45%;
+    --primary-dark: 222 47% 25%;
+    --primary-glow: 222 47% 40%;
 
-    /* Dark mode Sophisticated Gray */
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
+    /* Dark mode Elegant Gray */
+    --secondary: 222 15% 15%;
+    --secondary-foreground: 220 5% 95%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 4% 64%;
+    --muted: 222 15% 12%;
+    --muted-foreground: 220 8% 65%;
 
-    /* Dark mode Electric Orange */
-    --accent: 25 95% 53%;
-    --accent-foreground: 240 10% 4%;
+    /* Dark mode Sophisticated Gold */
+    --accent: 43 96% 60%;
+    --accent-foreground: 222 15% 8%;
+    --accent-light: 43 96% 70%;
+    --accent-dark: 43 96% 50%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -223,7 +229,7 @@ All colors MUST be HSL.
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.08));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -236,9 +242,9 @@ All colors MUST be HSL.
 .modern-card:hover {
   transform: translateY(-12px) scale(1.02);
   box-shadow: 
-    0 25px 50px -12px hsl(var(--primary) / 0.25),
-    0 0 0 1px hsl(var(--primary) / 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 25px 50px -12px hsl(var(--primary) / 0.15),
+    0 0 0 1px hsl(var(--primary) / 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .modern-card > * {
