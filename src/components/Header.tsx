@@ -70,13 +70,13 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
-            <div className={`flex items-center ${language === 'ar' ? 'space-x-reverse space-x-6 xl:space-x-8' : 'space-x-6 xl:space-x-8'}`}>
+          <nav className="hidden lg:flex items-center justify-center flex-1 mx-4 xl:mx-8">
+            <div className={`flex items-center flex-wrap justify-center ${language === 'ar' ? 'space-x-reverse space-x-3 xl:space-x-6' : 'space-x-3 xl:space-x-6'}`}>
               {navigationItems.map((item, index) => (
                 <motion.button
                   key={item.key}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm lg:text-base font-medium cursor-pointer whitespace-nowrap relative bg-transparent border-none focus:outline-none"
+                  className="text-muted-foreground hover:text-primary transition-all duration-300 text-xs lg:text-sm xl:text-base font-medium cursor-pointer whitespace-nowrap relative bg-transparent border-none focus:outline-none p-1"
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -95,17 +95,23 @@ const Header = () => {
           </nav>
 
           {/* Language Toggle & Mobile Menu */}
-          <div className={`flex items-center flex-shrink-0 z-10 ${language === 'ar' ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
+          <div className={`flex items-center flex-shrink-0 z-10 ${language === 'ar' ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
             {/* Language Toggle */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+              className="block"
+            >
               <Button
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className={`flex items-center px-3 py-2 h-10 rounded-lg border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 bg-background/50 backdrop-blur-sm ${language === 'ar' ? 'space-x-reverse space-x-2' : 'space-x-2'}`}
+                className={`flex items-center px-2 lg:px-3 py-2 h-9 lg:h-10 rounded-lg border border-primary/30 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 bg-background/80 backdrop-blur-sm text-primary ${language === 'ar' ? 'space-x-reverse space-x-1 lg:space-x-2' : 'space-x-1 lg:space-x-2'}`}
               >
-                <Globe className="h-4 w-4 text-primary" />
-                <span className="text-sm font-semibold text-primary min-w-[24px]">{language.toUpperCase()}</span>
+                <Globe className="h-3 w-3 lg:h-4 lg:w-4 text-primary flex-shrink-0" />
+                <span className="text-xs lg:text-sm font-semibold text-primary min-w-[20px] lg:min-w-[24px]">
+                  {language.toUpperCase()}
+                </span>
               </Button>
             </motion.div>
 
