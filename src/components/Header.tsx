@@ -62,7 +62,7 @@ const Header = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <LogoIcon size="sm" className="opacity-100" />
+            <LogoIcon size="lg" className="opacity-100" />
           </motion.div>
 
           {/* Desktop Navigation - Centered */}
