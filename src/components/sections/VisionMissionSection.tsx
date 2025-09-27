@@ -34,26 +34,65 @@ const VisionMissionSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 lg:py-24 relative overflow-hidden max-h-screen"
+      className="py-12 lg:py-16 relative overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)',
+        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.08), transparent 60%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.2) 30%, hsl(var(--primary) / 0.05) 70%, hsl(var(--background)) 100%)',
         contain: 'layout style paint',
-        height: 'fit-content',
-        maxHeight: '100vh'
+        height: 'auto',
+        minHeight: '80vh'
       }}
     >
-      {/* Static Background Elements - Constrained */}
+      {/* Enhanced Floating Orbs - Contained */}
       <div className="floating-orbs-container absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Animated Orbs */}
-        {[...Array(3)].map((_, i) => (
-          <div key={`orb-${i}`} className="floating-orb" style={{ transform: 'scale(0.7)' }} />
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute w-32 h-32 rounded-full opacity-30"
+            style={{
+              background: `radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.4), hsl(var(--accent) / 0.2), transparent 70%)`,
+              filter: 'blur(12px)',
+              left: `${20 + i * 20}%`,
+              top: `${15 + i * 15}%`,
+            }}
+            animate={{
+              x: [0, 30, -20, 0],
+              y: [0, -20, 30, 0],
+              scale: [1, 1.2, 0.8, 1],
+              opacity: [0.3, 0.6, 0.2, 0.3]
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 1.5
+            }}
+          />
         ))}
       </div>
 
-      {/* Floating Particles - Constrained */}
+      {/* Enhanced Floating Particles - Contained */}
       <div className="floating-particles-container absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div key={`particle-${i}`} className="floating-particle" />
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-2 h-2 rounded-full bg-primary/40"
+            style={{
+              left: `${Math.random() * 80 + 10}%`,
+              top: `${Math.random() * 60 + 20}%`,
+              boxShadow: '0 0 10px hsl(var(--primary) / 0.6)'
+            }}
+            animate={{
+              y: [-10, 10, -5],
+              x: [-5, 8, -3],
+              opacity: [0.2, 0.8, 0.1]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2
+            }}
+          />
         ))}
       </div>
 
@@ -107,7 +146,12 @@ const VisionMissionSection = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-10 lg:p-12">
+            <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-8 lg:p-10 backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl" 
+                 style={{
+                   background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
+                   backdropFilter: 'blur(20px)',
+                   borderImage: 'linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.2), transparent) 1'
+                 }}>
               {/* Digital Wave Scanner */}
               <div className="digital-wave-scanner">
                 <div className="scanning-line" />
@@ -208,7 +252,12 @@ const VisionMissionSection = () => {
             }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-10 lg:p-12">
+            <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-8 lg:p-10 backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl"
+                 style={{
+                   background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
+                   backdropFilter: 'blur(20px)',
+                   borderImage: 'linear-gradient(135deg, hsl(var(--accent) / 0.3), hsl(var(--primary) / 0.2), transparent) 1'
+                 }}>
               {/* Digital Wave Scanner */}
               <div className="digital-wave-scanner">
                 <div className="scanning-line" style={{ animationDelay: '1s' }} />
@@ -297,18 +346,62 @@ const VisionMissionSection = () => {
           </motion.div>
         </div>
 
-        {/* Additional Futuristic Elements - Responsive */}
+        {/* Enhanced Central Holographic Rings - Contained */}
         <motion.div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-hidden"
           initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 0.1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
         >
-          <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border border-primary/20 animate-pulse" />
-          <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-full border border-accent/20 animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute inset-8 md:inset-12 lg:inset-16 rounded-full border border-primary/10 animate-pulse" style={{ animationDelay: '2s' }} />
+          <motion.div 
+            className="w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full border border-primary/30"
+            animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            style={{
+              background: 'conic-gradient(from 0deg, transparent, hsl(var(--primary) / 0.1), transparent)',
+              filter: 'blur(1px)'
+            }}
+          />
+          <motion.div 
+            className="absolute inset-3 md:inset-4 lg:inset-6 rounded-full border border-accent/25"
+            animate={{ rotate: -360, scale: [1, 0.95, 1] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            style={{
+              background: 'conic-gradient(from 180deg, transparent, hsl(var(--accent) / 0.1), transparent)',
+              filter: 'blur(1px)'
+            }}
+          />
+          <motion.div 
+            className="absolute inset-6 md:inset-8 lg:inset-12 rounded-full border border-primary/15"
+            animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            style={{
+              background: 'radial-gradient(circle, hsl(var(--primary) / 0.05), transparent 70%)',
+              filter: 'blur(2px)'
+            }}
+          />
         </motion.div>
+
+        {/* Corner Accent Lights */}
+        <motion.div
+          className="absolute top-8 left-8 w-4 h-4 rounded-full bg-primary/60 pointer-events-none"
+          animate={{ 
+            opacity: [0.3, 1, 0.3],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          style={{ filter: 'blur(2px)', boxShadow: '0 0 20px hsl(var(--primary) / 0.8)' }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 w-3 h-3 rounded-full bg-accent/60 pointer-events-none"
+          animate={{ 
+            opacity: [0.2, 0.8, 0.2],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          style={{ filter: 'blur(1px)', boxShadow: '0 0 15px hsl(var(--accent) / 0.6)' }}
+        />
       </div>
     </section>
   );
