@@ -34,22 +34,25 @@ const VisionMissionSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 lg:py-24 relative overflow-hidden"
+      className="py-16 lg:py-24 relative overflow-hidden max-h-screen"
       style={{
-        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)'
+        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)',
+        contain: 'layout style paint',
+        height: 'fit-content',
+        maxHeight: '100vh'
       }}
     >
-      {/* Static Background Elements */}
-      <div className="floating-orbs-container">
+      {/* Static Background Elements - Constrained */}
+      <div className="floating-orbs-container absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Animated Orbs */}
-        {[...Array(5)].map((_, i) => (
-          <div key={`orb-${i}`} className="floating-orb" />
+        {[...Array(3)].map((_, i) => (
+          <div key={`orb-${i}`} className="floating-orb" style={{ transform: 'scale(0.7)' }} />
         ))}
       </div>
 
-      {/* Floating Particles */}
-      <div className="floating-particles-container">
-        {[...Array(12)].map((_, i) => (
+      {/* Floating Particles - Constrained */}
+      <div className="floating-particles-container absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
           <div key={`particle-${i}`} className="floating-particle" />
         ))}
       </div>
@@ -131,7 +134,7 @@ const VisionMissionSection = () => {
                     stiffness: 200 
                   }}
                   whileHover={{ 
-                    scale: 1.1, 
+                    scale: 1.05, 
                     rotate: 5,
                   }}
                 >
@@ -232,7 +235,7 @@ const VisionMissionSection = () => {
                     stiffness: 200 
                   }}
                   whileHover={{ 
-                    scale: 1.1, 
+                    scale: 1.05, 
                     rotate: -5,
                   }}
                 >
@@ -294,7 +297,7 @@ const VisionMissionSection = () => {
           </motion.div>
         </div>
 
-        {/* Additional Futuristic Elements */}
+        {/* Additional Futuristic Elements - Responsive */}
         <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           initial={{ opacity: 0, scale: 0 }}
@@ -302,9 +305,9 @@ const VisionMissionSection = () => {
           transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
         >
-          <div className="w-96 h-96 rounded-full border border-primary/20 animate-pulse" />
-          <div className="absolute inset-8 rounded-full border border-accent/20 animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute inset-16 rounded-full border border-primary/10 animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border border-primary/20 animate-pulse" />
+          <div className="absolute inset-4 md:inset-6 lg:inset-8 rounded-full border border-accent/20 animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-8 md:inset-12 lg:inset-16 rounded-full border border-primary/10 animate-pulse" style={{ animationDelay: '2s' }} />
         </motion.div>
       </div>
     </section>
