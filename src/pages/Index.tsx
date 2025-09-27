@@ -127,12 +127,9 @@ const Index = () => {
           <section id="quality" className="fade-in-up section-entrance">
             <QualitySection />
           </section>
-          
-         /* <section id="cases" className="fade-in-up section-entrance">
+          <section id="cases" className="fade-in-up section-entrance">
             <CaseStudiesSection />
-           
           </section>
-          */
           <section id="contact" className="fade-in-up section-entrance">
             <ContactSection />
           </section>
