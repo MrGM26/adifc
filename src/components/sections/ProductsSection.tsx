@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
+import { motion } from 'framer-motion';
 
 const ProductsSection = () => {
   const { t, language } = useLanguage();
@@ -72,7 +73,7 @@ const ProductsSection = () => {
           </p>
         </AnimatedElement>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((product, index) => (
             <AnimatedElement 
               key={index}
@@ -80,55 +81,101 @@ const ProductsSection = () => {
               delay={product.delay}
               className="group"
             >
-              <Card className="professional-hover glass-card border-0 h-full overflow-hidden group cursor-pointer">
-                <div className="relative h-72 overflow-hidden">
-                  <img 
+              <Card className="mobile-card breathe glass-card border-0 h-full overflow-hidden group cursor-pointer rounded-2xl">
+                <div className="relative h-64 md:h-72 overflow-hidden">
+                  <motion.img 
                     src={product.image} 
                     alt={t(product.titleKey)}
-                    className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
+                    className="w-full h-full object-cover"
                     loading="lazy"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 group-hover:from-black/60 group-hover:via-black/10" />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                    initial={{ opacity: 1 }}
+                    whileHover={{ opacity: 0.7 }}
+                    transition={{ duration: 0.5 }}
+                  />
                   
                   {/* Enhanced shine effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-                  </div>
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12"
+                    initial={{ x: '-100%', opacity: 0 }}
+                    whileHover={{ x: '100%', opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
 
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-8 left-8 w-2 h-2 bg-accent rounded-full animate-bounce"></div>
-                    <div className="absolute top-16 right-16 w-1 h-1 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                    <div className="absolute bottom-16 left-16 w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+                    {[...Array(5)].map((_, particleIndex) => (
+                      <motion.div
+                        key={particleIndex}
+                        className="absolute w-1 h-1 bg-accent rounded-full"
+                        style={{
+                          top: `${20 + particleIndex * 15}%`,
+                          left: `${15 + particleIndex * 20}%`
+                        }}
+                        animate={{
+                          y: [0, -20, 0],
+                          opacity: [0, 1, 0],
+                          scale: [0, 1.5, 0]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: particleIndex * 0.4
+                        }}
+                      />
+                    ))}
                   </div>
                   
                   {/* Product Title with enhanced animation */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white transform transition-all duration-500 group-hover:translate-y-[-8px]">
-                    <h3 className="text-2xl font-bold mb-2 transition-all duration-300 group-hover:text-accent">
+                  <motion.div 
+                    className="absolute bottom-4 left-4 right-4 text-white"
+                    initial={{ y: 10, opacity: 0.9 }}
+                    whileHover={{ y: -5, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors duration-300">
                       {t(product.titleKey)}
                     </h3>
-                  </div>
+                  </motion.div>
                 </div>
                 
-                <CardContent className="p-8">
-                  <p className="text-muted-foreground mb-8 leading-relaxed text-base">
-                    {product.description}
-                  </p>
-                  
-                  <Button 
-                    variant="ghost" 
-                    className="group/btn w-full justify-between px-4 py-2 h-auto text-primary hover:text-white hover:bg-accent transition-all duration-300 font-semibold text-lg"
+                <CardContent className="p-6 md:p-8">
+                  <motion.p 
+                    className="text-muted-foreground mb-6 leading-relaxed text-sm md:text-base"
+                    initial={{ opacity: 0.8 }}
+                    whileHover={{ opacity: 1 }}
                   >
-                    <span>
-                      {t('products.explore')}
-                    </span>
-                    <ArrowRight 
-                      size={20} 
-                      className={`text-primary group-hover/btn:text-white group-hover/btn:translate-x-2 transition-all duration-300 ${
-                        language === 'ar' ? 'rotate-180 group-hover/btn:-translate-x-2' : ''
-                      }`} 
-                    />
-                  </Button>
+                    {product.description}
+                  </motion.p>
+                  
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      variant="ghost" 
+                      className="mobile-button group/btn w-full justify-between px-4 py-3 h-auto text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-accent transition-all duration-300 font-semibold text-base md:text-lg rounded-xl"
+                    >
+                      <span>
+                        {t('products.explore')}
+                      </span>
+                      <motion.div
+                        whileHover={{ x: language === 'ar' ? -5 : 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ArrowRight 
+                          size={20} 
+                          className={`text-primary group-hover/btn:text-white transition-all duration-300 ${
+                            language === 'ar' ? 'rotate-180' : ''
+                          }`} 
+                        />
+                      </motion.div>
+                    </Button>
+                  </motion.div>
                 </CardContent>
               </Card>
             </AnimatedElement>
@@ -136,22 +183,43 @@ const ProductsSection = () => {
         </div>
         
         {/* Enhanced CTA */}
-        <AnimatedElement variant="fadeInUp" delay={0.6} className="text-center mt-8 md:mt-12">
-          <div className="bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-3xl p-12 border border-primary/10">
-            <h3 className="text-3xl font-bold mb-6 gradient-text">
-              {t('products.catalog.title')}
-            </h3>
-            <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
-              {t('products.catalog.desc')}
-            </p>
-            <Button 
-              size="lg" 
-              className="gradient-primary hover:shadow-2xl hover:shadow-primary/25 text-primary-foreground px-12 py-6 text-lg font-bold rounded-full transition-all duration-300"
+        <AnimatedElement variant="fadeInUp" delay={0.6} className="text-center mt-12 md:mt-16">
+          <motion.div 
+            className="bg-gradient-to-br from-white/5 via-primary/5 to-accent/10 rounded-3xl p-8 md:p-12 border border-primary/20 backdrop-blur-xl mobile-card breathe"
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.h3 
+              className="text-2xl md:text-3xl font-bold mb-6 gradient-text"
+              whileHover={{ scale: 1.05 }}
             >
-              {t('products.catalog.download')}
-              <ArrowRight className={`ml-3 ${language === 'ar' ? 'rotate-180 mr-3 ml-0' : ''}`} size={20} />
-            </Button>
-          </div>
+              {t('products.catalog.title')}
+            </motion.h3>
+            <motion.p 
+              className="text-muted-foreground mb-8 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0.8 }}
+              whileHover={{ opacity: 1 }}
+            >
+              {t('products.catalog.desc')}
+            </motion.p>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                size="lg" 
+                className="mobile-button bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark text-white hover:shadow-2xl hover:shadow-primary/25 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-bold rounded-full transition-all duration-300 glow-mobile pulse-attention"
+              >
+                {t('products.catalog.download')}
+                <motion.div
+                  animate={{ x: language === 'ar' ? [-3, 0, -3] : [0, 3, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <ArrowRight className={`ml-3 ${language === 'ar' ? 'rotate-180 mr-3 ml-0' : ''}`} size={20} />
+                </motion.div>
+              </Button>
+            </motion.div>
+          </motion.div>
         </AnimatedElement>
       </div>
     </AnimatedSection>

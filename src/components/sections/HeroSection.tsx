@@ -100,12 +100,12 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Main Content Container - Better Centered */}
-      <div className="relative z-20 container mx-auto px-6 md:px-8 text-center text-white flex flex-col items-center justify-center min-h-screen py-20">
+      <div className="relative z-20 container mx-auto px-4 md:px-8 text-center text-white flex flex-col items-center justify-center min-h-screen py-20">
         
         {/* Hero Title - Enhanced Typography */}
         <div className="reveal-fade-up max-w-6xl mx-auto mb-8">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] text-gradient-flow tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] gradient-text tracking-tight"
             initial={{ opacity: 0, y: 60, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
@@ -116,9 +116,9 @@ const HeroSection = () => {
         </div>
         
         {/* Hero Subtitle - Better Spacing */}
-        <div className="reveal-scale-up max-w-4xl mx-auto mb-16">
+        <div className="reveal-scale-up max-w-4xl mx-auto mb-12 md:mb-16">
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed opacity-95 text-reveal font-light"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed opacity-95 font-light px-4"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
@@ -128,9 +128,9 @@ const HeroSection = () => {
         </div>
         
 
-        {/* Premium Trust Indicators - Smaller & More Beautiful */}
-        <div className="w-full max-w-4xl mx-auto mt-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 stagger-container">
+        {/* Premium Trust Indicators - Mobile Optimized */}
+        <div className="w-full max-w-5xl mx-auto mt-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 stagger-container">
             {[
               { value: 2008, suffix: '', key: 'hero.stats.established' },
               { value: 'UAE', suffix: '', key: 'hero.stats.coverage' },
@@ -139,37 +139,38 @@ const HeroSection = () => {
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="premium-card magnetic-element text-center bg-white/8 backdrop-blur-md border border-white/15 p-3 md:p-4 rounded-lg md:rounded-xl touch-friendly shimmer-effect group"
+                className="mobile-card breathe text-center bg-white/10 backdrop-blur-lg border border-white/20 p-3 md:p-5 rounded-xl md:rounded-2xl touch-feedback glow-mobile group"
                 initial={{ opacity: 0, scale: 0.8, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ 
-                  delay: 1.5 + index * 0.1, 
-                  duration: 0.6, 
+                  delay: 1.5 + index * 0.15, 
+                  duration: 0.7, 
                   ease: [0.23, 1, 0.32, 1]
                 }}
                 whileHover={{ 
-                  scale: 1.03, 
-                  y: -3,
-                  backgroundColor: "rgba(255, 255, 255, 0.12)"
+                  scale: 1.05, 
+                  y: -5,
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  borderColor: "rgba(255, 255, 255, 0.3)"
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.98, y: -2 }}
               >
-                <div className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 group-hover:text-accent-light transition-colors duration-300">
+                <div className="text-lg md:text-xl lg:text-3xl font-bold text-white mb-1 md:mb-2 group-hover:text-accent-light transition-all duration-300">
                   {typeof stat.value === 'number' ? (
                     <CounterAnimation to={stat.value} suffix={stat.suffix} />
                   ) : (
                     <motion.div
                       className="inline-block"
                       whileHover={{ 
-                        scale: 1.1,
-                        textShadow: "0 0 10px rgba(255,255,255,0.6)"
+                        scale: 1.15,
+                        textShadow: "0 0 15px rgba(255,255,255,0.7)"
                       }}
                     >
                       {stat.value}
                     </motion.div>
                   )}
                 </div>
-                <div className="text-xs md:text-sm text-white/80 font-medium leading-tight group-hover:text-white/90 transition-colors duration-300">
+                <div className="text-xs md:text-sm text-white/85 font-medium leading-tight group-hover:text-white transition-colors duration-300">
                   {t(stat.key)}
                 </div>
               </motion.div>

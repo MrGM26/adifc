@@ -52,97 +52,123 @@ const GetQuoteButton = () => {
           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
           className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50"
         >
-          {/* Glowing Background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
+          {/* Enhanced glowing background */}
+          <motion.div 
+            className="absolute inset-0 rounded-full blur-lg opacity-40"
+            animate={{
+              background: [
+                'radial-gradient(circle, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.2) 70%)',
+                'radial-gradient(circle, rgba(239, 68, 68, 0.6) 0%, rgba(239, 68, 68, 0.3) 70%)',
+                'radial-gradient(circle, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.2) 70%)'
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
           
           {/* Main Button */}
           <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.96, y: -1 }}
             className="relative"
           >
             <Button
               onClick={scrollToRFQ}
-              className="relative group bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-700 hover:via-red-600 hover:to-red-700 text-white shadow-2xl hover:shadow-red-500/25 transition-all duration-500 border-0 rounded-full px-6 py-3 h-14 md:h-16 text-sm md:text-base font-semibold min-w-[120px] md:min-w-[140px]"
+              className="mobile-button touch-feedback relative group bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-700 hover:via-red-600 hover:to-red-700 text-white shadow-2xl hover:shadow-red-500/30 transition-all duration-500 border-0 rounded-full px-4 md:px-6 py-3 h-12 md:h-16 text-xs md:text-base font-bold min-w-[100px] md:min-w-[140px] glow-mobile"
               aria-label="Get Quote"
             >
-              {/* Sparkle Effect */}
+              {/* Enhanced sparkle effect */}
               <motion.div
                 className="absolute inset-0 rounded-full"
                 animate={{
                   background: [
-                    'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)',
-                    'radial-gradient(circle at 80% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)',
-                    'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)'
+                    'radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 0%, transparent 50%)',
+                    'radial-gradient(circle at 70% 60%, rgba(255,255,255,0.3) 0%, transparent 50%)',
+                    'radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 0%, transparent 50%)'
                   ]
                 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               />
               
               {/* Content */}
-              <div className="relative z-10 flex items-center space-x-2">
+              <div className="relative z-10 flex items-center space-x-1.5 md:space-x-2">
                 <motion.div
                   animate={{ 
-                    rotate: [0, 5, -5, 0],
-                    scale: [1, 1.1, 1]
+                    rotate: [0, 8, -8, 0],
+                    scale: [1, 1.15, 1]
                   }}
                   transition={{ 
-                    duration: 2,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
                 >
-                  <FileText className="h-5 w-5 md:h-6 md:w-6" />
+                  <FileText className="h-4 w-4 md:h-6 md:w-6" />
                 </motion.div>
-                <span className="font-bold tracking-wide">{t('hero.cta')}</span>
+                <span className="font-bold tracking-wide text-xs md:text-base">{t('hero.cta')}</span>
               </div>
 
-              {/* Shine Effect */}
+              {/* Enhanced shine effect */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ['-100%', '100%'] }}
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                animate={{ x: ['-120%', '120%'] }}
                 transition={{ 
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  repeatDelay: 1
+                  repeatDelay: 2
                 }}
               />
             </Button>
           </motion.div>
 
-          {/* Floating Sparkles */}
+          {/* Enhanced floating sparkles */}
           <motion.div
-            className="absolute -top-2 -right-2 text-yellow-400"
+            className="absolute -top-1 -right-1 md:-top-2 md:-right-2 text-yellow-400"
             animate={{
-              y: [0, -8, 0],
+              y: [0, -10, 0],
               rotate: [0, 180, 360],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <Sparkles className="h-4 w-4" />
-          </motion.div>
-
-          <motion.div
-            className="absolute -bottom-1 -left-2 text-yellow-300"
-            animate={{
-              y: [0, -5, 0],
-              rotate: [0, -180, -360],
-              scale: [0.8, 1, 0.8]
+              scale: [1, 1.3, 1]
             }}
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1
+              ease: "easeInOut"
             }}
           >
-            <Sparkles className="h-3 w-3" />
+            <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+          </motion.div>
+
+          <motion.div
+            className="absolute -bottom-0.5 -left-1 md:-bottom-1 md:-left-2 text-yellow-300"
+            animate={{
+              y: [0, -8, 0],
+              rotate: [0, -180, -360],
+              scale: [0.8, 1.2, 0.8]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5
+            }}
+          >
+            <Sparkles className="h-2.5 w-2.5 md:h-3 md:w-3" />
+          </motion.div>
+
+          {/* Additional mobile sparkles */}
+          <motion.div
+            className="absolute top-2 left-2 text-red-200"
+            animate={{
+              scale: [0, 1, 0],
+              opacity: [0, 1, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: 2
+            }}
+          >
+            <div className="w-1 h-1 bg-current rounded-full" />
           </motion.div>
         </motion.div>
       )}

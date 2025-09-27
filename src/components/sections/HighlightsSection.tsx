@@ -54,38 +54,54 @@ const HighlightsSection = () => {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 stagger-container">
           {highlights.map((highlight, index) => {
             return (
               <MobileAnimated 
                 key={index} 
                 variant="bounce" 
-                delay={0.4 + index * 0.1}
+                delay={0.4 + index * 0.15}
                 className="h-full"
               >
                 <motion.div
                   whileHover={{ 
-                    y: -8, 
-                    scale: 1.02
+                    y: -10, 
+                    scale: 1.03
                   }}
-                  whileTap={{ scale: 0.98 }}
+                  whileTap={{ scale: 0.97, y: -2 }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                   className="h-full"
                 >
-                  <Card className="premium-card hover-lift bg-transparent backdrop-blur-sm h-full group touch-friendly overflow-hidden shimmer-effect">
+                  <Card className="mobile-card breathe bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 h-full group touch-feedback glow-mobile overflow-hidden rounded-2xl">
                     <CardContent className="p-4 md:p-6 text-center h-full flex flex-col justify-center relative">
                       
-                      {/* Animated background gradient */}
+                      {/* Enhanced animated background gradient */}
                       <motion.div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                        className="absolute inset-0 opacity-0 group-hover:opacity-20 group-active:opacity-30 transition-opacity duration-500 rounded-2xl"
                         style={{
-                          background: `linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))`
+                          background: `linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.2))`
                         }}
                       />
                       
+                      {/* Floating icon background */}
+                      <motion.div
+                        className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center"
+                        animate={{
+                          rotate: [0, 360],
+                          scale: [1, 1.1, 1]
+                        }}
+                        transition={{
+                          duration: 8 + index,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <div className="w-3 h-3 bg-gradient-to-br from-primary to-accent rounded-full"></div>
+                      </motion.div>
+                      
                       {/* Title with enhanced typography */}
                       <motion.h3 
-                        className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-foreground relative z-10"
+                        className="text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 text-foreground relative z-10 group-hover:text-primary transition-colors duration-300"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -94,7 +110,7 @@ const HighlightsSection = () => {
                       
                       {/* Description with improved spacing */}
                       <motion.p 
-                        className="text-muted-foreground leading-relaxed relative z-10 text-sm md:text-base"
+                        className="text-muted-foreground leading-relaxed relative z-10 text-sm md:text-base group-hover:text-foreground/80 transition-colors duration-300"
                         initial={{ opacity: 0.8 }}
                         whileHover={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
@@ -102,19 +118,40 @@ const HighlightsSection = () => {
                         {t(highlight.descKey)}
                       </motion.p>
                       
-                      {/* Simple decorative element */}
+                      {/* Enhanced decorative elements */}
                       <motion.div
-                        className="absolute top-3 right-3 w-2 h-2 bg-primary/30 rounded-full"
+                        className="absolute bottom-4 left-4 w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-full"
                         animate={{
-                          y: [0, -5, 0],
-                          opacity: [0.3, 1, 0.3]
+                          height: [32, 40, 32],
+                          opacity: [0.3, 0.8, 0.3]
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 3,
                           repeat: Infinity,
-                          delay: index * 0.5
+                          delay: index * 0.3
                         }}
                       />
+                      
+                      {/* Sparkle effect */}
+                      {[...Array(3)].map((_, sparkleIndex) => (
+                        <motion.div
+                          key={sparkleIndex}
+                          className="absolute w-1 h-1 bg-accent rounded-full opacity-0 group-hover:opacity-100"
+                          style={{
+                            top: `${20 + sparkleIndex * 20}%`,
+                            right: `${15 + sparkleIndex * 10}%`
+                          }}
+                          animate={{
+                            scale: [0, 1, 0],
+                            rotate: [0, 180, 360]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: sparkleIndex * 0.5
+                          }}
+                        />
+                      ))}
                     </CardContent>
                   </Card>
                 </motion.div>
