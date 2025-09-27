@@ -75,6 +75,30 @@ const HeroSection = () => {
         ))}
       </div>
       
+      {/* Get Quote Button - Top Right */}
+      <motion.div 
+        className="absolute top-4 right-4 md:top-8 md:right-8 z-30"
+        initial={{ opacity: 0, x: 50, y: -30 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2, ease: [0.23, 1, 0.32, 1] }}
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Button 
+          size="lg" 
+          className="
+            bg-gradient-to-r from-accent to-accent-light hover:from-accent-dark hover:to-accent 
+            text-accent-foreground px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold shadow-2xl 
+            rounded-xl md:rounded-2xl border-2 border-white/20 backdrop-blur-md
+            hover:shadow-accent/30 hover:border-white/40
+            transform-gpu pulse-glow
+          " 
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          {t('hero.cta')}
+        </Button>
+      </motion.div>
+
       {/* Content with enhanced animations */}
       <div className="relative z-20 container mx-auto px-4 text-center text-white">
         <div className="reveal-fade-up">
@@ -100,41 +124,6 @@ const HeroSection = () => {
           </motion.p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12 stagger-container">
-          <motion.div
-            className="reveal-on-scroll"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              size="lg" 
-              className="glow-button hover-lift bg-gradient-to-r from-accent to-accent-light hover:from-accent-dark hover:to-accent text-accent-foreground px-12 py-7 text-xl font-bold shadow-2xl transform-gpu touch-friendly pulse-glow rounded-2xl" 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {t('hero.cta')}
-            </Button>
-          </motion.div>
-          
-          <motion.div
-            className="reveal-on-scroll"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              size="lg" 
-              className="glow-button hover-lift bg-transparent border-2 border-white/40 hover:bg-white/10 hover:border-white/60 text-white px-12 py-7 text-xl font-bold shadow-2xl backdrop-blur-md transform-gpu touch-friendly rounded-2xl" 
-              onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {t('highlights.title')}
-            </Button>
-          </motion.div>
-        </div>
 
         {/* Premium Trust Indicators */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto stagger-container">
