@@ -99,11 +99,13 @@ const HeroSection = () => {
         </Button>
       </motion.div>
 
-      {/* Content with enhanced animations */}
-      <div className="relative z-20 container mx-auto px-4 text-center text-white">
-        <div className="reveal-fade-up">
+      {/* Main Content Container - Better Centered */}
+      <div className="relative z-20 container mx-auto px-6 md:px-8 text-center text-white flex flex-col items-center justify-center min-h-screen py-20">
+        
+        {/* Hero Title - Enhanced Typography */}
+        <div className="reveal-fade-up max-w-6xl mx-auto mb-8">
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gradient-flow"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] text-gradient-flow tracking-tight"
             initial={{ opacity: 0, y: 60, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
@@ -113,9 +115,10 @@ const HeroSection = () => {
           </motion.h1>
         </div>
         
-        <div className="reveal-scale-up">
+        {/* Hero Subtitle - Better Spacing */}
+        <div className="reveal-scale-up max-w-4xl mx-auto mb-16">
           <motion.p 
-            className="text-xl md:text-2xl lg:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 text-reveal"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed opacity-95 text-reveal font-light"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
@@ -125,56 +128,58 @@ const HeroSection = () => {
         </div>
         
 
-        {/* Premium Trust Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto stagger-container">
-          {[
-            { value: 2008, suffix: '', key: 'hero.stats.established' },
-            { value: 'UAE', suffix: '', key: 'hero.stats.coverage' },
-            { value: 'ISO', suffix: '', key: 'hero.stats.certified' },
-            { value: 1000, suffix: '+', key: 'hero.stats.projects' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="premium-card magnetic-element text-center bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-2xl touch-friendly shimmer-effect"
-              initial={{ opacity: 0, scale: 0.5, y: 60, rotateX: -90 }}
-              animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
-              transition={{ 
-                delay: 1.5 + index * 0.15, 
-                duration: 0.8, 
-                ease: [0.23, 1, 0.32, 1],
-                type: "spring",
-                damping: 15
-              }}
-              whileHover={{ 
-                scale: 1.08, 
-                y: -8,
-                rotateY: 5,
-                rotateX: 5
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="text-3xl md:text-4xl font-bold text-white mb-3 float-element">
-                {typeof stat.value === 'number' ? (
-                  <CounterAnimation to={stat.value} suffix={stat.suffix} />
-                ) : (
-                  <motion.div
-                    className="typewriter"
-                    animate={{ 
-                      rotateY: [0, 360],
-                      textShadow: ["0 0 5px rgba(255,255,255,0.5)", "0 0 15px rgba(255,255,255,0.8)", "0 0 5px rgba(255,255,255,0.5)"]
-                    }}
-                    transition={{ 
-                      rotateY: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index },
-                      textShadow: { duration: 2, repeat: Infinity }
-                    }}
-                  >
-                    {stat.value}
-                  </motion.div>
-                )}
-              </div>
-              <div className="text-sm md:text-base text-white/90 font-medium">{t(stat.key)}</div>
-            </motion.div>
-          ))}
+        {/* Premium Trust Indicators - Better Aligned */}
+        <div className="w-full max-w-7xl mx-auto mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 stagger-container">
+            {[
+              { value: 2008, suffix: '', key: 'hero.stats.established' },
+              { value: 'UAE', suffix: '', key: 'hero.stats.coverage' },
+              { value: 'ISO', suffix: '', key: 'hero.stats.certified' },
+              { value: 1000, suffix: '+', key: 'hero.stats.projects' }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                className="premium-card magnetic-element text-center bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl touch-friendly shimmer-effect"
+                initial={{ opacity: 0, scale: 0.5, y: 60, rotateX: -90 }}
+                animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  delay: 1.5 + index * 0.15, 
+                  duration: 0.8, 
+                  ease: [0.23, 1, 0.32, 1],
+                  type: "spring",
+                  damping: 15
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -6,
+                  rotateY: 3,
+                  rotateX: 3
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3 float-element">
+                  {typeof stat.value === 'number' ? (
+                    <CounterAnimation to={stat.value} suffix={stat.suffix} />
+                  ) : (
+                    <motion.div
+                      className="typewriter"
+                      animate={{ 
+                        rotateY: [0, 360],
+                        textShadow: ["0 0 5px rgba(255,255,255,0.5)", "0 0 15px rgba(255,255,255,0.8)", "0 0 5px rgba(255,255,255,0.5)"]
+                      }}
+                      transition={{ 
+                        rotateY: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index },
+                        textShadow: { duration: 2, repeat: Infinity }
+                      }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                  )}
+                </div>
+                <div className="text-xs md:text-sm lg:text-base text-white/90 font-medium leading-tight">{t(stat.key)}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
       
