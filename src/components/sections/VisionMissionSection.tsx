@@ -34,9 +34,10 @@ const VisionMissionSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 lg:py-24 relative overflow-hidden"
+      className="py-16 lg:py-24 relative overflow-hidden h-screen max-h-screen"
       style={{
-        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)'
+        background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)',
+        overflowY: 'hidden'
       }}
     >
       {/* Static Background Elements */}
@@ -65,7 +66,7 @@ const VisionMissionSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 h-full flex flex-col justify-center max-h-screen overflow-hidden">
         {/* Enhanced Section Header */}
         <motion.div 
           className="text-center mb-16 lg:mb-20"
@@ -88,7 +89,7 @@ const VisionMissionSection = () => {
         </motion.div>
 
         {/* Futuristic Vision & Mission Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto overflow-hidden">
           
           {/* Vision Card - Enhanced */}
           <motion.div
