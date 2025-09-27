@@ -150,27 +150,77 @@ const VisionMissionSection = () => {
           </motion.div>
         ))}
 
-        {/* Simplified Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]">
+        {/* Continuous Floating Text Elements - Mobile Optimized */}
+        {[...Array(6)].map((_, i) => (
           <motion.div
+            key={`text-${i}`}
             animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
+              x: i % 2 === 0 ? [0, 50, 0] : [0, -50, 0],
+              y: [0, -20, 0],
+              opacity: [0.1, 0.3, 0.1],
+              rotate: [0, 10, -10, 0],
             }}
             transition={{
-              duration: 40,
+              duration: 12 + i * 2,
               repeat: Infinity,
-              ease: "linear"
+              ease: "easeInOut",
+              delay: i * 1.2
             }}
-            className="w-full h-full"
+            className="absolute text-xs md:text-sm text-primary/20 font-light pointer-events-none select-none"
             style={{
-              backgroundImage: `
-                linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-                linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '60px 60px'
+              left: `${15 + (i % 2) * 50}%`,
+              top: `${30 + (i % 3) * 25}%`,
+            }}
+          >
+            {i % 3 === 0 ? 'VISION' : i % 3 === 1 ? 'MISSION' : 'FUTURE'}
+          </motion.div>
+        ))}
+
+        {/* Enhanced Energy Waves - Always Active */}
+        <motion.div
+          animate={{
+            backgroundPosition: ["0% 0%", "400% 400%"],
+            opacity: [0.02, 0.08, 0.02],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 70%),
+              radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.1) 0%, transparent 70%)
+            `,
+            backgroundSize: '100px 100px'
+          }}
+        />
+
+        {/* Pulsing Light Streaks - Mobile Friendly */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`streak-${i}`}
+            animate={{
+              scaleX: [0, 1, 0],
+              opacity: [0, 0.4, 0],
+              x: [0, 30, 0],
+            }}
+            transition={{
+              duration: 6 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2
+            }}
+            className="absolute h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+            style={{
+              width: '200px',
+              left: `${25 + i * 15}%`,
+              top: `${40 + i * 10}%`,
+              transform: `rotate(${i * 30}deg)`
             }}
           />
-        </div>
+        ))}
       </div>
 
       <div className="container mx-auto px-4 py-16 lg:py-20 relative z-10 max-w-7xl">
@@ -182,42 +232,73 @@ const VisionMissionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative inline-block"
           >
-            {/* 6. Staggered Text Animation */}
+            {/* 6. Enhanced Staggered Text Animation with Sliding Effects */}
             <motion.h2 
               initial="hidden"
               animate="visible"
               variants={mobileTextVariants}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent relative"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent relative overflow-hidden"
             >
-              {t('vision.title')}
+              {/* Individual Letter Animation */}
+              {t('vision.title').split('').map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 20, x: i % 2 === 0 ? -20 : 20 }}
+                  animate={{ opacity: 1, y: 0, x: 0 }}
+                  transition={{ 
+                    delay: 0.1 + i * 0.05, 
+                    duration: 0.6,
+                    type: "spring",
+                    damping: 12
+                  }}
+                  className="inline-block"
+                  style={{ marginRight: char === ' ' ? '0.5rem' : '0' }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </motion.span>
+              ))}
             </motion.h2>
             
-            {/* Holographic Shimmer Effect - Contained */}
+            {/* Enhanced Holographic Shimmer Effect - Continuous */}
             <motion.div
               animate={{
-                x: ["-150%", "150%"],
+                x: ["-200%", "200%"],
               }}
               transition={{
-                duration: 2.5,
+                duration: 3,
                 repeat: Infinity,
-                repeatDelay: 4,
+                repeatDelay: 2,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 mix-blend-overlay overflow-hidden"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 mix-blend-overlay overflow-hidden"
             />
             
-            {/* Reduced Energy Pulse */}
+            {/* Dual Energy Pulse - Always Active */}
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                opacity: [0.1, 0.4, 0.1],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-lg -z-10"
+            />
+            
             <motion.div
               animate={{
                 scale: [1, 1.05, 1],
-                opacity: [0.2, 0.4, 0.2],
+                opacity: [0.2, 0.6, 0.2],
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
+                delay: 1
               }}
-              className="absolute inset-0 bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 blur-lg -z-10"
+              className="absolute inset-0 bg-gradient-to-r from-accent/15 via-primary/15 to-accent/15 blur-2xl -z-10"
             />
           </motion.div>
         </div>
