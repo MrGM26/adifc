@@ -115,20 +115,8 @@ const Index = () => {
           <section id="partners" className="fade-in-up section-entrance">
             <PartnersSection />
           </section>
-          <section id="team" className="fade-in-up section-entrance">
-            <TeamMembersSection />
-          </section>
-          <section id="solutions" className="fade-in-up section-entrance">
-            <SolutionsSection />
-          </section>
           <section id="pricing" className="fade-in-up section-entrance">
             <QuickRFQSection />
-          </section>
-          <section id="quality" className="fade-in-up section-entrance">
-            <QualitySection />
-          </section>
-          <section id="cases" className="fade-in-up section-entrance">
-            <CaseStudiesSection />
           </section>
           <section id="contact" className="fade-in-up section-entrance">
             <ContactSection />
