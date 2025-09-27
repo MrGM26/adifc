@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Target, Compass, Zap, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatedSection, AnimatedElement } from '@/components/animations/AnimatedSection';
@@ -27,34 +27,9 @@ const StaggeredText: React.FC<{ text: string; className?: string }> = ({ text, c
   );
 };
 
-// Mouse Tracking Hook
-const useMousePosition = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const updateMousePosition = (ev: MouseEvent) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
-    };
-    window.addEventListener('mousemove', updateMousePosition);
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-    };
-  }, []);
-
-  return mousePosition;
-};
-
 const VisionMissionSection = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const mousePosition = useMousePosition();
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const orbsY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   
   return (
     <section 
@@ -64,26 +39,20 @@ const VisionMissionSection = () => {
         background: 'radial-gradient(ellipse at center top, hsl(var(--primary) / 0.05), transparent 70%), linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.3) 50%, hsl(var(--background)) 100%)'
       }}
     >
-      {/* Advanced Animated Background System */}
-      <motion.div 
-        className="floating-orbs-container"
-        style={{ y: backgroundY }}
-      >
+      {/* Static Background Elements */}
+      <div className="floating-orbs-container">
         {/* Floating Animated Orbs */}
         {[...Array(5)].map((_, i) => (
           <div key={`orb-${i}`} className="floating-orb" />
         ))}
-      </motion.div>
+      </div>
 
       {/* Floating Particles */}
-      <motion.div 
-        className="floating-particles-container"
-        style={{ y: orbsY }}
-      >
+      <div className="floating-particles-container">
         {[...Array(12)].map((_, i) => (
           <div key={`particle-${i}`} className="floating-particle" />
         ))}
-      </motion.div>
+      </div>
 
       {/* Animated Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -134,10 +103,6 @@ const VisionMissionSection = () => {
               stiffness: 100 
             }}
             viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ 
-              rotateX: mousePosition.y / window.innerHeight * 10 - 5,
-              rotateY: mousePosition.x / window.innerWidth * 10 - 5,
-            }}
           >
             <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-10 lg:p-12">
               {/* Digital Wave Scanner */}
@@ -168,7 +133,6 @@ const VisionMissionSection = () => {
                   whileHover={{ 
                     scale: 1.1, 
                     rotate: 5,
-                    boxShadow: "0 0 30px hsl(var(--primary) / 0.4)"
                   }}
                 >
                   <Target className="w-10 h-10 text-primary relative z-10" />
@@ -240,10 +204,6 @@ const VisionMissionSection = () => {
               stiffness: 100 
             }}
             viewport={{ once: true, margin: "-100px" }}
-            whileHover={{ 
-              rotateX: mousePosition.y / window.innerHeight * -10 + 5,
-              rotateY: mousePosition.x / window.innerWidth * -10 + 5,
-            }}
           >
             <div className="futuristic-glass-card card-3d-tilt holographic-shimmer h-full p-10 lg:p-12">
               {/* Digital Wave Scanner */}
@@ -274,7 +234,6 @@ const VisionMissionSection = () => {
                   whileHover={{ 
                     scale: 1.1, 
                     rotate: -5,
-                    boxShadow: "0 0 30px hsl(var(--accent) / 0.4)"
                   }}
                 >
                   <Compass className="w-10 h-10 text-accent relative z-10" />
