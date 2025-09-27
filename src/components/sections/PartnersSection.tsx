@@ -11,54 +11,30 @@ interface Partner {
   href?: string;
 }
 
-// Mock partner data - in real app this would come from API/CMS
+// Partners data - using uploaded logos
 const partners: Partner[] = [
   {
     id: '1',
-    name: 'Emirates Construction',
-    logo: '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png',
+    name: 'Promax United',
+    logo: '/partners/promax-united-logo.jpg',
     href: 'https://example.com'
   },
   {
     id: '2', 
-    name: 'Dubai Development',
-    logo: '/lovable-uploads/317391a5-5ed3-40a2-a775-b581865ea82a.png',
+    name: 'Promax Easy Pay',
+    logo: '/partners/promax-easy-pay-logo.jpg',
     href: 'https://example.com'
   },
   {
     id: '3',
-    name: 'Abu Dhabi Projects',
-    logo: '/lovable-uploads/d49d2281-ee9c-4993-8a06-33c78a1c3972.png', 
+    name: 'Promax & Compliant',
+    logo: '/partners/promax-compliant-logo.png', 
     href: 'https://example.com'
   },
   {
     id: '4',
-    name: 'UAE Infrastructure',
-    logo: '/lovable-uploads/e5036fc8-ed06-41bf-bae8-6054b8045b47.png',
-    href: 'https://example.com'
-  },
-  {
-    id: '5',
-    name: 'Gulf Construction',
-    logo: '/lovable-uploads/f2ab887b-e63d-4553-9767-8f8493b0b2a1.png',
-    href: 'https://example.com'
-  },
-  {
-    id: '6',
-    name: 'Sharjah Building Co.',
-    logo: '/lovable-uploads/011534d8-8a9a-47d9-862f-cf7e0736f8e8.png',
-    href: 'https://example.com'
-  },
-  {
-    id: '7',
-    name: 'Ras Al Khaimah Developments',
-    logo: '/lovable-uploads/317391a5-5ed3-40a2-a775-b581865ea82a.png',
-    href: 'https://example.com'
-  },
-  {
-    id: '8',
-    name: 'Fujairah Construction',
-    logo: '/lovable-uploads/d49d2281-ee9c-4993-8a06-33c78a1c3972.png',
+    name: 'Promax Investments',
+    logo: '/partners/promax-investments-logo.png',
     href: 'https://example.com'
   }
 ];
