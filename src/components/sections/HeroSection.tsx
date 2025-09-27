@@ -129,9 +129,9 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="glow-button hover-lift bg-transparent border-2 border-white/40 hover:bg-white/10 hover:border-white/60 text-white px-12 py-7 text-xl font-bold shadow-2xl backdrop-blur-md transform-gpu touch-friendly rounded-2xl" 
-              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {t('nav.products')}
+              {t('highlights.title')}
             </Button>
           </motion.div>
         </div>

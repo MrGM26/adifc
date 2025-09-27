@@ -24,7 +24,7 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'AbuDhabi International Factory Company — Quality you trust, the partner you rely on.',
+    'hero.title': 'Quality you trust, the partner you rely on.',
     'hero.subtitle': 'We manufacture and supply building materials to global standards, making us the first choice for major projects in the UAE and beyond.',
     'hero.cta': 'Get Quote',
     
@@ -75,7 +75,7 @@ const translations = {
     // Products
     'products.title': 'Our Products',
     'products.subtitle': 'Premium Building Materials',
-    'products.description': 'Engineered to international standards with cutting-edge technology and sustainable manufacturing processes',
+    'products.description': 'ADIFC is your first choice for residential, commercial, and infrastructure projects across the UAE and beyond. We provide a complete building system that includes a wide range of certified, world-class building materials—designed to meet your needs from foundation to finish.',
     'products.concrete': 'Concrete Blocks',
     'products.concrete.desc': 'High-strength concrete blocks engineered for superior durability and performance in construction projects',
     'products.interlock': 'Interlock Pavers',
@@ -91,9 +91,9 @@ const translations = {
     'products.facade': 'Unitized Facade Systems',
     'products.facade.desc': 'Advanced curtain wall systems combining glass and steel for modern architectural excellence',
     'products.explore': 'Explore Product',
-    'products.catalog.title': 'Need Our Complete Product Catalog?',
-    'products.catalog.desc': 'Download our comprehensive catalog with specifications, pricing, and technical details',
-    'products.catalog.download': 'Download Catalog',
+    'products.catalog.title': 'Need Our Complete Brochure?',
+    'products.catalog.desc': 'Download our comprehensive brochure to find out more about ADIFC',
+    'products.catalog.download': 'Download Brochure',
     
     // Solutions
     'solutions.title': 'Solutions by Sector',
@@ -240,7 +240,7 @@ const translations = {
     'nav.contact': 'تواصل معنا',
     
     // Hero
-    'hero.title': 'شركة مصنع أبوظبي الدولي — الجودة التي تثق بها، والشريك الذي تعتمد عليه.',
+    'hero.title': 'الجودة التي تثق بها، والشريك الذي تعتمد عليه.',
     'hero.subtitle': 'نصنع ونورد مواد البناء بمعايير عالمية لنكون الخيار الأول للمشاريع الكبرى في الإمارات وخارجها.',
     'hero.cta': 'احصل على عرض سعر',
     
@@ -291,7 +291,7 @@ const translations = {
     // Products
     'products.title': 'منتجاتنا',
     'products.subtitle': 'مواد البناء الممتازة',
-    'products.description': 'مُصنّعة وفقاً للمعايير الدولية بتقنية متطورة وعمليات تصنيع مستدامة',
+    'products.description': 'ADIFC هو خيارك الأول للمشاريع السكنية والتجارية والبنية التحتية عبر الإمارات وخارجها. نوفر نظام بناء كامل يشمل مجموعة واسعة من مواد البناء المعتمدة وعالية الجودة - مصممة لتلبية احتياجاتك من الأساس إلى التشطيب.',
     'products.concrete': 'الطابوق الخرساني',
     'products.concrete.desc': 'طابوق خرساني عالي القوة مُصمم للمتانة الفائقة والأداء المتميز في مشاريع البناء',
     'products.interlock': 'الإنترلوك',
@@ -307,9 +307,9 @@ const translations = {
     'products.facade': 'أنظمة الواجهات الحديثة',
     'products.facade.desc': 'أنظمة الستائر الزجاجية المتطورة التي تجمع بين الزجاج والصلب للتميز المعماري الحديث',
     'products.explore': 'استكشف المنتج',
-    'products.catalog.title': 'تحتاج كتالوج منتجاتنا الكامل؟',
-    'products.catalog.desc': 'حمل كتالوجنا الشامل مع المواصفات والأسعار والتفاصيل التقنية',
-    'products.catalog.download': 'تحميل الكتالوج',
+    'products.catalog.title': 'تحتاج كتيبنا الكامل؟',
+    'products.catalog.desc': 'حمل كتيبنا الشامل لمعرفة المزيد عن ADIFC',
+    'products.catalog.download': 'تحميل الكتيب',
     
     // Solutions
     'solutions.title': 'الحلول حسب القطاع',
