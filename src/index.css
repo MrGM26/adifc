@@ -502,6 +502,184 @@ All colors MUST be HSL.
   }
 }
 
+/* Futuristic Footer Styles */
+.futuristic-footer {
+  background: linear-gradient(135deg, 
+    hsl(0 0% 5%) 0%, 
+    hsl(0 0% 8%) 25%, 
+    hsl(0 0% 3%) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.futuristic-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    hsl(0 84% 60% / 0.5) 25%, 
+    hsl(120 100% 35% / 0.3) 50%, 
+    hsl(0 84% 60% / 0.5) 75%, 
+    transparent 100%);
+  animation: futuristicGlow 3s ease-in-out infinite;
+}
+
+.futuristic-footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, 
+    hsl(0 84% 60% / 0.05) 0%, 
+    transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes futuristicGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.futuristic-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
+}
+
+.neon-border {
+  border: 1px solid hsl(0 84% 60% / 0.3);
+  box-shadow: 
+    0 0 10px hsl(0 84% 60% / 0.2),
+    inset 0 0 10px hsl(0 84% 60% / 0.1);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  border-color: hsl(0 84% 60% / 0.6);
+  box-shadow: 
+    0 0 20px hsl(0 84% 60% / 0.4),
+    inset 0 0 20px hsl(0 84% 60% / 0.2);
+}
+
+.tech-button {
+  background: linear-gradient(45deg, 
+    hsl(0 0% 10%) 0%, 
+    hsl(0 0% 15%) 100%);
+  border: 1px solid hsl(0 84% 60% / 0.4);
+  color: hsl(0 84% 60%);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tech-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    hsl(0 84% 60% / 0.2), 
+    transparent);
+  transition: left 0.5s ease;
+}
+
+.tech-button:hover::before {
+  left: 100%;
+}
+
+.tech-button:hover {
+  background: linear-gradient(45deg, 
+    hsl(0 84% 60% / 0.1) 0%, 
+    hsl(0 0% 15%) 100%);
+  box-shadow: 
+    0 0 15px hsl(0 84% 60% / 0.3),
+    inset 0 0 15px hsl(0 84% 60% / 0.1);
+  transform: translateY(-2px);
+}
+
+.holographic-text {
+  background: linear-gradient(45deg, 
+    hsl(0 0% 90%) 0%, 
+    hsl(0 84% 60%) 25%, 
+    hsl(120 100% 35%) 50%, 
+    hsl(0 84% 60%) 75%, 
+    hsl(0 0% 90%) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographicShine 4s ease-in-out infinite;
+}
+
+@keyframes holographicShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.cyber-glow {
+  text-shadow: 0 0 10px hsl(0 84% 60% / 0.5);
+  transition: all 0.3s ease;
+}
+
+.cyber-glow:hover {
+  text-shadow: 
+    0 0 5px hsl(0 84% 60%),
+    0 0 10px hsl(0 84% 60% / 0.8),
+    0 0 15px hsl(0 84% 60% / 0.6);
+}
+
+/* Futuristic social icons */
+.social-icon {
+  background: linear-gradient(45deg, 
+    hsl(0 0% 8%) 0%, 
+    hsl(0 0% 12%) 100%);
+  border: 1px solid hsl(0 84% 60% / 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, 
+    hsl(0 84% 60% / 0.3) 0%, 
+    transparent 70%);
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.social-icon:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.social-icon:hover {
+  border-color: hsl(0 84% 60% / 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px hsl(0 84% 60% / 0.4);
+}
+
 .icon-rotate {
   animation: iconRotate 2s linear infinite;
 }
