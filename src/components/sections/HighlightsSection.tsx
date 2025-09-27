@@ -28,12 +28,12 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-6 md:py-8 bg-transparent section-entrance" id="highlights">
+    <section className="py-3 md:py-4 bg-transparent section-entrance" id="highlights">
       {/* Animated Divider */}
       <div className="section-divider"></div>
       
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-12 reveal-fade-up">
+        <div className="text-center mb-4 md:mb-6 reveal-fade-up">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-gradient-flow mb-4"
             initial={{ opacity: 0, y: 30 }}
@@ -124,7 +124,7 @@ const HighlightsSection = () => {
         </div>
         
         {/* Bottom Divider */}
-        <div className="section-divider mt-8 md:mt-12"></div>
+        <div className="section-divider mt-4 md:mt-6"></div>
       </div>
     </section>
   );

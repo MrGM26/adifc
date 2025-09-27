@@ -76,7 +76,7 @@ const PartnersSection = () => {
   const infinitePartners = [...partners, ...partners, ...partners];
 
   return (
-    <section ref={ref} className="py-8 lg:py-12 bg-transparent overflow-hidden relative">
+    <section ref={ref} className="py-3 md:py-4 bg-transparent overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-1/4 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse" />

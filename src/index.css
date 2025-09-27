@@ -732,7 +732,7 @@ html {
   height: 2px;
   background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
   overflow: hidden;
-  margin: 4rem 0;
+  margin: 1.5rem 0;
 }
 
 .section-divider::before {

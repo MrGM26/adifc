@@ -91,7 +91,7 @@ const HeroSection = () => {
         
         <div className="reveal-scale-up">
           <motion.p 
-            className="text-xl md:text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90 text-reveal"
+            className="text-xl md:text-2xl lg:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 text-reveal"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.23, 1, 0.32, 1] }}
@@ -100,7 +100,7 @@ const HeroSection = () => {
           </motion.p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20 stagger-container">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12 stagger-container">
           <motion.div
             className="reveal-on-scroll"
             initial={{ opacity: 0, x: -50 }}

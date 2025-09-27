@@ -48,7 +48,7 @@ const ProductsSection = () => {
   ];
 
   return (
-    <AnimatedSection className="py-12 bg-transparent relative overflow-hidden">
+    <AnimatedSection className="py-4 md:py-6 bg-transparent relative overflow-hidden">
       {/* Modern Background Elements */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,hsl(var(--primary)/0.15)_0%,transparent_50%)]"></div>
@@ -56,7 +56,7 @@ const ProductsSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <AnimatedElement variant="fadeInUp" className="text-center mb-20">
+        <AnimatedElement variant="fadeInUp" className="text-center mb-8 md:mb-12">
           <div className="inline-block mb-8">
             <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold uppercase tracking-wide">
               {t('products.title')}
@@ -136,7 +136,7 @@ const ProductsSection = () => {
         </div>
         
         {/* Enhanced CTA */}
-        <AnimatedElement variant="fadeInUp" delay={0.6} className="text-center mt-20">
+        <AnimatedElement variant="fadeInUp" delay={0.6} className="text-center mt-8 md:mt-12">
           <div className="bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-3xl p-12 border border-primary/10">
             <h3 className="text-3xl font-bold mb-6 gradient-text">
               {t('products.catalog.title')}
