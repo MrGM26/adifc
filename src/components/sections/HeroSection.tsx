@@ -128,9 +128,9 @@ const HeroSection = () => {
         </div>
         
 
-        {/* Premium Trust Indicators - Better Aligned */}
-        <div className="w-full max-w-7xl mx-auto mt-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 stagger-container">
+        {/* Premium Trust Indicators - Smaller & More Beautiful */}
+        <div className="w-full max-w-4xl mx-auto mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 stagger-container">
             {[
               { value: 2008, suffix: '', key: 'hero.stats.established' },
               { value: 'UAE', suffix: '', key: 'hero.stats.coverage' },
@@ -139,44 +139,39 @@ const HeroSection = () => {
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="premium-card magnetic-element text-center bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl touch-friendly shimmer-effect"
-                initial={{ opacity: 0, scale: 0.5, y: 60, rotateX: -90 }}
-                animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+                className="premium-card magnetic-element text-center bg-white/8 backdrop-blur-md border border-white/15 p-3 md:p-4 rounded-lg md:rounded-xl touch-friendly shimmer-effect group"
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ 
-                  delay: 1.5 + index * 0.15, 
-                  duration: 0.8, 
-                  ease: [0.23, 1, 0.32, 1],
-                  type: "spring",
-                  damping: 15
+                  delay: 1.5 + index * 0.1, 
+                  duration: 0.6, 
+                  ease: [0.23, 1, 0.32, 1]
                 }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  y: -6,
-                  rotateY: 3,
-                  rotateX: 3
+                  scale: 1.03, 
+                  y: -3,
+                  backgroundColor: "rgba(255, 255, 255, 0.12)"
                 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3 float-element">
+                <div className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 group-hover:text-accent-light transition-colors duration-300">
                   {typeof stat.value === 'number' ? (
                     <CounterAnimation to={stat.value} suffix={stat.suffix} />
                   ) : (
                     <motion.div
-                      className="typewriter"
-                      animate={{ 
-                        rotateY: [0, 360],
-                        textShadow: ["0 0 5px rgba(255,255,255,0.5)", "0 0 15px rgba(255,255,255,0.8)", "0 0 5px rgba(255,255,255,0.5)"]
-                      }}
-                      transition={{ 
-                        rotateY: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: index },
-                        textShadow: { duration: 2, repeat: Infinity }
+                      className="inline-block"
+                      whileHover={{ 
+                        scale: 1.1,
+                        textShadow: "0 0 10px rgba(255,255,255,0.6)"
                       }}
                     >
                       {stat.value}
                     </motion.div>
                   )}
                 </div>
-                <div className="text-xs md:text-sm lg:text-base text-white/90 font-medium leading-tight">{t(stat.key)}</div>
+                <div className="text-xs md:text-sm text-white/80 font-medium leading-tight group-hover:text-white/90 transition-colors duration-300">
+                  {t(stat.key)}
+                </div>
               </motion.div>
             ))}
           </div>
