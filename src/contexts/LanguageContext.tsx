@@ -179,7 +179,7 @@ const translations = {
     
     // Footer
     'footer.company.name': 'AbuDhabi International Factory Company',
-    'footer.company.desc': 'AbuDhabi International Factory Company - Quality building materials manufacturer serving the UAE and beyond since 2008.',
+    'footer.company.desc': '',
     'footer.quicklinks.title': 'Quick Links',
     'footer.quicklinks.about': 'About Us',
     'footer.quicklinks.products': 'Products',
@@ -395,7 +395,7 @@ const translations = {
     
     // Footer
     'footer.company.name': 'شركة مصنع أبوظبي الدولي',
-    'footer.company.desc': 'شركة مصنع أبوظبي الدولي - مصنع مواد البناء عالية الجودة يخدم دولة الإمارات وخارجها منذ عام 2008.',
+    'footer.company.desc': '',
     'footer.quicklinks.title': 'روابط سريعة',
     'footer.quicklinks.about': 'عن ADIFC',
     'footer.quicklinks.products': 'المنتجات',
