@@ -13,7 +13,7 @@ import QualitySection from '@/components/sections/QualitySection';
 import CaseStudiesSection from '@/components/sections/CaseStudiesSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/Footer';
-import ScrollToTop from '@/components/ui/scroll-to-top';
+import GetQuoteButton from '@/components/ui/get-quote-button';
 import { initializeAnimations } from '@/utils/animationObserver';
 
 const Index = () => {
@@ -123,7 +123,7 @@ const Index = () => {
           </section>
         </main>
         <Footer />
-        <ScrollToTop />
+        <GetQuoteButton />
       </div>
     </LanguageProvider>
   );
